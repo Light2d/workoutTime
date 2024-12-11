@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="scss/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <title>Workout Time</title>
 </head>
 <body>
@@ -15,12 +17,20 @@
                 </div>
             </div>
             <div class="header__item">
-                <div class="header__list">
-                    <div class="header__link">Главная</div>
-                    <div class="header__link">Команда</div>
-                    <div class="header__link">Мероприятия</div>
-                    <div class="header__link">Тренировки</div>
+                <div class="header__burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
+                <nav class="header__menu">
+                    <div class="header__menu-close">&times;</div>
+                    <div class="header__list">
+                        <div class="header__link">Главная</div>
+                        <div class="header__link">Команда</div>
+                        <div class="header__link">Мероприятия</div>
+                        <div class="header__link">Тренировки</div>
+                    </div>
+                </nav>
             </div>
         </div>
     </header>
@@ -41,10 +51,100 @@
             </div>
         </div>
         <div class="team">
-            <div class="team__container">
-                
+            <div class="team__container container">
+            <div class="team__title">Состав команды</div>
+              <div class="swiper team-slider">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide team__item">
+                    <img src="imgs/team/1.png" alt="team__img" class="team__img">
+                    <div class="team__info">
+                        <div class="team__experience">Стаж 5 лет</div>
+                        <div class="team__name">Артём Радионов</div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide team__item">
+                    <img src="imgs/team/2.png" alt="team__img" class="team__img">
+                    <div class="team__info">
+                        <div class="team__experience">Стаж 5 лет</div>
+                        <div class="team__name">Павел Жирков</div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide team__item">
+                    <img src="imgs/team/3.png" alt="team__img" class="team__img">
+                    <div class="team__info">
+                        <div class="team__experience">Стаж 5 лет</div>
+                        <div class="team__name">Никита Ширин</div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide team__item">
+                    <img src="imgs/team/1.png" alt="team__img" class="team__img">
+                    <div class="team__info">
+                        <div class="team__experience">Стаж 5 лет</div>
+                        <div class="team__name">Михаил Салтыков</div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide team__item">
+                    <img src="imgs/team/2.png" alt="team__img" class="team__img">
+                    <div class="team__info">
+                        <div class="team__experience">Стаж 5 лет</div>
+                        <div class="team__name">Михаил Банчуков</div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide team__item">
+                    <img src="imgs/team/3.png" alt="team__img" class="team__img">
+                    <div class="team__info">
+                        <div class="team__experience">Стаж 5 лет</div>
+                        <div class="team__name">Вячеслав Плохих</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>          
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiper = new Swiper('.team-slider', {
+            slidesPerView: 3, 
+            spaceBetween: 20, 
+            centeredSlides: true, // Центрируем текущий слайд
+              loop: true, 
+              breakpoints: {
+                992: {
+                    slidesPerView: 3, // Для планшетов
+                  },
+                768: {
+                  slidesPerView: 2, // Для планшетов
+                },
+                480: {
+                  slidesPerView: 1, // Для мобильных
+                },
+              },
+            });
+          });
+          document.addEventListener("DOMContentLoaded", () => {
+            const burger = document.querySelector(".header__burger");
+            const menu = document.querySelector(".header__menu");
+            const menuClose = document.querySelector(".header__menu-close");
+        
+            burger.addEventListener("click", () => {
+                menu.classList.add("active");
+                document.body.style.overflowY = "hidden"
+            });
+        
+            menuClose.addEventListener("click", () => {
+                menu.classList.remove("active");
+                 document.body.style.overflowY = "auto"
+            });
+        
+            // Закрытие меню при клике вне его
+            document.addEventListener("click", (e) => {
+                if (!menu.contains(e.target) && !burger.contains(e.target)) {
+                    menu.classList.remove("active");
+                }
+            });
+        });
+        
+    </script>
 </body>
 </html>
