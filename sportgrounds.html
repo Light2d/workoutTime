@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/styles.css">
+    <link rel="stylesheet" href="scss/events.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <title>Workout Time</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__items container">
+            <div class="header__item">
+                <div class="header__logo">
+                    <img src="imgs/header/logo.png" alt="">
+                </div>
+            </div>
+            <div class="header__item">
+                <div class="header__burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="header__menu">
+                    <div class="header__menu-close">&times;</div>
+                    <div class="header__list">
+                        <div class="header__link">Главная</div>
+                        <div class="header__link">Команда</div>
+                        <div class="header__link">Мероприятия</div>
+                        <div class="header__link">Тренировки</div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="chapter">
+            <div class="chapter__container container">
+                <div class="chapter__logo">
+                    <img src="/imgs/intro/textLogo.png" alt="">
+                </div>
+                <div class="chapter__title">Площадки</div>
+            </div>
+        </div>
+       <div class="map">
+        <div class="map__container container">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4b7a77bd06064c235ace4cc5726f05e3bb1463e8df9e77cbe29d8756f2cc6fe1&amp;width=1200&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>            
+        </div>
+       </div>
+       <div class="sporground">
+        <div class="sportground__items">
+            <div class="sportground__item">
+
+            </div>
+            <div class="sportground__item">
+                <div class="sportground__title">Плоащдка в Парке Боева дача</div>
+                <div class="sportground__adress">г. Курск, парк Боева дача</div>
+            </div>
+        </div>
+       </div>
+    </main>
+
+    <div class="footer">
+        <div class="footer_container container">
+          <div class="footer__items">
+            <div class="footer__item">
+              <div class="footer__lists">
+                <div class="footer__list">
+                  <div class="footer__link">Информация</div>
+                  <div class="footer__link">Главная</div>
+                  <div class="footer__link">Команда</div>
+                  <div class="footer__link">Мероприятия</div>
+                  <div class="footer__link">Тренировки</div>
+                </div>
+                <div class="footer__list">
+                  <div class="footer__link">Социальные сети</div>
+                  <div class="footer__icons">
+                    <div class="footer__link "><img src="imgs/footer/vk.svg" alt=""></div>
+                  <div class="footer__link"><img src="imgs/footer/tg.svg" alt=""></div>
+                  <div class="footer__link"><img src="imgs/footer/yt.svg" alt=""></div>
+                  </div>
+                </div>
+                <div class="footer__list">
+                  <div class="footer__link">Связь с нами</div>
+                  <div class="footer__link">E-mail: workouttime@gmail.com</div>
+                </div>
+              </div>
+            </div>
+            <div class="footer__item">
+              <div class="footer__logo">
+                <img src="imgs/footer/logo.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const swiper = new Swiper('.team-slider', {
+        slidesPerView: 3, 
+        spaceBetween: 20, 
+        centeredSlides: true, // Центрируем текущий слайд
+          loop: true, 
+          breakpoints: {
+            992: {
+                slidesPerView: 4, // Для планшетов
+              },
+            768: {
+              slidesPerView: 3, // Для планшетов
+            },
+            480: {
+              slidesPerView: 1, // Для мобильных
+            },
+          },
+        });
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.querySelector(".header__burger");
+        const menu = document.querySelector(".header__menu");
+        const menuClose = document.querySelector(".header__menu-close");
+    
+        burger.addEventListener("click", () => {
+            menu.classList.add("active");
+            document.body.style.overflowY = "hidden"
+        });
+    
+        menuClose.addEventListener("click", () => {
+            menu.classList.remove("active");
+             document.body.style.overflowY = "auto"
+        });
+    
+        // Закрытие меню при клике вне его
+        document.addEventListener("click", (e) => {
+            if (!menu.contains(e.target) && !burger.contains(e.target)) {
+                menu.classList.remove("active");
+            }
+        });
+    });
+    
+</script>
+
+
+</body>
+</html>

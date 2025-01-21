@@ -1,0 +1,119 @@
+.chapter {
+    background: #000;
+    // .chapter__container
+    &__container {
+        padding-bottom: 20%;
+        border: none;
+    }
+    // .chapter__logo
+    &__logo {
+        text-align: center;
+        margin-bottom: 10px;
+        & img{
+            max-width: 600px;
+        }
+    }
+    // .chapter__title
+    &__title {
+        text-align: center;
+        color: #ffffff9c;
+        font-size: 48px;
+        font-weight: 100;
+    }
+}
+
+//==========tabs
+.eventsTabs {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    font-family: Arial, sans-serif;
+    @media (max-width: 425px) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    &__nav {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+    }
+  
+    &__btn {
+      flex: 1;
+      padding: 10px 15px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+        @media (max-width: 425px) {
+            font-size: 16px;
+        }
+        @media (max-width: 360px) {
+            font-size: 14px;
+        }
+      &.active {
+        color: #000;
+        border-bottom: 2px solid #000000;
+        background: #fff;
+
+      }
+  
+      &:hover {
+       
+      }
+    }
+  
+    &__content {
+      padding: 15px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-top: none;
+      font-size: 16px;
+      @media (max-width: 425px) {
+        font-size: 14px;
+    }
+    @media (max-width: 360px) {
+        font-size: 12px;
+    }
+    }
+  
+    &__panel {
+      display: none;
+  
+      &.active {
+        display: block;
+      }
+    }
+  
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      cursor: pointer;
+      border-bottom: 1px solid #8f8f8f;
+      &:not(:last-child){
+        margin-bottom: 10px;
+      }
+    }
+  
+    &__name {
+      font-weight: bold;
+    }
+  
+    &__date {
+      color: #555;
+    }
+  }
+  
