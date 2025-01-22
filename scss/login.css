@@ -1,0 +1,76 @@
+button {
+  width: 100%;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+
+.btn-black {
+  background: #000;
+}
+
+.btn-white {
+  background: transparent;
+  border: 1px solid #9b9b9b;
+  color: #000;
+}
+
+.login {
+  padding: 40px;
+  justify-content: center;
+}
+.login__form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.login__input {
+  background: #D9D9D9;
+  border: 1px solid #9e9e9e;
+  padding: 15px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+.login__field:not(:last-child) {
+  margin-bottom: 20px;
+}
+.login__img {
+  text-align: center;
+}
+.login__img img {
+  width: 200px;
+}
+.login__label {
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 200;
+  margin-left: 5px;
+}
+.login__links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.login__links .login__field {
+  display: flex;
+}
+.login__remember {
+  margin-left: 5px;
+  font-weight: 300;
+  font-size: 12px;
+}
+.login__forget {
+  color: #000;
+  font-size: 12px;
+}
+.login__btns {
+  margin-bottom: 20px;
+}
+.login__account {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.login__account div {
+  margin-right: 5px;
+}/*# sourceMappingURL=login.css.map */
