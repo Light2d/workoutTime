@@ -447,10 +447,28 @@ button {
   width: 200px;
 }
 .login__label {
+  display: inline-block;
   margin-bottom: 5px;
   font-size: 12px;
   font-weight: 200;
   margin-left: 5px;
+}
+.login__title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.login__text {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.login__back {
+  text-align: center;
+}
+.login__back a {
+  border-bottom: 1px solid #000;
 }
 .login__links {
   display: flex;
@@ -529,7 +547,7 @@ button {
   margin-bottom: 20px;
 }
 .registration__label {
-  display: inline;
+  display: inline-block;
   background: #D9D9D9;
   padding: 5px;
   font-size: 12px;
@@ -539,6 +557,8 @@ button {
 }
 .registration__input {
   background: none;
+  padding: 0 10px;
+  width: 100%;
 }
 .registration__fields {
   display: flex;
@@ -635,6 +655,9 @@ footer {
   .header__link:not(:last-child) {
     margin-right: 0;
   }
+}
+.header__link a {
+  color: #ffffff;
 }
 @media (max-width: 768px) {
   .header__link {
@@ -1023,4 +1046,24 @@ footer {
 }
 .footer__icons img {
   margin-right: 10px;
+}
+
+.form-error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+  line-height: 120%;
+}
+
+.messages .message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
 }

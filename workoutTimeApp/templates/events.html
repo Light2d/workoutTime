@@ -10,31 +10,7 @@
     <title>Workout Time</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header__items container">
-            <div class="header__item">
-                <div class="header__logo">
-                    <img src="imgs/header/logo.png" alt="">
-                </div>
-            </div>
-            <div class="header__item">
-                <div class="header__burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <nav class="header__menu">
-                    <div class="header__menu-close">&times;</div>
-                    <div class="header__list">
-                        <div class="header__link">Главная</div>
-                        <div class="header__link">Команда</div>
-                        <div class="header__link">Мероприятия</div>
-                        <div class="header__link">Тренировки</div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+  {% include "header.html" %}
 
     <main>
         <div class="chapter">
@@ -97,40 +73,7 @@
         
     </main>
 
-    <div class="footer">
-        <div class="footer_container container">
-          <div class="footer__items">
-            <div class="footer__item">
-              <div class="footer__lists">
-                <div class="footer__list">
-                  <div class="footer__link">Информация</div>
-                  <div class="footer__link">Главная</div>
-                  <div class="footer__link">Команда</div>
-                  <div class="footer__link">Мероприятия</div>
-                  <div class="footer__link">Тренировки</div>
-                </div>
-                <div class="footer__list">
-                  <div class="footer__link">Социальные сети</div>
-                  <div class="footer__icons">
-                    <div class="footer__link "><img src="imgs/footer/vk.svg" alt=""></div>
-                  <div class="footer__link"><img src="imgs/footer/tg.svg" alt=""></div>
-                  <div class="footer__link"><img src="imgs/footer/yt.svg" alt=""></div>
-                  </div>
-                </div>
-                <div class="footer__list">
-                  <div class="footer__link">Связь с нами</div>
-                  <div class="footer__link">E-mail: workouttime@gmail.com</div>
-                </div>
-              </div>
-            </div>
-            <div class="footer__item">
-              <div class="footer__logo">
-                <img src="imgs/footer/logo.png" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>  
+    {% include "footer.html" %}
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {

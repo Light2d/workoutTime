@@ -1,0 +1,150 @@
+{% load static %}
+
+{% include "header.html" %}
+
+<body>
+  
+    <div class="main">
+        <div class="intro">
+            <div class="container main__container">
+                <div class="intro__logo">
+                    <img src="{% static 'imgs/intro/watch.png' %}" alt="">
+                    <div class="intro__title">
+                        <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+                    </div>
+                    <div class="intro__text">
+                        WORKOUT TIME - Курская команда. Мы занимаемся популяризацией воркаута в области, 
+                        проводим различные соревнования, чемпионаты, маcтер классы, 
+                        показательные выступления и другие подобные мероприятия
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="team">
+            <div class="team__container container">
+            <div class="team__title">Состав команды</div>
+              <div class="swiper team-slider">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide team__item">
+                    <img src="{% static 'imgs/team/1.png' %}" alt="team__img" class="team__img">
+                    <div class="team__info">
+                        <div class="team__experience">Стаж 5 лет</div>
+                        <div class="team__name">Артём Радионов</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>  
+          <div class="events">
+            <div class="events__container container">
+              <div class="events__items">
+                <div class="events__item lastEvent">
+                  <div class="lastEvent__img">
+                    <img src="{% static 'imgs/events/1.png' %}" alt="">
+                    <div class="lastEvent__info">
+                      <div class="lastEvent__title">Последнее мероприятие</div>
+                      <div class="lastEvent__description">Фестиваль уличных культур / соревнования</div>
+                      <div class="lastEvent__date">20 июля 2024</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="events__item articles">
+                  <div class="articles__items">
+                    <div class="articles__item">
+                      <div class="articles__image">
+                        <img src="{% static 'imgs/events/2.png' %}" alt="">
+                      </div>
+                      <div class="articles__info">
+                        <div class="articles__title">Как тренироваться в зимнее время</div>
+                        <div class="articles__description">Краткое описание</div>
+                      </div>
+                    </div>
+                    <div class="articles__item">
+                      <div class="articles__image">
+                        <img src="{% static 'imgs/events/2.png' %}" alt="">
+                      </div>
+                      <div class="articles__info">
+                        <div class="articles__title">Как тренироваться в зимнее время</div>
+                        <div class="articles__description">Краткое описание</div>
+                      </div>
+                    </div>
+                    <div class="articles__item">
+                      <div class="articles__image">
+                        <img src="{% static 'imgs/events/2.png' %}" alt="">
+                      </div>
+                      <div class="articles__info">
+                        <div class="articles__title">Как тренироваться в зимнее время</div>
+                        <div class="articles__description">Краткое описание</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>      
+          <div class="signupWindow">
+            <div class="signupWindow__container container">
+              <div class="signupWindow__items">
+                <div class="signupWindow__item">
+                  <img class="signupWindow__img" src="{% static 'imgs/signup/1.png' %}" alt="">
+                </div>
+                <div class="signupWindow__item">
+                  <div class="signupWindow__suptitle">Важно</div>
+                  <div class="signupWindow__title">Запись на мероприятия</div>
+                  <div class="signupWindow__description">Соревнования, мастер-классы, уроки</div>
+                  <button class="signupWindow__btn">Подробнее</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% include "footer.html" %}
+ 
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiper = new Swiper('.team-slider', {
+            slidesPerView: 3, 
+            spaceBetween: 20, 
+            centeredSlides: true, // Центрируем текущий слайд
+              loop: true, 
+              breakpoints: {
+                992: {
+                    slidesPerView: 4, // Для планшетов
+                  },
+                768: {
+                  slidesPerView: 3, // Для планшетов
+                },
+                480: {
+                  slidesPerView: 1, // Для мобильных
+                },
+              },
+            });
+          });
+          document.addEventListener("DOMContentLoaded", () => {
+            const burger = document.querySelector(".header__burger");
+            const menu = document.querySelector(".header__menu");
+            const menuClose = document.querySelector(".header__menu-close");
+        
+            burger.addEventListener("click", () => {
+                menu.classList.add("active");
+                document.body.style.overflowY = "hidden"
+            });
+        
+            menuClose.addEventListener("click", () => {
+                menu.classList.remove("active");
+                 document.body.style.overflowY = "auto"
+            });
+        
+            // Закрытие меню при клике вне его
+            document.addEventListener("click", (e) => {
+                if (!menu.contains(e.target) && !burger.contains(e.target)) {
+                    menu.classList.remove("active");
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>

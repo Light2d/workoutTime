@@ -1,0 +1,42 @@
+{% load static %}
+
+{% include "header.html" %}
+
+{% block content %}
+    <main>
+       <div class="registration">
+            <div class="registration__img">
+                <img src="{% static 'imgs/login/1.png' %}" alt="">
+            </div>
+            <form method="POST" class="registration__form">
+                {% csrf_token %}
+                <div class="registration__btn">
+                    <button class="button btn-white">Войти с помощью вконтакте</button>                
+                </div>
+                <div class="registration__or">
+                  
+                </div>
+                <div class="registration__title">Зарегистрироваться</div>
+                {% for field in form %}
+                    {% if field.errors %}
+                    <div class="form-error">
+                        {{ field.errors|striptags }}
+                    </div>
+                {% endif %}
+                <div class="registration__field">
+                    <label for="{{ field.id_for_label }}" class="registration__label">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+                <button type="submit" class="registration__button btn-black">Зарегистрироваться</button>
+            </form>
+            <div class="login__account">
+                <div>Уже есть аккаунт?</div>
+                <a href="{% url 'login' %}">Войти</a>
+            </div>
+       </div>
+    </main>
+
+</div>
+{% endblock %}
+
