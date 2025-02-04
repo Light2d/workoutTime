@@ -1,6 +1,8 @@
 from django.db import models
 import uuid
 from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.postgres.fields import ArrayField  # Для списка изображений (PostgreSQL)
+from django.db.models import JSONField
 
 
 class CustomUser(AbstractUser):
@@ -38,3 +40,62 @@ class CustomUser(AbstractUser):
     
     def __str__(self):
         return self.username
+    
+    
+class TeamMember(models.Model):
+    photo = models.ImageField(upload_to='team_photos/', verbose_name="Фото", blank=True, null=True)  # Фото участника
+    name = models.CharField(max_length=255, verbose_name="Имя")  # Имя участника
+    experience = models.PositiveIntegerField(verbose_name="Стаж (лет)")  # Стаж в годах
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Участник команды"
+        verbose_name_plural = "Участники команды"
+        
+        
+class LastEvent(models.Model):
+    photo = models.ImageField(upload_to='lastEvent_photos/', verbose_name="Фото", blank=True, null=True)  # Фото участника
+    title = models.CharField(max_length=255, verbose_name="Название мероприяти") 
+    date = models.DateField()  
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Последнее мероприятие"
+
+class Article(models.Model):
+    image = models.ImageField(upload_to='articles_images/', verbose_name="Изображение поста")
+    title = models.CharField(max_length=255, verbose_name="Название поста")
+    description = models.TextField(verbose_name="Описание поста")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Пост"
+        verbose_name_plural = "Посты"
+        
+
+class SportGround(models.Model):
+    name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+            verbose_name = "Спортивная площадка"
+            verbose_name_plural = "Спортивные площадки"
+
+class SportGroundImage(models.Model):
+    sportground = models.ForeignKey(SportGround, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to="sportground_images/")
+
+    def __str__(self):
+        return f"Image for {self.sportground.name}"
+    

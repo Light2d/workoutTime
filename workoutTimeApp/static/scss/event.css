@@ -2,10 +2,6 @@
   text-align: left;
 }
 
-.event__container {
-  border-bottom: none;
-}
-
 .eventTabs {
   width: 100%;
   margin: 20px auto;

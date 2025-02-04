@@ -1,0 +1,50 @@
+{% load static %}
+
+{% include "base.html" %}
+{% include "header.html" %}
+
+<body>
+  
+    <div class="main">
+        <div class="chapter">
+            <div class="profile__intro">
+                <div class="chapter__logo">
+                    <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile">
+            <div class="profile__container container">
+                <div class="profile__items">
+                    <div class="profile__item">
+                        <div class="profile__avatar">
+                            <img src="{% static 'imgs/team/2.png' %}" alt="">
+                        </div>
+                        <div class="profile__button">
+                            <button class="btn-black">Редактировать</button>
+                        </div>
+                    </div>
+                    <div class="profile__item">
+                        <div class="profile__info">
+                            <div class="profile__name">{{ user.full_name }}</div>
+                            <div class="profile__field">
+                                <span class="profile__label">Почта:</span>
+                                <div class="profile__email">{{ user.email }}</div>
+                            </div>
+                            <div class="profile__field">
+                                <span class="profile__label">Дата рождения:</span>
+                                <div class="profile__date">{{ user.birth_date|date:"d.m.Y" }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+          {% include "footer.html" %}
+ 
+    </div>
+   
+</body>
+</html>

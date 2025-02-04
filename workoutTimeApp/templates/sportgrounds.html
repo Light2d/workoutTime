@@ -1,66 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scss/styles.css">
-    <link rel="stylesheet" href="scss/events.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <title>Workout Time</title>
-</head>
-<body>
-  {% include "header.html" %}
+
+
+{% load static %}
+{% include "base.html" %}
+{% include "header.html" %}
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <main>
         <div class="chapter">
             <div class="chapter__container container">
                 <div class="chapter__logo">
-                    <img src="/imgs/intro/textLogo.png" alt="">
+                    <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
                 </div>
                 <div class="chapter__title">Площадки</div>
             </div>
         </div>
-       <div class="map">
+       <div class="sportgroundMap">
         <div class="map__container container">
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4b7a77bd06064c235ace4cc5726f05e3bb1463e8df9e77cbe29d8756f2cc6fe1&amp;width=1200&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>            
-        </div>
-       </div>
-       <div class="sporground">
-        <div class="sportground__items">
-            <div class="sportground__item">
+            <div class="sportgroundMap__map" id="map">
 
             </div>
-            <div class="sportground__item">
-                <div class="sportground__title">Плоащдка в Парке Боева дача</div>
-                <div class="sportground__adress">г. Курск, парк Боева дача</div>
+          </div>
+       </div>
+       <div class="sportground">
+        <div class="container sportground__container">
+            <div class="sportground__items">
+                <div class="sportground__item">
+                    <div class="sportground-slider swiper">
+                        <div class="swiper-wrapper" id="place-images">
+                            <!-- Слайды будут добавлены динамически через JS -->
+                        </div>
+                        <!-- Кнопки управления -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+                <div class="sportground__item">
+                  <div class="sportground__title" id="place-title"></div>
+                  <div class="sportground__adress">
+                    <span class=""></span>
+                    <div id="place-address">
+
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
        </div>
     </main>
 
-    {% include "footer.html" %}
-</div>
+ 
+{% include "footer.html" %}
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const swiper = new Swiper('.team-slider', {
-        slidesPerView: 3, 
-        spaceBetween: 20, 
-        centeredSlides: true, // Центрируем текущий слайд
-          loop: true, 
-          breakpoints: {
-            992: {
-                slidesPerView: 4, // Для планшетов
-              },
-            768: {
-              slidesPerView: 3, // Для планшетов
-            },
-            480: {
-              slidesPerView: 1, // Для мобильных
-            },
-          },
-        });
-      });
       document.addEventListener("DOMContentLoaded", () => {
         const burger = document.querySelector(".header__burger");
         const menu = document.querySelector(".header__menu");
@@ -85,7 +78,72 @@
     });
     
 </script>
+<script>
+    ymaps.ready(init);
 
+    function init() {
+        var myMap = new ymaps.Map("map", {
+            center: [51.74141771818707, 36.21209148479369], // Центр карты
+            zoom: 15
+        });
 
-</body>
-</html>
+        // Загружаем данные через AJAX
+        fetch('/get_sportgrounds_data/')
+            .then(response => response.json())
+            .then(groundsData => {
+                // Добавляем метки для каждой площадки
+                groundsData.forEach(function(ground, index) {
+                    var placemark = new ymaps.Placemark([ground.latitude, ground.longitude], {
+                        balloonContent: ground.name
+                    });
+
+                    placemark.events.add('click', function() {
+                        selectGround(ground); // Вызываем функцию обновления данных для выбранной площадки
+                    });
+
+                    myMap.geoObjects.add(placemark);
+
+                    // Если это первая площадка, обновляем интерфейс
+                    if (index === 0) {
+                        selectGround(ground); // Устанавливаем данные первой площадки по умолчанию
+                        myMap.setCenter([ground.latitude, ground.longitude]); // Центруем карту на первой площадке
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Функция для обновления интерфейса при выборе площадки
+    function selectGround(ground) {
+        // Обновляем заголовок и адрес
+        document.querySelector(".sportground__adress span").textContent = "Адрес: ";
+        document.getElementById('place-title').textContent = ground.name;
+        document.getElementById('place-address').textContent = ground.address;
+
+        // Очищаем текущие изображения
+        var swiperWrapper = document.getElementById('place-images');
+        swiperWrapper.innerHTML = '';
+
+        // Добавляем изображения для слайдера
+        ground.images.forEach(function(imageUrl) {
+            var slide = document.createElement('div');
+            slide.classList.add('swiper-slide');
+            slide.innerHTML = `<img src="${imageUrl}" alt="Image">`;
+            swiperWrapper.appendChild(slide);
+        });
+
+        // Обновляем слайдер после добавления новых слайдов
+        mainSlider.update();
+    }
+</script>
+<script>
+    const mainSlider = new Swiper('.sportground-slider', {
+        loop: true, // Зацикливание слайдов
+        slidesPerView: 1, 
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
+        spaceBetween: 10 // Расстояние между слайдами
+    });
+</script>

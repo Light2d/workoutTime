@@ -5,7 +5,6 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
-from django.contrib.auth import authenticate
 
 
 CustomUser = get_user_model()
@@ -159,3 +158,5 @@ class CustomSetPasswordForm(forms.Form):
         if password1 and password2 and password1 != password2:
             self.add_error('new_password2', "Пароли не совпадают.")
         return cleaned_data
+
+

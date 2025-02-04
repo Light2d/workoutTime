@@ -1,5 +1,4 @@
 button {
-  width: 100%;
   color: #fff;
   margin-bottom: 10px;
   padding: 15px 30px;
@@ -80,6 +79,9 @@ button {
 .login__forget {
   color: #000;
   font-size: 12px;
+}
+.login__btn {
+  width: 100%;
 }
 .login__btns {
   margin-bottom: 20px;

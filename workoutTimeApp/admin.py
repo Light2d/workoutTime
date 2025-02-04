@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser  # Импорт вашей кастомной модели пользователя
+from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage
+from django.utils.html import format_html
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
@@ -38,4 +39,44 @@ class CustomUserAdmin(UserAdmin):
 
     filter_horizontal = ('groups', 'user_permissions')
 
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ('name', 'experience', 'photo_preview')
+    readonly_fields = ('photo_preview',)
+
+    def photo_preview(self, obj):
+        if obj.photo:
+            return f'<img src="{obj.photo.url}" style="height: 50px;"/>'
+        return "Нет изображения"
+    photo_preview.allow_tags = True
+    photo_preview.short_description = "Превью фото"
+    
+@admin.register(LastEvent)
+class LastEventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date')  # Показывать название и дату в списке
+    ordering = ('-date',)  # Сортировка по дате (по убыванию)
+    search_fields = ('title',)  # Поиск по названию
+
+    def photo_preview(self, obj):
+        if obj.photo:
+            return f'<img src="{obj.photo.url}" style="height: 50px;"/>'
+        return "Нет изображения"
+    photo_preview.allow_tags = True
+    photo_preview.short_description = "Превью фото"
+    
+    
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    ordering = ('-created_at',)
+    search_fields = ('title', 'description')
+    
 admin.site.register(CustomUser, CustomUserAdmin)
+
+class SportGroundImageInline(admin.TabularInline):
+    model = SportGroundImage
+    extra = 1  
+
+@admin.register(SportGround)
+class SportGroundAdmin(admin.ModelAdmin):
+    inlines = [SportGroundImageInline]

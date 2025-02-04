@@ -7,11 +7,11 @@ from django.contrib.auth import logout as auth_logout
 from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from .models import CustomUser
 import uuid
-from django.contrib.auth.views import PasswordResetView
-from django.urls import reverse_lazy
-from .forms import CustomPasswordResetForm
+from django.contrib.auth.decorators import login_required
+from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage
+from django.http import JsonResponse
+
 
 # Регистрация
 def register(request):
@@ -38,7 +38,7 @@ def login(request):
         return redirect('index')
 
     if request.method == 'POST':
-        form = CustomAuthenticationForm(request.POST)
+        form = CustomAuthenticationForm(request, data=request.POST)
         print(f"Form data: {request.POST}")  # Печать данных формы
 
         if form.is_valid():
@@ -83,20 +83,52 @@ def activate_account(request, activation_code):
 
     user.is_active = True
     print(user.activation_code)
-    user.activation_code = None  # Сбрасываем код активации
+    user.activation_code = None  
     user.save()
 
     messages.success(request, 'Ваш аккаунт успешно активирован! Теперь вы можете войти.')
     return redirect('login')
 
 def logout(request):
-    auth_logout(request)  # Осуществляем выход
+    auth_logout(request)  
     messages.success(request, 'Вы успешно вышли из системы.')
-    return redirect('login')  # Редиректим на главную страницу или на любую другую страницу
+    return redirect('login')  
 
 
 def index(request):
-    return render(request, 'index.html')
+    team_members = TeamMember.objects.all()  
+    last_event = LastEvent.objects.latest('date')  
+    articles = Article.objects.all()
+    return render(request, 'index.html', {'team_members': team_members, 'last_event': last_event, 'articles': articles})
+
+
+def article(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+    return render(request, 'article.html', {'article': article})
+
+@login_required
+def profile(request):
+    return render(request, 'profile.html', {'user': request.user})
+
+def get_sportgrounds_data(request):
+    sportgrounds = SportGround.objects.all()
+    
+    grounds_data = []
+    for ground in sportgrounds:
+        images = SportGroundImage.objects.filter(sportground=ground)
+        grounds_data.append({
+            "name": ground.name,
+            "address": ground.address,
+            "latitude": ground.latitude,
+            "longitude": ground.longitude,
+            "images": [image.image.url for image in images]
+        })
+    
+    return JsonResponse(grounds_data, safe=False)
+
+def sportgrounds(request):
+    return render(request, 'sportgrounds.html')
+
 
 def events(request):
     return render(request, 'events.html')
@@ -104,5 +136,3 @@ def events(request):
 def event(request):
     return render(request, 'event.html')
 
-def sportgrounds(request):
-    return render(request, 'sportgrounds.html')

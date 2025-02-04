@@ -1,24 +1,3 @@
-.chapter {
-  background: #000;
-}
-.chapter__container {
-  padding-bottom: 20%;
-  border: none;
-}
-.chapter__logo {
-  text-align: center;
-  margin-bottom: 10px;
-}
-.chapter__logo img {
-  max-width: 600px;
-}
-.chapter__title {
-  text-align: center;
-  color: rgba(255, 255, 255, 0.6117647059);
-  font-size: 48px;
-  font-weight: 100;
-}
-
 .eventsTabs {
   width: 100%;
   max-width: 1000px;

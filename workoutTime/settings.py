@@ -1,6 +1,7 @@
 
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -112,6 +113,9 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+MEDIA_URL = 'media/'  
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -127,3 +131,6 @@ EMAIL_HOST_PASSWORD = 'zcvs jhcq qton hixk'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 SITE_URL = 'http://127.0.0.1:8000'
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = ''

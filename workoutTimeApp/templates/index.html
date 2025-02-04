@@ -1,7 +1,14 @@
 {% load static %}
-
+{% include 'base.html' %}
 {% include "header.html" %}
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'scss/styles.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <title>Workout Time</title>
+</head>
 <body>
   
     <div class="main">
@@ -25,14 +32,15 @@
             <div class="team__title">Состав команды</div>
               <div class="swiper team-slider">
                 <div class="swiper-wrapper">
+                  {% for member in team_members %}
                   <div class="swiper-slide team__item">
-                    <img src="{% static 'imgs/team/1.png' %}" alt="team__img" class="team__img">
-                    <div class="team__info">
-                        <div class="team__experience">Стаж 5 лет</div>
-                        <div class="team__name">Артём Радионов</div>
-                    </div>
+                      <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="team__img">
+                      <div class="team__info">
+                          <div class="team__experience">Стаж {{ member.experience }} {{ member.experience|pluralize:"год,года,лет" }}</div>
+                          <div class="team__name">{{ member.name }}</div>
+                      </div>
                   </div>
-
+                {% endfor %}
                 </div>
               </div>
             </div>
@@ -42,43 +50,29 @@
               <div class="events__items">
                 <div class="events__item lastEvent">
                   <div class="lastEvent__img">
-                    <img src="{% static 'imgs/events/1.png' %}" alt="">
+                    <img src="{{ last_event.photo.url }}" alt="{{ member.name }}">
                     <div class="lastEvent__info">
                       <div class="lastEvent__title">Последнее мероприятие</div>
-                      <div class="lastEvent__description">Фестиваль уличных культур / соревнования</div>
-                      <div class="lastEvent__date">20 июля 2024</div>
+                      <div class="lastEvent__description">{{ last_event.title }}</div>
+                      <div class="lastEvent__date">{{ last_event.date|date:"j E Y" }}</div>
                     </div>
                   </div>
                 </div>
                 <div class="events__item articles">
                   <div class="articles__items">
-                    <div class="articles__item">
-                      <div class="articles__image">
-                        <img src="{% static 'imgs/events/2.png' %}" alt="">
-                      </div>
-                      <div class="articles__info">
-                        <div class="articles__title">Как тренироваться в зимнее время</div>
-                        <div class="articles__description">Краткое описание</div>
-                      </div>
-                    </div>
-                    <div class="articles__item">
-                      <div class="articles__image">
-                        <img src="{% static 'imgs/events/2.png' %}" alt="">
-                      </div>
-                      <div class="articles__info">
-                        <div class="articles__title">Как тренироваться в зимнее время</div>
-                        <div class="articles__description">Краткое описание</div>
-                      </div>
-                    </div>
-                    <div class="articles__item">
-                      <div class="articles__image">
-                        <img src="{% static 'imgs/events/2.png' %}" alt="">
-                      </div>
-                      <div class="articles__info">
-                        <div class="articles__title">Как тренироваться в зимнее время</div>
-                        <div class="articles__description">Краткое описание</div>
-                      </div>
-                    </div>
+                    {% for article in articles %}
+                    <a href="{% url 'article' article.id %}">
+                        <div class="articles__item">
+                              <div class="articles__image">
+                                  <img src="{{ article.image.url }}" alt="Изображение поста">
+                              </div>
+                              <div class="articles__info">
+                                  <div class="articles__title">{{ article.title }}</div>
+                                  <div class="articles__description">{{ article.description|truncatewords:10 }}</div>
+                              </div>
+                        </div>
+                      </a>
+                    {% endfor %}
                   </div>
                 </div>
               </div>

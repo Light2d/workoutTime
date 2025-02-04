@@ -1,0 +1,113 @@
+
+.sportgroundMap{
+  display: flex;
+  justify-content: center;
+
+  width: 100%; 
+  max-width: 1200px;
+  height: 0;
+  margin: 0 auto;
+  padding-bottom: 56.25%;
+    position: relative;
+    &__container{
+    
+    }
+    &__map{
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+      padding: 0 20px;
+      @media (max-width: 768px) {
+        height: 100%;
+      }
+    }
+}
+
+.sportground {
+  margin-bottom: 60px;
+		// .sportground__items
+		&__items {
+      display: flex;
+      align-items: flex-start; 
+      gap: 20px;
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+      }
+		}
+    &__container{
+      padding: 0 20px;
+      @media (max-width: 768px) {
+        padding: 40px 20px;
+      }
+    }
+		// .sportground__item
+		&__item {
+        &:first-child{
+          overflow: hidden;
+        }
+        &:last-child{
+          flex: 0 0 35%; /* Текст займет одну часть пространства */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start; /* Выравнивание текста по верхнему краю */
+          @media (max-width: 768px) {
+           flex: 0 0 100%;
+          }
+        }
+		}
+		// .sportground__title
+		&__title {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 15px;
+		}
+		// .sportground__adress
+		&__adress {
+        display: flex;
+        font-size: 16px;
+        line-height: 130%;
+        & span{
+          font-weight: 600;
+          margin-right: 5px;
+        }
+		}
+}
+
+.sportground-slider {
+ position: relative;
+ 
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #3b3b3b !important; /* Цвет стрелок */
+  position: absolute;
+  top: 50%; /* Центрируем стрелки по вертикали */
+  transform: translateY(-50%);
+  z-index: 1022; /* Устанавливаем высокий приоритет */
+  width: 40px;
+  height: 40px;
+}
+
+.swiper-button-next {
+  right: -20px !important; /* Смещаем стрелку вправо за пределы слайдера */
+}
+
+.swiper-button-prev {
+  left: -20px !important; /* Смещаем стрелку влево за пределы слайдера */
+}
+
+.swiper {
+  position: relative; /* Для позиционирования стрелок относительно слайдера */
+  padding: 0 40px; 
+}
