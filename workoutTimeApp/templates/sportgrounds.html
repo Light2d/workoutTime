@@ -7,6 +7,8 @@
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 
     <main>
         <div class="chapter">
@@ -25,32 +27,28 @@
           </div>
        </div>
        <div class="sportground">
-        <div class="container sportground__container">
+        <div class="sportground__container">
             <div class="sportground__items">
                 <div class="sportground__item">
-                    <div class="sportground-slider swiper">
-                        <div class="swiper-wrapper" id="place-images">
-                            <!-- Слайды будут добавлены динамически через JS -->
+                    <div class="sportground-slider">
+                        <div id="place-images">
+                            <!-- Слайды будут добавляться динамически через JS -->
                         </div>
-                        <!-- Кнопки управления -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
                     </div>
                 </div>
                 <div class="sportground__item">
-                  <div class="sportground__title" id="place-title"></div>
-                  <div class="sportground__adress">
-                    <span class=""></span>
-                    <div id="place-address">
-
+                    <div class="sportground__title" id="place-title"></div>
+                    <div class="sportground__adress">
+                        <span>Адрес: </span>
+                        <div id="place-address"></div>
                     </div>
-                  </div>
                 </div>
             </div>
         </div>
-       </div>
+    </div>
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
  
 {% include "footer.html" %}
 <script>
@@ -79,71 +77,69 @@
     
 </script>
 <script>
-    ymaps.ready(init);
+ymaps.ready(init);
 
-    function init() {
-        var myMap = new ymaps.Map("map", {
-            center: [51.74141771818707, 36.21209148479369], // Центр карты
-            zoom: 15
-        });
-
-        // Загружаем данные через AJAX
-        fetch('/get_sportgrounds_data/')
-            .then(response => response.json())
-            .then(groundsData => {
-                // Добавляем метки для каждой площадки
-                groundsData.forEach(function(ground, index) {
-                    var placemark = new ymaps.Placemark([ground.latitude, ground.longitude], {
-                        balloonContent: ground.name
-                    });
-
-                    placemark.events.add('click', function() {
-                        selectGround(ground); // Вызываем функцию обновления данных для выбранной площадки
-                    });
-
-                    myMap.geoObjects.add(placemark);
-
-                    // Если это первая площадка, обновляем интерфейс
-                    if (index === 0) {
-                        selectGround(ground); // Устанавливаем данные первой площадки по умолчанию
-                        myMap.setCenter([ground.latitude, ground.longitude]); // Центруем карту на первой площадке
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
-
-    // Функция для обновления интерфейса при выборе площадки
-    function selectGround(ground) {
-        // Обновляем заголовок и адрес
-        document.querySelector(".sportground__adress span").textContent = "Адрес: ";
-        document.getElementById('place-title').textContent = ground.name;
-        document.getElementById('place-address').textContent = ground.address;
-
-        // Очищаем текущие изображения
-        var swiperWrapper = document.getElementById('place-images');
-        swiperWrapper.innerHTML = '';
-
-        // Добавляем изображения для слайдера
-        ground.images.forEach(function(imageUrl) {
-            var slide = document.createElement('div');
-            slide.classList.add('swiper-slide');
-            slide.innerHTML = `<img src="${imageUrl}" alt="Image">`;
-            swiperWrapper.appendChild(slide);
-        });
-
-        // Обновляем слайдер после добавления новых слайдов
-        mainSlider.update();
-    }
-</script>
-<script>
-    const mainSlider = new Swiper('.sportground-slider', {
-        loop: true, // Зацикливание слайдов
-        slidesPerView: 1, 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
-        spaceBetween: 10 // Расстояние между слайдами
+function init() {
+    var myMap = new ymaps.Map("map", {
+        center: [51.74141771818707, 36.21209148479369], // Центр карты
+        zoom: 15
     });
+
+    // Загружаем данные через AJAX
+    fetch('/get_sportgrounds_data/')
+        .then(response => response.json())
+        .then(groundsData => {
+            groundsData.forEach(function(ground, index) {
+                var placemark = new ymaps.Placemark([ground.latitude, ground.longitude], {
+                    balloonContent: ground.name
+                });
+
+                placemark.events.add('click', function() {
+                    selectGround(ground); // Обновляем данные в слайдере
+                });
+
+                myMap.geoObjects.add(placemark);
+
+                if (index === 0) {
+                    selectGround(ground); // Устанавливаем данные первой площадки по умолчанию
+                    myMap.setCenter([ground.latitude, ground.longitude]); // Центруем карту
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+function selectGround(ground) {
+    $("#place-title").text(ground.name);
+    $("#place-address").text(ground.address);
+
+    var slider = $('.sportground-slider');
+
+    // Проверяем, инициализирован ли слайдер, и уничтожаем его перед обновлением
+    if (slider.hasClass('slick-initialized')) {
+        slider.slick('unslick').empty();
+    } else {
+        slider.empty();
+    }
+
+    // Добавляем новые изображения
+    ground.images.forEach(function(imageUrl) {
+        slider.append('<div><img src="' + imageUrl + '" alt="Image"></div>');
+    });
+
+    // Используем setTimeout, чтобы браузер успел отрендерить новые элементы перед инициализацией
+    setTimeout(() => {
+        slider.slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            nextArrow: '<div class="slick-next"><img src="{% static "imgs/team/arrow-r.svg" %}" alt="Next"></div>',
+            prevArrow: '<div class="slick-prev"><img src="{% static "imgs/team/arrow-r.svg" %}" alt="Previous"></div>',
+            adaptiveHeight: true
+        });
+    }, 0); // Минимальная задержка для корректного рендеринга
+}
+
+    
 </script>

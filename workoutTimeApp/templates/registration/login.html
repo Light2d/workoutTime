@@ -1,4 +1,5 @@
 {% load static %}
+{% include 'base.html' %}
 {% include "header.html" %}
 
 {% block content %}
@@ -48,7 +49,8 @@
 
                 <div class="login__btns">
                     <button type="submit" class="login__btn btn-black">Войти</button>
-                    <button class="login__btn btn-white">Войти с помощью ВКонтакте</button>
+                    <a class="login__btn btn-white" href="{% url 'social:begin' 'vk-oauth2' %}">Войти с помощью ВКонтакте</a>
+
                 </div>
                 
                 <div class="login__account">

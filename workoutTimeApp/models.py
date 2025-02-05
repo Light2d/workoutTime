@@ -8,12 +8,13 @@ from django.db.models import JSONField
 class CustomUser(AbstractUser):
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)  # Уникальный email
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=True, blank=True) 
+    profile_photo = models.URLField(null=True, blank=True)  # Поле для фото
     activation_code = models.UUIDField(default=uuid.uuid4, editable=False, null=True, blank=True, unique=True)  # Код активации
     is_active = models.BooleanField(default=False)  # Активность пользователя
     
     USERNAME_FIELD = 'username'  # Для входа используется username
-    REQUIRED_FIELDS = ['email', 'full_name', 'birth_date']  # Для создания пользователя требуются email и другие поля
+    REQUIRED_FIELDS = ['email', 'full_name']  # Для создания пользователя требуются email и другие поля
 
     def save(self, *args, **kwargs):
         if self.is_superuser:  # Если это суперпользователь

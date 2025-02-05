@@ -40,6 +40,8 @@
 }
 .sportground__container {
   padding: 0 20px;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 @media (max-width: 768px) {
   .sportground__container {
@@ -47,7 +49,15 @@
   }
 }
 .sportground__item:first-child {
+  flex: 0 0 65%;
   overflow: hidden;
+  position: relative;
+  padding: 0 60px;
+}
+@media (max-width: 768px) {
+  .sportground__item:first-child {
+    flex: 0 0 100%;
+  }
 }
 .sportground__item:last-child {
   flex: 0 0 35%; /* Текст займет одну часть пространства */
@@ -75,36 +85,50 @@
   margin-right: 5px;
 }
 
-.sportground-slider {
-  position: relative;
+.slick-prev img, .slick-next img {
+  width: 30px;
+  height: auto;
+  display: block;
 }
 
-.swiper-slide img {
+.sportground-slider img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  max-height: 500px;
+  object-fit: cover;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: #3b3b3b !important; /* Цвет стрелок */
-  position: absolute;
-  top: 50%; /* Центрируем стрелки по вертикали */
-  transform: translateY(-50%);
-  z-index: 1022; /* Устанавливаем высокий приоритет */
-  width: 40px;
-  height: 40px;
+@media (max-width: 768px) {
+  .sportground-slider img {
+    max-height: 300px;
+  }
+  .slick-prev, .slick-next {
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .sportground-slider img {
+    max-height: 250px;
+  }
+  .slick-prev, .slick-next {
+    font-size: 16px;
+  }
+}
+.slick-prev {
+  left: -60px !important;
+  background-image: url("{% static 'imgs/team/arrow-r.svg' %}") !important;
 }
 
-.swiper-button-next {
-  right: -20px !important; /* Смещаем стрелку вправо за пределы слайдера */
+.slick-next {
+  right: -60px !important;
+  background-image: url("{% static 'imgs/team/arrow-r.svg' %}") !important;
 }
 
-.swiper-button-prev {
-  left: -20px !important; /* Смещаем стрелку влево за пределы слайдера */
+.slick-next, .slick-prev {
+  width: 40px !important;
+  height: 40px !important;
 }
 
-.swiper {
-  position: relative; /* Для позиционирования стрелок относительно слайдера */
-  padding: 0 40px;
+.slick-next:before, .slick-prev:before {
+  display: none;
 }

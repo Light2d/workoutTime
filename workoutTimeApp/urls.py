@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import index, login, register, logout, sportgrounds, events, activate_account, profile, article, get_sportgrounds_data
@@ -12,6 +12,7 @@ urlpatterns = [
     
     path('register/', register, name='register'),
     path('login/', login, name='login'),
+    path('', include('social_django.urls', namespace='social')),
     path('logout/', logout, name='logout'), 
     path('activate/<uuid:activation_code>/', activate_account, name='activate_account'),
     path('articles/<int:article_id>/', article, name='article'),
