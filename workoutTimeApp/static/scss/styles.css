@@ -382,24 +382,10 @@ h6 {
     font-size: 12px;
   }
 }
-
-button {
-  color: #fff;
-  margin-bottom: 10px;
-  padding: 15px 30px;
-  border-radius: 10px;
+.event__close {
+  font-weight: 600;
+  margin-bottom: 15px;
 }
-
-.btn-black {
-  background: #000;
-}
-
-.btn-white {
-  background: transparent;
-  border: 1px solid #9b9b9b;
-  color: #000;
-}
-
 .login {
   padding: 40px;
   justify-content: center;
@@ -523,9 +509,10 @@ button {
 .registration__field {
   width: 100%;
   border: 1px solid #a3a3a3;
-  padding: 10px 0px;
+  padding: 15px 0px;
   position: relative;
   margin-bottom: 20px;
+  border-radius: 4px;
 }
 .registration__label {
   display: inline-block;
@@ -741,6 +728,12 @@ button {
   }
 }
 
+@media (max-width: 600px) {
+  .slick-arrow {
+    display: none !important;
+  }
+}
+
 .sportground {
   margin-bottom: 60px;
 }
@@ -749,7 +742,7 @@ button {
   align-items: flex-start;
   gap: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__items {
     flex-wrap: wrap;
   }
@@ -759,29 +752,34 @@ button {
   max-width: 1800px;
   margin: 0 auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__container {
     padding: 40px 20px;
   }
 }
 .sportground__item:first-child {
-  flex: 0 0 65%;
+  flex: 0 0 50%;
   overflow: hidden;
   position: relative;
   padding: 0 60px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__item:first-child {
     flex: 0 0 100%;
   }
 }
+@media (max-width: 600px) {
+  .sportground__item:first-child {
+    padding: 0px;
+  }
+}
 .sportground__item:last-child {
-  flex: 0 0 35%; /* Текст займет одну часть пространства */
+  flex: 0 0 45%; /* Текст займет одну часть пространства */
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Выравнивание текста по верхнему краю */
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__item:last-child {
     flex: 0 0 100%;
   }
@@ -790,15 +788,41 @@ button {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 15px;
+  line-height: 130%;
+  position: relative;
+  padding-bottom: 20px;
+}
+@media (max-width: 600px) {
+  .sportground__title {
+    font-size: 24px;
+  }
+}
+.sportground__title::after {
+  content: "";
+  width: 120px;
+  height: 6px;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .sportground__adress {
   display: flex;
   font-size: 16px;
   line-height: 130%;
+  width: 80%;
+  background: url("../imgs/sportgrounds/map.svg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 30px;
+  padding: 0px 40px;
+  padding-bottom: 10px;
 }
-.sportground__adress span {
-  font-weight: 600;
-  margin-right: 5px;
+@media (max-width: 600px) {
+  .sportground__adress {
+    width: 100%;
+    font-size: 14px;
+  }
 }
 
 .slick-prev img, .slick-next img {
@@ -890,6 +914,30 @@ main {
 
 footer {
   flex: 0 0 auto;
+}
+
+button {
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+}
+
+.btn-black {
+  background: #000;
+  color: #fff;
+  width: 100%;
+}
+
+.btn-white {
+  background: transparent;
+  border: 1px solid #9b9b9b;
+  color: #000;
+  width: 100%;
+  padding: 15px 0px;
+  border-radius: 5px;
+}
+.btn-white a {
+  color: #000;
 }
 
 .header {
@@ -1317,6 +1365,9 @@ footer {
   font-weight: 600;
   margin-bottom: 15px;
 }
+.footer__link a {
+  color: #fff;
+}
 .footer__logo {
   display: flex;
   justify-content: flex-end;
@@ -1377,6 +1428,7 @@ footer {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
+  line-height: 130%;
 }
 
 .message.success {

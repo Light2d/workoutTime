@@ -76,6 +76,28 @@ footer {
     flex: 0 0 auto;
 }
 
+button {
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 15px 30px;
+}
+.btn-black {
+    background: #000;
+    color: #fff;
+    width: 100%;
+}
+.btn-white {
+    background: transparent;
+    border: 1px solid #9b9b9b;
+    color: #000;
+    width: 100%;
+    padding: 15px 0px;
+    border-radius: 5px;
+    & a{
+        color: #000;
+    }
+}
+
 //================HEADER
 .header {
     color: $black;
@@ -550,6 +572,9 @@ footer {
             font-weight: 600;
             margin-bottom: 15px;
         }
+        & a{
+            color: #fff;
+        }
     }
     // .footer__logo
     &__logo {
@@ -619,6 +644,7 @@ footer {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
+    line-height: 130%;
 }
 
 .message.success {

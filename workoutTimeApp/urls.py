@@ -1,12 +1,15 @@
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import index, login, register, logout, sportgrounds, events, activate_account, profile, article, get_sportgrounds_data
+from .views import index, login, register, logout, sportgrounds, events, activate_account, profile, article, get_sportgrounds_data, events, event_detail, register_for_event
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', index, name='index'),
     path('events', events, name='events'),
+    path('<int:event_id>/', event_detail, name='event_detail'),
+    path('<int:event_id>/register/', register_for_event, name='register_for_event'),
+    
     path('sportgrounds', sportgrounds, name='sportgrounds'),
     path('profile', profile, name='profile'),
     

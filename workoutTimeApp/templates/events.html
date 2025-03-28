@@ -1,81 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scss/styles.css">
-    <link rel="stylesheet" href="scss/events.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <title>Workout Time</title>
-</head>
-<body>
-  {% include "header.html" %}
+{% extends "base.html" %}
+{% load static %}
 
-    <main>
-        <div class="chapter">
-            <div class="chapter__container container">
-                <div class="chapter__logo">
-                    <img src="/imgs/intro/textLogo.png" alt="">
-                </div>
-                <div class="chapter__title">Мероприятия</div>
-            </div>
-        </div>
-        <div class="eventsTabs">
-          <div class="eventsTabs__nav">
-            <button class="eventsTabs__btn active" data-tab="tab1">Соревнования</button>
-            <button class="eventsTabs__btn" data-tab="tab2">Мастер-классы</button>
-            <button class="eventsTabs__btn" data-tab="tab3">Архив</button>
-          </div>
-          <div class="eventsTabs__content">
-            <div class="eventsTabs__panel active" id="tab1">
-              <ul class="eventsTabs__list">
-                <li class="eventsTabs__item">
-                  <span class="eventsTabs__name">Воркаут баттлы 1х1</span>
-                  <span class="eventsTabs__date">21.11.2024</span>
-                </li>
-                <li class="eventsTabs__item">
-                  <span class="eventsTabs__name">Воркаут баттлы 1х1</span>
-                  <span class="eventsTabs__date">21.11.2024</span>
-                </li>
-              </ul>
-            </div>
-            <div class="eventsTabs__panel" id="tab2">
-              <ul class="eventsTabs__list">
-                <li class="eventsTabs__item">
-                  <span class="eventsTabs__name">Воркаут баттлы 1х1</span>
-                  <span class="eventsTabs__date">21.11.2024</span>
-                </li>
-                <li class="eventsTabs__item">
-                  <span class="eventsTabs__name">Воркаут баттлы 1х1</span>
-                  <span class="eventsTabs__date">21.11.2024</span>
-                </li>
-              </ul>
-            </div>
-            <div class="eventsTabs__panel" id="tab3">
-              <ul class="eventsTabs__list">
-                <li class="eventsTabs__item">
-                  <span class="eventsTabs__name">Воркаут баттлы 1х1</span>
-                  <span class="eventsTabs__date">21.11.2024</span>
-                </li>
-                <li class="eventsTabs__item">
-                  <span class="eventsTabs__name">Воркаут баттлы 1х1</span>
-                  <span class="eventsTabs__date">21.11.2024</span>
-                </li>
-                <li class="eventsTabs__item">
-                  <span class="eventsTabs__name">Воркаут баттлы 1х1</span>
-                  <span class="eventsTabs__date">21.11.2024</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-    </main>
+{% block title %}WorkoutTime{% endblock %}
 
-    {% include "footer.html" %}
-</div>
-<script>
+{% block content %}
+
+{% include "header.html" %}
+
+  <main>
+    <div class="chapter">
+      <div class="chapter__container container">
+          <div class="chapter__logo">
+              <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+          </div>
+          <div class="chapter__title">Мероприятия</div>
+      </div>
+    </div>
+    <div class="eventsTabs">
+      <div class="eventsTabs__nav">
+          <button class="eventsTabs__btn active" data-tab="tab1">Соревнования</button>
+          <button class="eventsTabs__btn" data-tab="tab2">Мастер-классы</button>
+          <button class="eventsTabs__btn" data-tab="tab3">Архив</button>
+      </div>
+  
+      <div class="eventsTabs__content">
+          <div class="eventsTabs__panel active" id="tab1">
+              {% for event in competitions %}
+                  <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
+                      <span class="eventsTabs__name">{{ event.title }}</span>
+                      <span class="eventsTabs__date">{{ event.date }}</span>
+                  </a>
+              {% endfor %}
+          </div>
+          
+          <div class="eventsTabs__panel" id="tab2">
+              {% for event in masterclasses %}
+                  <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
+                      <span class="eventsTabs__name">{{ event.title }}</span>
+                      <span class="eventsTabs__date">{{ event.date }}</span>
+                  </a>
+              {% endfor %}
+          </div>
+  
+          <div class="eventsTabs__panel" id="tab3">
+              {% for event in archive %}
+                  <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
+                      <span class="eventsTabs__name">{{ event.title }}</span>
+                      <span class="eventsTabs__date">{{ event.date }}</span>
+                  </a>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+  </main>
+  
+{% include "footer.html" %}
+
+
+
+  {% block extra_js %}
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
         const swiper = new Swiper('.team-slider', {
         slidesPerView: 3, 
@@ -107,7 +91,7 @@
     
         menuClose.addEventListener("click", () => {
             menu.classList.remove("active");
-             document.body.style.overflowY = "auto"
+            document.body.style.overflowY = "auto"
         });
     
         // Закрытие меню при клике вне его
@@ -118,25 +102,25 @@
         });
     });
     
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const tabsBtns = document.querySelectorAll(".eventsTabs__btn");
-    const tabsPanels = document.querySelectorAll(".eventsTabs__panel");
-  
-    tabsBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        // Удаляем класс active со всех кнопок и панелей
-        tabsBtns.forEach((b) => b.classList.remove("active"));
-        tabsPanels.forEach((panel) => panel.classList.remove("active"));
-  
-        // Добавляем класс active на текущую кнопку и соответствующую панель
-        btn.classList.add("active");
-        document.querySelector(`#${btn.dataset.tab}`).classList.add("active");
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabsBtns = document.querySelectorAll(".eventsTabs__btn");
+      const tabsPanels = document.querySelectorAll(".eventsTabs__panel");
+
+      tabsBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Удаляем класс active со всех кнопок и панелей
+          tabsBtns.forEach((b) => b.classList.remove("active"));
+          tabsPanels.forEach((panel) => panel.classList.remove("active"));
+
+          // Добавляем класс active на текущую кнопку и соответствующую панель
+          btn.classList.add("active");
+          document.querySelector(`#${btn.dataset.tab}`).classList.add("active");
+        });
       });
     });
-  });
-  
-</script>
-</body>
-</html>
+
+  </script>
+  {% endblock %}
+{% endblock %}

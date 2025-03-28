@@ -3,6 +3,7 @@ import uuid
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.contrib.postgres.fields import ArrayField  # Для списка изображений (PostgreSQL)
 from django.db.models import JSONField
+from django.conf import settings
 
 
 class CustomUser(AbstractUser):
@@ -66,6 +67,7 @@ class LastEvent(models.Model):
 
     class Meta:
         verbose_name = "Последнее мероприятие"
+        verbose_name_plural = "Последнее мероприятие"
 
 class Article(models.Model):
     image = models.ImageField(upload_to='articles_images/', verbose_name="Изображение поста")
@@ -100,3 +102,29 @@ class SportGroundImage(models.Model):
     def __str__(self):
         return f"Image for {self.sportground.name}"
     
+    
+class Event(models.Model):
+    EVENT_TYPES = [
+        ('competition', 'Соревнование'),
+        ('masterclass', 'Мастер-класс'),
+        ('archive', 'Архив'),
+    ]
+    
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    date = models.DateField()
+    address = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='events/')
+    event_type = models.CharField(max_length=20, choices=EVENT_TYPES)
+    participants = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='events_participated')
+
+    def is_past_event(self):
+        from django.utils.timezone import now
+        return self.date < now().date()
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = "Мероприятие" 
+        verbose_name_plural = "Мероприятие"  

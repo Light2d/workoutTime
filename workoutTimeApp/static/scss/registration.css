@@ -42,9 +42,10 @@
 .registration__field {
   width: 100%;
   border: 1px solid #a3a3a3;
-  padding: 10px 0px;
+  padding: 15px 0px;
   position: relative;
   margin-bottom: 20px;
+  border-radius: 4px;
 }
 .registration__label {
   display: inline-block;

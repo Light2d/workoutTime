@@ -190,3 +190,7 @@
     font-size: 12px;
   }
 }
+.event__close {
+  font-weight: 600;
+  margin-bottom: 15px;
+}

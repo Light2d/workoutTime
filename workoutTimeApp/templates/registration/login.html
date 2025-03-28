@@ -1,8 +1,8 @@
 {% load static %}
 {% include 'base.html' %}
-{% include "header.html" %}
 
 {% block content %}
+{% include "header.html" %}
     <div class="login">
         <div class="login__container">
             <div class="login__img">
@@ -12,13 +12,11 @@
             <form method="POST" action="{% url 'login' %}" class="login__form">
                 {% csrf_token %}
 
-                <!-- Форма входа -->
                 {% for field in form %}
                     <div class="login__field {% if field.errors %}field--error{% endif %}">
                         <label for="{{ field.id_for_label }}" class="login__label">{{ field.label }}</label>
-                        {{ field }} <!-- Поле ввода -->
+                        {{ field }} 
                 
-                        <!-- Вывод ошибок для конкретного поля -->
                         {% if field.errors %}
                             <div class="form-error">
                                 {% for error in field.errors %}
@@ -49,8 +47,9 @@
 
                 <div class="login__btns">
                     <button type="submit" class="login__btn btn-black">Войти</button>
-                    <a class="login__btn btn-white" href="{% url 'social:begin' 'vk-oauth2' %}">Войти с помощью ВКонтакте</a>
-
+                    <div class="registration__btn btn-white">
+                        <a class="" href="{% url 'social:begin' 'vk-oauth2' %}">Войти с помощью ВКонтакте</a>              
+                    </div>
                 </div>
                 
                 <div class="login__account">

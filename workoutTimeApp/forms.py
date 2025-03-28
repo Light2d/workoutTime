@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
+from .models import Event
 
 
 CustomUser = get_user_model()
@@ -160,3 +161,7 @@ class CustomSetPasswordForm(forms.Form):
         return cleaned_data
 
 
+class EventRegistrationForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = []

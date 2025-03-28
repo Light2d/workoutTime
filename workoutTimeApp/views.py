@@ -9,9 +9,10 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 import uuid
 from django.contrib.auth.decorators import login_required
-from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage
+from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event
 from django.http import JsonResponse
-
+from django.utils.timezone import now
+from datetime import timedelta
 
 # Регистрация
 def register(request):
@@ -36,7 +37,9 @@ def register(request):
 def login(request):
     if request.user.is_authenticated:
         return redirect('index')
-
+    
+    form = CustomAuthenticationForm()
+    
     if request.method == 'POST':
         form = CustomAuthenticationForm(request, data=request.POST)
         print(f"Form data: {request.POST}")  # Печать данных формы
@@ -50,16 +53,12 @@ def login(request):
                 auth_login(request, user)
                 return redirect('index')
             else:
-                print(f"Authentication failed: Invalid credentials for username: {username}")
                 messages.error(request, 'Неверное имя пользователя или пароль.')
         else:
-            print(f"Form errors: {form.errors}")  # Печать ошибок формы
-            print(f"Form errors JSON: {form.errors.as_json()}")  # Получаем ошибки формы в формате JSON
-            messages.error(request, 'Форма не валидна.')
-    else:
-        form = CustomAuthenticationForm()
-    
-
+            for error in form.errors.get('__all__', []):  # Достаем общие ошибки формы
+                messages.error(request, error)  # Добавляем их в сообщения
+            else:
+                form = CustomAuthenticationForm()
 
     return render(request, 'registration/login.html', {'form': form})
 
@@ -101,7 +100,7 @@ def index(request):
     articles = Article.objects.all()
     return render(request, 'index.html', {'team_members': team_members, 'last_event': last_event, 'articles': articles})
 
-
+@login_required
 def article(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     return render(request, 'article.html', {'article': article})
@@ -126,13 +125,46 @@ def get_sportgrounds_data(request):
     
     return JsonResponse(grounds_data, safe=False)
 
+@login_required
 def sportgrounds(request):
     return render(request, 'sportgrounds.html')
 
 
+@login_required
 def events(request):
-    return render(request, 'events.html')
+    # Получаем все события
+    competitions = Event.objects.filter(event_type='competition')
+    masterclasses = Event.objects.filter(event_type='masterclass')
+    archive = Event.objects.filter(event_type='archive')
 
-def event(request):
-    return render(request, 'event.html')
+    # Проверяем и обновляем статус событий
+    for event in competitions | masterclasses:
+        if event.date < now().date() - timedelta(days=2):  # Если прошло 2 дня
+            event.event_type = 'archive'
+            event.save()
 
+    return render(request, 'events.html', {
+        'competitions': competitions,
+        'masterclasses': masterclasses,
+        'archive': archive
+    })
+
+def event_detail(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    return render(request, 'event_detail.html', {'event': event})
+
+@login_required
+def register_for_event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+
+    if event.is_past_event():
+        messages.error(request, "Регистрация на это мероприятие закрыта.")
+        return redirect('event_detail', event_id=event.id)
+
+    if request.user in event.participants.all():
+        messages.warning(request, "Вы уже зарегистрированы на это мероприятие.")
+    else:
+        event.participants.add(request.user)
+        messages.success(request, "Вы успешно зарегистрировались!")
+
+    return redirect('event_detail', event_id=event.id)

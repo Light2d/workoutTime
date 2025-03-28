@@ -1,9 +1,8 @@
 {% load static %}
-
+{% include 'base.html' %}
 {% include "header.html" %}
 
 {% block content %}
-    <main>
        <div class="registration">
             <div class="registration__img">
                 <img src="{% static 'imgs/login/1.png' %}" alt="">
@@ -35,7 +34,6 @@
                 <a href="{% url 'login' %}">Войти</a>
             </div>
        </div>
-    </main>
 
 </div>
 {% endblock %}

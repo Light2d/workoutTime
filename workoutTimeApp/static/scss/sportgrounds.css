@@ -25,6 +25,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .slick-arrow {
+    display: none !important;
+  }
+}
+
 .sportground {
   margin-bottom: 60px;
 }
@@ -33,7 +39,7 @@
   align-items: flex-start;
   gap: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__items {
     flex-wrap: wrap;
   }
@@ -43,29 +49,34 @@
   max-width: 1800px;
   margin: 0 auto;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__container {
     padding: 40px 20px;
   }
 }
 .sportground__item:first-child {
-  flex: 0 0 65%;
+  flex: 0 0 50%;
   overflow: hidden;
   position: relative;
   padding: 0 60px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__item:first-child {
     flex: 0 0 100%;
   }
 }
+@media (max-width: 600px) {
+  .sportground__item:first-child {
+    padding: 0px;
+  }
+}
 .sportground__item:last-child {
-  flex: 0 0 35%; /* Текст займет одну часть пространства */
+  flex: 0 0 45%; /* Текст займет одну часть пространства */
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Выравнивание текста по верхнему краю */
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sportground__item:last-child {
     flex: 0 0 100%;
   }
@@ -74,15 +85,41 @@
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 15px;
+  line-height: 130%;
+  position: relative;
+  padding-bottom: 20px;
+}
+@media (max-width: 600px) {
+  .sportground__title {
+    font-size: 24px;
+  }
+}
+.sportground__title::after {
+  content: "";
+  width: 120px;
+  height: 6px;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 .sportground__adress {
   display: flex;
   font-size: 16px;
   line-height: 130%;
+  width: 80%;
+  background: url("../imgs/sportgrounds/map.svg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 30px;
+  padding: 0px 40px;
+  padding-bottom: 10px;
 }
-.sportground__adress span {
-  font-weight: 600;
-  margin-right: 5px;
+@media (max-width: 600px) {
+  .sportground__adress {
+    width: 100%;
+    font-size: 14px;
+  }
 }
 
 .slick-prev img, .slick-next img {

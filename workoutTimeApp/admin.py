@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage
+from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event
 from django.utils.html import format_html
 
 class CustomUserAdmin(UserAdmin):
@@ -80,3 +80,9 @@ class SportGroundImageInline(admin.TabularInline):
 @admin.register(SportGround)
 class SportGroundAdmin(admin.ModelAdmin):
     inlines = [SportGroundImageInline]
+    
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date', 'event_type')
+    search_fields = ('title',)
+    list_filter = ('event_type',)

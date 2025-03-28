@@ -1,13 +1,11 @@
 {% load static %}
 
-{% block content %}
-
 <header class="header">
     <div class="header__items container">
         <div class="header__item">
             <div class="header__logo">
                 <a href="{% url 'index' %}">
-                    <img src="{% static 'imgs/header/logo.png' %}" alt="">
+                    <img src="{% static 'imgs/header/logo.png' %}" alt="Logo">
                 </a>  
             </div>
         </div>
@@ -20,22 +18,48 @@
             <nav class="header__menu">
                 <div class="header__menu-close">&times;</div>
                 <div class="header__list">
-                    <div class="header__link">Главная</div>
-                    <div class="header__link">Команда</div>
-                    <div class="header__link">
-                        <a href="{% url 'events' %}">Мероприятия</a>  
-                    </div>
-                    <div class="header__link">
-                        <a href="{% url 'sportgrounds' %}">Площадки</a>  
-                    </div>
-                    <div class="header__link">
-                        <a href="{% url 'profile' %}">Профиль</a>  
-                        <a href="{% url 'logout' %}">выйти</a>
-
-                    </div>
+                    <div class="header__link"><a href="{% url 'events' %}">Мероприятия</a></div>
+                    <div class="header__link"><a href="{% url 'sportgrounds' %}">Площадки</a></div>
+                    {% if request.user.is_authenticated %}
+                        <div class="header__link">
+                            <a href="{% url 'profile' %}">Профиль</a>
+                        </div>
+                        <div class="header__link">
+                            <a href="{% url 'logout' %}">Выйти</a>
+                        </div>
+                    {% else %}
+                        <div class="header__link">
+                            <a href="{% url 'login' %}">Войти</a>
+                        </div>
+                    {% endif %}
                 </div>
             </nav>
         </div>
     </div>
 </header>
-{% endblock %}
+{% block extra_js %}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const burger = document.querySelector(".header__burger");
+            const menu = document.querySelector(".header__menu");
+            const menuClose = document.querySelector(".header__menu-close");
+        
+            burger.addEventListener("click", () => {
+                menu.classList.add("active");
+                document.body.style.overflowY = "hidden"
+            });
+        
+            menuClose.addEventListener("click", () => {
+                menu.classList.remove("active");
+                 document.body.style.overflowY = "auto"
+            });
+        
+            // Закрытие меню при клике вне его
+            document.addEventListener("click", (e) => {
+                if (!menu.contains(e.target) && !burger.contains(e.target)) {
+                    menu.classList.remove("active");
+                }
+            });
+        });
+    </script>
+    {% endblock %}

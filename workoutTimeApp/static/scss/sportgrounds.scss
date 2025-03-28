@@ -26,7 +26,11 @@
       }
     }
 }
-
+.slick-arrow{
+  @media (max-width: 600px) {
+    display: none !important;
+  }
+}
 .sportground {
   margin-bottom: 60px;
 		// .sportground__items
@@ -34,7 +38,7 @@
       display: flex;
       align-items: flex-start; 
       gap: 20px;
-      @media (max-width: 768px) {
+      @media (max-width: 992px) {
         flex-wrap: wrap;
       }
 		}
@@ -42,27 +46,30 @@
       padding: 0 20px;
       max-width: 1800px;
       margin: 0 auto;
-      @media (max-width: 768px) {
+      @media (max-width: 992px) {
         padding: 40px 20px;
       }
     }
 		// .sportground__item
 		&__item {
         &:first-child{
-          flex: 0 0 65%;
+          flex: 0 0 50%;
           overflow: hidden;
           position: relative;
           padding: 0 60px;
-          @media (max-width: 768px) {
+          @media (max-width: 992px) {
             flex: 0 0 100%;
+           }
+           @media (max-width: 600px) {
+            padding: 0px;
            }
         }
         &:last-child{
-          flex: 0 0 35%; /* Текст займет одну часть пространства */
+          flex: 0 0 45%; /* Текст займет одну часть пространства */
           display: flex;
           flex-direction: column;
           justify-content: flex-start; /* Выравнивание текста по верхнему краю */
-          @media (max-width: 768px) {
+          @media (max-width: 992px) {
            flex: 0 0 100%;
           }
         }
@@ -72,15 +79,37 @@
         font-size: 32px;
         font-weight: 600;
         margin-bottom: 15px;
+        line-height: 130%;
+        position: relative;
+        padding-bottom: 20px;
+        @media (max-width: 600px) {
+          font-size: 24px;
+        }
+        &::after{
+          content: "";
+          width: 120px;
+          height: 6px;
+          background: #000;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
 		}
 		// .sportground__adress
 		&__adress {
         display: flex;
         font-size: 16px;
         line-height: 130%;
-        & span{
-          font-weight: 600;
-          margin-right: 5px;
+        width: 80%;
+        background: url("../imgs/sportgrounds/map.svg");
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: 30px;
+        padding: 0px 40px;
+        padding-bottom: 10px;
+        @media (max-width: 600px) {
+          width: 100%;
+          font-size: 14px;
         }
 		}
 }
