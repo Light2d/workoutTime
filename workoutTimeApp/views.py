@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
-from .forms import CustomRegistrationForm, CustomAuthenticationForm
+from .forms import CustomRegistrationForm, CustomAuthenticationForm, ProfileForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.core.mail import send_mail
@@ -107,7 +107,23 @@ def article(request, article_id):
 
 @login_required
 def profile(request):
-    return render(request, 'profile.html', {'user': request.user})
+    user = request.user
+
+    if request.method == "POST":
+        if "profile_photo" in request.FILES:
+            user.profile_photo = request.FILES["profile_photo"]
+            user.save()
+            return JsonResponse({"status": "success", "photo_url": user.profile_photo.url})
+
+        form = ProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect("profile")
+    else:
+        form = ProfileForm(instance=user)
+
+    return render(request, "profile.html", {"user": user, "form": form})
+
 
 def get_sportgrounds_data(request):
     sportgrounds = SportGround.objects.all()

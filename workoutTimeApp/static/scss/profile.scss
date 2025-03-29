@@ -105,3 +105,56 @@
     &__date {
     }
 }
+#profile-form {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="file"] {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+
+@media (max-width: 768px) {
+    #profile-form {
+        width: 90%;
+        padding: 15px;
+    }
+}

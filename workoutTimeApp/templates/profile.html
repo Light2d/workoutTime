@@ -18,32 +18,104 @@
             <div class="profile__container container">
                 <div class="profile__items">
                     <div class="profile__item">
+                        <!-- Блок аватара -->
                         <div class="profile__avatar">
-                            <img src="{% static 'imgs/team/2.png' %}" alt="">
+                            <img id="avatar-preview" src="{{ user.profile_photo.url }}" alt="Аватар">
                         </div>
+                        <form id="avatar-form" method="post" enctype="multipart/form-data" style="display: none;">
+                            {% csrf_token %}
+                            <input type="file" id="avatar-input" name="profile_photo" accept="image/*" hidden>
+                        </form>
                         <div class="profile__button">
-                            <button class="btn-black">Редактировать</button>
+                            <button id="edit-btn" class="btn-black">Редактировать</button>
                         </div>
                     </div>
+                    
                     <div class="profile__item">
-                        <div class="profile__info">
-                            <div class="profile__name">{{ user.full_name }}</div>
-                            <div class="profile__field">
-                                <span class="profile__label">Почта:</span>
-                                <div class="profile__email">{{ user.email }}</div>
-                            </div>
-                            <div class="profile__field">
-                                <span class="profile__label">Дата рождения:</span>
-                                <div class="profile__date">{{ user.birth_date|date:"d.m.Y" }}</div>
+                        <div id="profile-view">
+                            <div class="profile__info">
+                                <div class="profile__name">{{ user.full_name }}</div>
+                                <div class="profile__field">
+                                    <span class="profile__label">Почта:</span>
+                                    <div class="profile__email">{{ user.email }}</div>
+                                </div>
+                                <div class="profile__field">
+                                    <span class="profile__label">Дата рождения:</span>
+                                    <div class="profile__date">{{ user.birth_date|date:"d.m.Y" }}</div>
+                                </div>
                             </div>
                         </div>
+    
+                        <!-- Форма редактирования профиля -->
+                        <form id="profile-form" method="post" enctype="multipart/form-data" style="display: none;">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_full_name">Имя:</label>
+                                {{ form.full_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_email">Email:</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_birth_date">Дата рождения:</label>
+                                {{ form.birth_date }}
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn-black">Сохранить</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-          
-          {% include "footer.html" %}
- 
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const editBtn = document.getElementById("edit-btn");
+                const profileView = document.getElementById("profile-view");
+                const profileForm = document.getElementById("profile-form");
+                const avatarPreview = document.getElementById("avatar-preview");
+                const avatarInput = document.getElementById("avatar-input");
+    
+                // Клик по кнопке "Редактировать"
+                editBtn.addEventListener("click", function () {
+                    profileView.style.display = "none"; // Скрываем просмотр профиля
+                    profileForm.style.display = "flex"; // Показываем форму редактирования
+                    editBtn.style.display = "none"; // Скрываем кнопку "Редактировать"
+                });
+    
+                // Клик по аватарке открывает выбор файла
+                avatarPreview.addEventListener("click", function () {
+                    avatarInput.click();
+                });
+    
+                // Обработка загрузки нового фото
+                avatarInput.addEventListener("change", function () {
+                    if (this.files && this.files[0]) {
+                        let reader = new FileReader();
+                        reader.onload = function (e) {
+                            avatarPreview.src = e.target.result;
+                        };
+                        reader.readAsDataURL(this.files[0]);
+    
+                        // Автоматическая загрузка фото на сервер
+                        let formData = new FormData();
+                        formData.append("profile_photo", avatarInput.files[0]);
+    
+                        fetch("{% url 'profile' %}", {  // Убедись, что URL соответствует представлению профиля
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                "X-CSRFToken": "{{ csrf_token }}"
+                            }
+                        }).then(response => location.reload());
+                    }
+                });
+            });
+        </script>
+    
+        {% include "footer.html" %}
     </div>
    
 </body>

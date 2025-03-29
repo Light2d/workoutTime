@@ -78,7 +78,6 @@ footer {
 
 button {
     color: #fff;
-    margin-bottom: 10px;
     padding: 15px 30px;
 }
 .btn-black {
@@ -323,7 +322,7 @@ button {
 .team-slider {
     width: 100%;
     max-width: 100%;
-    padding: 20px 0;
+    padding: 20px 0 !important;
     overflow: hidden !important; 
     position: relative;
   }

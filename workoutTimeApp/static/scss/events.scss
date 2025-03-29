@@ -17,6 +17,7 @@
     &__nav {
       display: flex;
       border-bottom: 2px solid #ddd;
+      margin-bottom: 10px;
     }
   
     &__btn {
@@ -25,10 +26,14 @@
       text-align: center;
       border: none;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
       color: #333;
+      background: transparent;
       transition: background 0.3s, color 0.3s;
+        @media (max-width: 600px) {
+          font-size: 18px;
+        }
         @media (max-width: 425px) {
             font-size: 16px;
         }
@@ -36,10 +41,17 @@
             font-size: 14px;
         }
       &.active {
-        color: #000;
-        border-bottom: 2px solid #000000;
-        background: #fff;
-
+        position: relative;
+        &::after{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #000;
+          width: 60%;
+          height: 4px;
+        }
       }
   
       &:hover {
@@ -48,11 +60,11 @@
     }
   
     &__content {
-      padding: 15px;
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      border-top: none;
+      padding: 15px 25px;
       font-size: 16px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      height: 350px;
       @media (max-width: 425px) {
         font-size: 14px;
     }
@@ -81,17 +93,41 @@
       padding: 8px 0;
       cursor: pointer;
       border-bottom: 1px solid #8f8f8f;
+      transition: all ease .3s;
       &:not(:last-child){
         margin-bottom: 10px;
       }
+      &:hover{
+        transform: scale(1.01);
+        transition: all ease .3s;
+      }
+      &:hover .eventsTabs__name{
+        transform: scale(1.01);
+        transition: all ease .3s;
+      }
+      
     }
   
     &__name {
       font-weight: bold;
+      color: #000;
+      font-size: 18px;
+      font-weight: 300;
+     
     }
   
     &__date {
       color: #555;
+    }
+    &__noevents{
+      text-align: center;
+      font-size: 18px;
+      line-height: 130%;
+      & img{
+        max-width: 100%;
+        width: 250px;
+        margin-bottom: 20px;
+      }
     }
   }
   

@@ -7,12 +7,12 @@ from django.conf import settings
 
 
 class CustomUser(AbstractUser):
+    profile_photo = models.ImageField(upload_to='avatars/', null=True, blank=True)
     full_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)  # Уникальный email
+    email = models.EmailField(unique=True)  
     birth_date = models.DateField(null=True, blank=True) 
-    profile_photo = models.URLField(null=True, blank=True)  # Поле для фото
     activation_code = models.UUIDField(default=uuid.uuid4, editable=False, null=True, blank=True, unique=True)  # Код активации
-    is_active = models.BooleanField(default=False)  # Активность пользователя
+    is_active = models.BooleanField(default=False) 
     
     USERNAME_FIELD = 'username'  # Для входа используется username
     REQUIRED_FIELDS = ['email', 'full_name']  # Для создания пользователя требуются email и другие поля
@@ -39,6 +39,11 @@ class CustomUser(AbstractUser):
         help_text='Specific permissions for this user.',
         verbose_name='user permissions',
     )
+    
+    def get_profile_photo(self):
+        if self.profile_photo:
+            return self.profile_photo.url
+        return '/workoutTimeApp/static/imgs/profile/default.jpg'  
     
     def __str__(self):
         return self.username

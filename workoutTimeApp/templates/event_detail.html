@@ -8,7 +8,7 @@
         <div class="chapter">
             <div class="chapter__container container">
                 <div class="chapter__logo">
-                    <img src="/imgs/intro/textLogo.png" alt="">
+                    <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
                 </div>
                 <div class="chapter__title">Соревнования</div>
             </div>
@@ -23,9 +23,9 @@
               <div class="eventTabs__content">
                 <div class="eventTabs__panel active" id="tab1">
                   <div class="event__items">
-                    <div class="event__item">
-                      <img src="{{ event.image.url }}" alt="" class="event__img">
-                    </div>
+                   
+                    <img src="{{ event.image.url }}" alt="" class="event__img event__item">
+                    
                     <div class="event__item">
                       <div class="event__info">
                         <div class="event__title">{{event.title}}</div>
@@ -52,10 +52,11 @@
                 </div>
                 <div class="eventTabs__panel eventTabs__events" id="tab2">
                   <div class="event__items">
-                    <div class="event__item"><ul class="eventTabs__list">
+                    <div class="event__item">
+                      <ul class="eventTabs__list">
 
                       {% for participant in event.participants.all %}
-                        <li><span class="eventTabs__name">{{ participant.full_name }}</span></li>
+                        <li class="eventTabs__name">{{ participant.full_name }}</li>
                       {% endfor %}
 
                     </ul>
@@ -94,8 +95,10 @@
     </main>
     <div id="event__modal" class="event__modal">
       <div class="event__modal-content">
-        <p id="event__modal-message">Вы успешно зарегистрированы на мероприятие!</p>
-        <button id="event__modal-close" class="event__modal-close">Закрыть</button>
+        <p id="event__modal-message" class="event__modal-message">Вы успешно зарегистрированы на мероприятие!</p>
+        <div class="event__modal-close">
+          <button id="event__modal-close" class="">Закрыть</button>
+        </div>
       </div>
     </div>
     {% include "footer.html" %}

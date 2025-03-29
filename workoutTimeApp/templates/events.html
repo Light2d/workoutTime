@@ -25,30 +25,59 @@
   
       <div class="eventsTabs__content">
           <div class="eventsTabs__panel active" id="tab1">
-              {% for event in competitions %}
-                  <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
-                      <span class="eventsTabs__name">{{ event.title }}</span>
-                      <span class="eventsTabs__date">{{ event.date }}</span>
-                  </a>
-              {% endfor %}
+            {% if competitions %}
+                {% for event in competitions %}
+                    <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
+                        <span class="eventsTabs__name">{{ event.title }}</span>
+                        <span class="eventsTabs__date">{{ event.date }}</span>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <div class="eventsTabs__noevents">
+                  <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
+                  <div>
+                    Информация появится, как только станет
+                    известно о соревнованиях
+                  </div>
+                </div>
+            {% endif %}
           </div>
-          
           <div class="eventsTabs__panel" id="tab2">
+            {% if masterclasses %}
               {% for event in masterclasses %}
                   <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
                       <span class="eventsTabs__name">{{ event.title }}</span>
                       <span class="eventsTabs__date">{{ event.date }}</span>
                   </a>
               {% endfor %}
+            {% else %}
+              <div class="eventsTabs__noevents">
+                <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
+                <div>
+                  Информация появится, как только станет
+                  известно о мероприятиях
+                </div>
+              </div>
+            {% endif %}
           </div>
   
           <div class="eventsTabs__panel" id="tab3">
+            {% if archive %}
               {% for event in archive %}
                   <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
                       <span class="eventsTabs__name">{{ event.title }}</span>
                       <span class="eventsTabs__date">{{ event.date }}</span>
                   </a>
               {% endfor %}
+            {% else %}
+                <div class="eventsTabs__noevents">
+                  <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
+                  <div>
+                    Информация появится, как только станет
+                    известно о соревнованиях
+                  </div>
+                </div>
+            {% endif %}
           </div>
       </div>
   </div>

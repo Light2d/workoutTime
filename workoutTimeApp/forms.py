@@ -165,3 +165,19 @@ class EventRegistrationForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = []
+        
+    
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['full_name', 'email', 'birth_date']
+        widgets = {
+            'birth_date': forms.DateInput(attrs={'type': 'date'}),  # Для даты рождения виджет
+        }
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        # Проверка уникальности email
+        if CustomUser.objects.exclude(id=self.instance.id).filter(email=email).exists():
+            raise forms.ValidationError("Этот email уже используется.")
+        return email

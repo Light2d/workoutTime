@@ -17,6 +17,7 @@
 .eventsTabs__nav {
   display: flex;
   border-bottom: 2px solid #ddd;
+  margin-bottom: 10px;
 }
 .eventsTabs__btn {
   flex: 1;
@@ -24,10 +25,16 @@
   text-align: center;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   color: #333;
+  background: transparent;
   transition: background 0.3s, color 0.3s;
+}
+@media (max-width: 600px) {
+  .eventsTabs__btn {
+    font-size: 18px;
+  }
 }
 @media (max-width: 425px) {
   .eventsTabs__btn {
@@ -40,16 +47,24 @@
   }
 }
 .eventsTabs__btn.active {
-  color: #000;
-  border-bottom: 2px solid #000000;
-  background: #fff;
+  position: relative;
+}
+.eventsTabs__btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  width: 60%;
+  height: 4px;
 }
 .eventsTabs__content {
-  padding: 15px;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-top: none;
+  padding: 15px 25px;
   font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  height: 350px;
 }
 @media (max-width: 425px) {
   .eventsTabs__content {
@@ -78,13 +93,35 @@
   padding: 8px 0;
   cursor: pointer;
   border-bottom: 1px solid #8f8f8f;
+  transition: all ease 0.3s;
 }
 .eventsTabs__item:not(:last-child) {
   margin-bottom: 10px;
 }
+.eventsTabs__item:hover {
+  transform: scale(1.01);
+  transition: all ease 0.3s;
+}
+.eventsTabs__item:hover .eventsTabs__name {
+  transform: scale(1.01);
+  transition: all ease 0.3s;
+}
 .eventsTabs__name {
   font-weight: bold;
+  color: #000;
+  font-size: 18px;
+  font-weight: 300;
 }
 .eventsTabs__date {
   color: #555;
+}
+.eventsTabs__noevents {
+  text-align: center;
+  font-size: 18px;
+  line-height: 130%;
+}
+.eventsTabs__noevents img {
+  max-width: 100%;
+  width: 250px;
+  margin-bottom: 20px;
 }
