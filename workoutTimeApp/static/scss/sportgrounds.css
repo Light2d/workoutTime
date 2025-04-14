@@ -2,10 +2,8 @@
 .sportgroundMap {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 1200px;
+  width: 100vw;
   height: 0;
-  margin: 0 auto;
   padding-bottom: 56.25%;
   position: relative;
 }
@@ -15,7 +13,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 80%;
   padding: 0 20px;
 }
