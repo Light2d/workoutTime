@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event
+from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event, LastEventImage
 from django.utils.html import format_html
+from ckeditor.widgets import CKEditorWidget
+from django import forms
+
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
@@ -51,19 +54,23 @@ class TeamMemberAdmin(admin.ModelAdmin):
     photo_preview.allow_tags = True
     photo_preview.short_description = "Превью фото"
     
-@admin.register(LastEvent)
+class LastEventImageInline(admin.TabularInline):  
+    model = LastEventImage
+    extra = 1  # Кол-во пустых форм для добавления новых изображений
+    fields = ['image']  # только поле image для отображения
+
+@admin.register(LastEvent)  # Регистрация только один раз
 class LastEventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date')  # Показывать название и дату в списке
+    list_display = ('title', 'description', 'date', 'photo_preview')  # Добавлен метод preview
     ordering = ('-date',)  # Сортировка по дате (по убыванию)
     search_fields = ('title',)  # Поиск по названию
+    inlines = [LastEventImageInline]  # Вставка изображений в форме
 
     def photo_preview(self, obj):
         if obj.photo:
-            return f'<img src="{obj.photo.url}" style="height: 50px;"/>'
+            return format_html('<img src="{}" style="height: 50px;"/>', obj.photo.url)
         return "Нет изображения"
-    photo_preview.allow_tags = True
     photo_preview.short_description = "Превью фото"
-    
     
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
@@ -86,3 +93,4 @@ class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'date', 'event_type')
     search_fields = ('title',)
     list_filter = ('event_type',)
+    

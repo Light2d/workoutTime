@@ -17,9 +17,10 @@
   }
 }
 .profile__item:first-child {
+  flex: 0 0 20%;
   margin-right: 40px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .profile__item:first-child {
     margin-right: 0;
   }
@@ -32,6 +33,7 @@
 @media (max-width: 992px) {
   .profile__item:last-child {
     margin-top: 20px;
+    justify-content: center;
   }
 }
 .profile__intro {
@@ -110,10 +112,20 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 50px;
 }
 
+@media (max-width: 768px) {
+  #profile-form {
+    width: 90%;
+    padding: 15px;
+    margin-top: 0;
+  }
+}
 .form-group {
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 8px;
 }
@@ -146,11 +158,4 @@
 .form-group textarea:focus {
   border-color: #4a90e2;
   outline: none;
-}
-
-@media (max-width: 768px) {
-  #profile-form {
-    width: 90%;
-    padding: 15px;
-  }
 }

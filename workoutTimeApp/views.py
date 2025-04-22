@@ -101,6 +101,11 @@ def index(request):
     return render(request, 'index.html', {'team_members': team_members, 'last_event': last_event, 'articles': articles})
 
 @login_required
+def last_event(request):
+    last_event = LastEvent.objects.latest('date')
+    return render(request, 'last_event.html', {'last_event': last_event})
+
+@login_required
 def article(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     return render(request, 'article.html', {'article': article})
@@ -148,14 +153,12 @@ def sportgrounds(request):
 
 @login_required
 def events(request):
-    # Получаем все события
     competitions = Event.objects.filter(event_type='competition')
     masterclasses = Event.objects.filter(event_type='masterclass')
     archive = Event.objects.filter(event_type='archive')
 
-    # Проверяем и обновляем статус событий
     for event in competitions | masterclasses:
-        if event.date < now().date() - timedelta(days=2):  # Если прошло 2 дня
+        if event.date < now().date() - timedelta(days=2):  
             event.event_type = 'archive'
             event.save()
 

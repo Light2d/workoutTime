@@ -1,10 +1,11 @@
-{% extends "base.html" %}
+
 {% load static %}
 
-{% block title %}Статья{% endblock %}
 
-{% block content %}
-<main>
+{% include "base.html" %}
+{% include "header.html" %}
+
+<div class="main">
   <div class="chapter">
     <div class="profile__intro">
         <div class="chapter__logo">
@@ -24,7 +25,7 @@
                 <div class="article__info">
                     <div class="article__title">{{ article.title }}</div>
                     <div class="article__description">
-                        {{ article.description }}
+                        {{ article.description|safe }}
                     </div>
                     <div class="article__date">Дата публикации: {{ article.created_at|date:"j E Y" }}</div>
                 </div>
@@ -32,6 +33,5 @@
         </div>
     </div>
 </div>
-</main>
+</div>
 
-{% endblock %}

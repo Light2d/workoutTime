@@ -1,0 +1,78 @@
+{% load static %}
+
+{% include "base.html" %}
+{% include "header.html" %}
+<!-- Стили для Slick Slider -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+<!-- Скрипты для Slick Slider -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<body>
+  
+    <div class="main">
+        <div class="chapter">
+            <div class="profile__intro">
+                <div class="chapter__logo">
+                    <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="last_event">
+            <!-- Слайдер -->
+            <div class="slider">
+                {% if last_event.images.all %}
+                    <div class="slick-slider">
+                        {% for image in last_event.images.all %}
+                            <div>
+                                <img src="{{ image.image.url }}" alt="Slide {{ forloop.counter }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div>
+                        <img src="{{ last_event.photo.url }}" alt="Event Image">
+                    </div>
+                {% endif %}
+            </div>
+        
+            <!-- Информация о событии -->
+            <div class="last_event__info">
+                <div class="last_event__title">
+                    {{ last_event.title }}
+                </div>
+                <div class="last_event__description">
+                    {{ last_event.description|safe }}
+                </div>
+                <div class="last_event__date">
+                    <strong>Дата:</strong> {{ last_event.date }}
+                </div>
+
+            </div>
+        </div>
+        
+        
+     
+    
+        {% include "footer.html" %}
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.slick-slider').slick({
+            infinite: true,    // Бесконечный слайд
+            slidesToShow: 1,   // Показывать 1 слайд за раз
+            slidesToScroll: 1, // Прокручивать 1 слайд
+            arrows: true,      // Показывать стрелки
+            dots: true,        // Показывать индикаторы
+            autoplay: true,    // Автоматическая прокрутка
+            autoplaySpeed: 2000, // Скорость автопрокрутки
+          });
+        });
+      </script>
+      
+   
+</body>
+</html>

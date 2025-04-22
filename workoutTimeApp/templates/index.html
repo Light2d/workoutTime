@@ -46,7 +46,7 @@
           <div class="events">
             <div class="events__container container">
               <div class="events__items">
-                <div class="events__item lastEvent">
+                <a href="{% url 'last_event' %}" class="events__item lastEvent">
                   <div class="lastEvent__img">
                     <img src="{{ last_event.photo.url }}" alt="{{ member.name }}">
                     <div class="lastEvent__info">
@@ -55,7 +55,7 @@
                       <div class="lastEvent__date">{{ last_event.date|date:"j E Y" }}</div>
                     </div>
                   </div>
-                </div>
+                </a>
                 <div class="events__item articles">
                   <div class="articles__items">
                     {% for article in articles %}
@@ -100,7 +100,6 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
           const swiper = new Swiper('.team-slider', {
-          slidesPerView: 3, 
           spaceBetween: 20, 
         // Центрируем текущий слайд
             loop: true, 

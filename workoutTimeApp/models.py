@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.contrib.postgres.fields import ArrayField  # Для списка изображений (PostgreSQL)
 from django.db.models import JSONField
 from django.conf import settings
+from ckeditor.fields import RichTextField
 
 
 class CustomUser(AbstractUser):
@@ -64,6 +65,7 @@ class TeamMember(models.Model):
         
 class LastEvent(models.Model):
     photo = models.ImageField(upload_to='lastEvent_photos/', verbose_name="Фото", blank=True, null=True)  # Фото участника
+    description = RichTextField(verbose_name="Описание поста", null="true")
     title = models.CharField(max_length=255, verbose_name="Название мероприяти") 
     date = models.DateField()  
 
@@ -73,11 +75,15 @@ class LastEvent(models.Model):
     class Meta:
         verbose_name = "Последнее мероприятие"
         verbose_name_plural = "Последнее мероприятие"
+        
+class LastEventImage(models.Model):
+    last_event = models.ForeignKey(LastEvent, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='last_event_images/')
 
 class Article(models.Model):
     image = models.ImageField(upload_to='articles_images/', verbose_name="Изображение поста")
     title = models.CharField(max_length=255, verbose_name="Название поста")
-    description = models.TextField(verbose_name="Описание поста")
+    description = RichTextField(verbose_name="Описание поста", null="true")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
 
     def __str__(self):
@@ -116,7 +122,7 @@ class Event(models.Model):
     ]
     
     title = models.CharField(max_length=255)
-    description = models.TextField()
+    description = RichTextField(verbose_name="Описание", null="true")
     date = models.DateField()
     address = models.CharField(max_length=255)
     image = models.ImageField(upload_to='events/')

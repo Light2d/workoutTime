@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import index, login, register, logout, sportgrounds, events, activate_account, profile, article, get_sportgrounds_data, events, event_detail, register_for_event
+from .views import index, login, register, logout, last_event, sportgrounds, events, activate_account, profile, article, get_sportgrounds_data, events, event_detail, register_for_event
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
     path('articles/<int:article_id>/', article, name='article'),
     path('sportgrounds/', sportgrounds, name='sportgrounds'),
     path('get_sportgrounds_data/', get_sportgrounds_data, name='get_sportgrounds_data'),
+    path('last-event/', last_event, name='last_event'),
 
     
    path('password_reset/', auth_views.PasswordResetView.as_view(

@@ -1,0 +1,47 @@
+.last_event {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .slick-slider {
+    margin-bottom: 30px;  
+  }
+  
+  .slick-slide img {
+    width: 100%;        
+    max-height: 500px;       
+    object-fit: cover;   
+    object-position: center; 
+  }
+  
+  .slick-prev, .slick-next {
+    font-size: 24px; 
+    color: #000000;    
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    color: #000000; 
+  }
+  
+  .last_event {
+    // .last_event__info
+    &__info {
+    }
+    // .last_event__title
+    &__title {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    // .last_event__date
+    &__date {
+        font-size: 16px;
+
+    }
+    // .last_event__description
+    &__description {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+}

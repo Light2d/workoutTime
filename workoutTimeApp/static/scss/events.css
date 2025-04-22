@@ -16,7 +16,6 @@
 }
 .eventsTabs__nav {
   display: flex;
-  border-bottom: 2px solid #ddd;
   margin-bottom: 10px;
 }
 .eventsTabs__btn {

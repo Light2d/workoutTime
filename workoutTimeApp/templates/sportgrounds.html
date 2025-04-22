@@ -18,6 +18,7 @@
         zoom: 15
     });
 
+
     // Загружаем данные через AJAX
     fetch('/get_sportgrounds_data/')
         .then(response => response.json())
@@ -75,6 +76,7 @@
     }
     
     </script>
+   
 {% endblock %}
 {% block extra_css %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
