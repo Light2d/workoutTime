@@ -18,69 +18,140 @@
     </div>
     <div class="eventsTabs">
       <div class="eventsTabs__nav">
-          <button class="eventsTabs__btn active" data-tab="tab1">Соревнования</button>
-          <button class="eventsTabs__btn" data-tab="tab2">Мастер-классы</button>
-          <button class="eventsTabs__btn" data-tab="tab3">Архив</button>
+        <button class="eventsTabs__btn active" data-tab="tab1">Соревнования</button>
+        <button class="eventsTabs__btn" data-tab="tab2">Мастер-классы</button>
+        <button class="eventsTabs__btn" data-tab="tab3">Архив</button>
       </div>
-  
+    
       <div class="eventsTabs__content">
-          <div class="eventsTabs__panel active" id="tab1">
-            {% if competitions %}
-                {% for event in competitions %}
-                    <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
-                        <span class="eventsTabs__name">{{ event.title }}</span>
-                        <span class="eventsTabs__date">{{ event.date }}</span>
-                    </a>
-                {% endfor %}
-            {% else %}
-                <div class="eventsTabs__noevents">
-                  <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
-                  <div>
-                    Информация появится, как только станет
-                    известно о соревнованиях
-                  </div>
-                </div>
-            {% endif %}
-          </div>
-          <div class="eventsTabs__panel" id="tab2">
-            {% if masterclasses %}
-              {% for event in masterclasses %}
-                  <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
-                      <span class="eventsTabs__name">{{ event.title }}</span>
-                      <span class="eventsTabs__date">{{ event.date }}</span>
-                  </a>
-              {% endfor %}
-            {% else %}
-              <div class="eventsTabs__noevents">
-                <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
-                <div>
-                  Информация появится, как только станет
-                  известно о мероприятиях
-                </div>
-              </div>
-            {% endif %}
-          </div>
-  
-          <div class="eventsTabs__panel" id="tab3">
-            {% if archive %}
-              {% for event in archive %}
-                  <a href="{% url 'event_detail' event.id %}" class="eventsTabs__item">
-                      <span class="eventsTabs__name">{{ event.title }}</span>
-                      <span class="eventsTabs__date">{{ event.date }}</span>
-                  </a>
-              {% endfor %}
-            {% else %}
-                <div class="eventsTabs__noevents">
-                  <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
-                  <div>
-                    Информация появится, как только станет
-                    известно о соревнованиях
-                  </div>
-                </div>
-            {% endif %}
-          </div>
+        <div class="eventsTabs__panel active" id="tab1">
+          {% if competitions %}
+            <div class="eventsTabs__tableWrapper">
+              <table class="eventsTabs__table">
+                <thead class="eventsTabs__thead">
+                  <tr class="eventsTabs__tr">
+                    <th class="eventsTabs__th">Дата</th>
+                    <th class="eventsTabs__th">Название</th>
+                    <th class="eventsTabs__th">Место</th>
+                    <th class="eventsTabs__th">Статус</th>
+                  </tr>
+                </thead>
+                <tbody class="eventsTabs__tbody">
+                  {% for event in competitions %}
+                  <tr class="eventsTabs__tr" data-url="{% url 'event_detail' event.id %}">
+                    <td class="eventsTabs__td">{{ event.date }}</td>
+                    <td class="eventsTabs__td">
+                      <a href="{% url 'event_detail' event.id %}" class="eventsTabs__link">
+                        {{ event.title }}
+                      </a>
+                    </td>
+                    <td class="eventsTabs__td">{{ event.address }}</td>
+                    <td class="eventsTabs__td">
+                      {% if user.is_registered %}
+                        <p>Зарегистрирован</p>
+                      {% else %}
+                          <p>Не зарегистрирован</p>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <div class="eventsTabs__noevents">
+              <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
+              <div>Информация появится, как только станет известно о соревнованиях</div>
+            </div>
+          {% endif %}
+        </div>
+    
+        <div class="eventsTabs__panel" id="tab2">
+          {% if masterclasses %}
+            <div class="eventsTabs__tableWrapper">
+              <table class="eventsTabs__table">
+                <thead class="eventsTabs__thead">
+                  <tr class="eventsTabs__tr">
+                    <th class="eventsTabs__th">Дата</th>
+                    <th class="eventsTabs__th">Название</th>
+                    <th class="eventsTabs__th">Место</th>
+                    <th class="eventsTabs__th">Статус</th>
+                  </tr>
+                </thead>
+                <tbody class="eventsTabs__tbody">
+                  {% for event in masterclasses %}
+                  <tr class="eventsTabs__tr" data-url="{% url 'event_detail' event.id %}">
+                    <td class="eventsTabs__td">{{ event.date }}</td>
+                    <td class="eventsTabs__td">
+                      <a href="{% url 'event_detail' event.id %}" class="eventsTabs__link">
+                        {{ event.title }}
+                      </a>
+                    </td>
+                    <td class="eventsTabs__td">{{ event.address }}</td>
+                    <td class="eventsTabs__td">
+                      {% if user.is_registered %}
+                        <p>Зарегистрирован</p>
+                      {% else %}
+                          <p>Не зарегистрирован</p>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <div class="eventsTabs__noevents">
+              <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
+              <div>Информация появится, как только станет известно о мастер-классах</div>
+            </div>
+          {% endif %}
+        </div>
+    
+        <div class="eventsTabs__panel" id="tab3">
+          {% if archive %}
+            <div class="eventsTabs__tableWrapper">
+              <table class="eventsTabs__table">
+                <thead class="eventsTabs__thead">
+                  <tr class="eventsTabs__tr">
+                    <th class="eventsTabs__th">Дата</th>
+                    <th class="eventsTabs__th">Название</th>
+                    <th class="eventsTabs__th">Место</th>
+                    <th class="eventsTabs__th">Статус</th>
+                  </tr>
+                </thead>
+                <tbody class="eventsTabs__tbody">
+                  {% for event in archive %}
+                  <tr class="eventsTabs__tr" data-url="{% url 'event_detail' event.id %}">
+                    <td class="eventsTabs__td">{{ event.date }}</td>
+                    <td class="eventsTabs__td">
+                      <a href="{% url 'event_detail' event.id %}" class="eventsTabs__link">
+                        {{ event.title }}
+                      </a>
+                    </td>
+                    <td class="eventsTabs__td">{{ event.address }}</td>
+                    <td class="eventsTabs__td">
+                      {% if user.is_registered %}
+                        <p>Зарегистрирован</p>
+                      {% else %}
+                          <p>Не зарегистрирован</p>
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <div class="eventsTabs__noevents">
+              <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
+              <div>Информация появится, как только станет известно о мероприятиях</div>
+            </div>
+          {% endif %}
+        </div>
       </div>
-  </div>
+    </div>
+    
   </main>
   
 {% include "footer.html" %}
@@ -88,6 +159,14 @@
 
 
   {% block extra_js %}
+  <script>
+    // Добавляем обработчик кликов только на строки с данными
+    document.querySelectorAll('.eventsTabs__tr[data-url]').forEach(function(row) {
+      row.addEventListener('click', function() {
+        window.location.href = row.getAttribute('data-url');
+      });
+    });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
         const swiper = new Swiper('.team-slider', {

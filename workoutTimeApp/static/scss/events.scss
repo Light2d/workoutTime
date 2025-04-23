@@ -1,132 +1,116 @@
-
-
-//==========tabs
 .eventsTabs {
+  padding: 2rem;
+  border-radius: 16px;
+  color: #e0e0e0;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+  &__content{
+    background-color: #121212;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  &__btn {
+    background-color: #1e1e1e;
+    color: #ccc;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
     width: 100%;
-    max-width: 1000px;
-    margin: 20px auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 60px;
-    font-family: Arial, sans-serif;
-    @media (max-width: 425px) {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    &__nav {
-      display: flex;
-      margin-bottom: 10px;
-    }
-  
-    &__btn {
-      flex: 1;
-      padding: 10px 15px;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-      background: transparent;
-      transition: background 0.3s, color 0.3s;
-        @media (max-width: 600px) {
-          font-size: 18px;
-        }
-        @media (max-width: 425px) {
-            font-size: 16px;
-        }
-        @media (max-width: 360px) {
-            font-size: 14px;
-        }
-      &.active {
-        position: relative;
-        &::after{
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          background: #000;
-          width: 60%;
-          height: 4px;
-        }
-      }
-  
-      &:hover {
-       
-      }
-    }
-  
-    &__content {
-      padding: 15px 25px;
-      font-size: 16px;
-      border: 2px solid #000;
-      border-radius: 10px;
-      height: 350px;
-      @media (max-width: 425px) {
-        font-size: 14px;
-    }
-    @media (max-width: 360px) {
-        font-size: 12px;
-    }
-    }
-  
-    &__panel {
-      display: none;
-  
-      &.active {
-        display: block;
-      }
-    }
-  
-    &__list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-  
-    &__item {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      cursor: pointer;
-      border-bottom: 1px solid #8f8f8f;
-      transition: all ease .3s;
-      &:not(:last-child){
-        margin-bottom: 10px;
-      }
-      &:hover{
-        transform: scale(1.01);
-        transition: all ease .3s;
-      }
-      &:hover .eventsTabs__name{
-        transform: scale(1.01);
-        transition: all ease .3s;
-      }
-      
-    }
-  
-    &__name {
-      font-weight: bold;
-      color: #000;
-      font-size: 18px;
-      font-weight: 300;
-     
-    }
-  
-    &__date {
-      color: #555;
-    }
-    &__noevents{
-      text-align: center;
-      font-size: 18px;
-      line-height: 130%;
-      & img{
-        max-width: 100%;
-        width: 250px;
-        margin-bottom: 20px;
-      }
+
+    &.active,
+    &:hover {
+      background-color: #333;
+      color: #fff;
     }
   }
-  
+
+  &__panel {
+    display: none;
+
+    &.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+  }
+
+  &__tableWrapper {
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  &__thead {
+    background-color: #1e1e1e;
+  }
+
+  &__tr {
+    border-bottom: 1px solid #333;
+    transition: all ease .3s;
+
+    &:not(.eventsTabs__thead .eventsTabs__tr):hover {
+      background-color: #000000;
+      cursor: pointer;
+      transition: all ease .3s;
+    }
+  }
+
+  &__th, &__td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+  }
+
+  &__th {
+    font-weight: 600;
+    color: #aaa;
+  }
+
+  &__td {
+    color: #ddd;
+  }
+
+  &__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+
+    
+  }
+
+  &__noevents {
+    text-align: center;
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+
+    img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

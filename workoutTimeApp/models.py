@@ -1,19 +1,21 @@
 from django.db import models
 import uuid
 from django.contrib.auth.models import AbstractUser, Group, Permission
-from django.contrib.postgres.fields import ArrayField  # Для списка изображений (PostgreSQL)
-from django.db.models import JSONField
+from django.contrib.postgres.fields import ArrayField 
 from django.conf import settings
-from ckeditor.fields import RichTextField
+from tinymce.models import HTMLField
 
 
 class CustomUser(AbstractUser):
     profile_photo = models.ImageField(upload_to='avatars/', null=True, blank=True)
     full_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)  
+    email = models.EmailField(unique=False)  
     birth_date = models.DateField(null=True, blank=True) 
     activation_code = models.UUIDField(default=uuid.uuid4, editable=False, null=True, blank=True, unique=True)  # Код активации
     is_active = models.BooleanField(default=False) 
+    
+    is_registered = models.BooleanField(default=False)
+
     
     USERNAME_FIELD = 'username'  # Для входа используется username
     REQUIRED_FIELDS = ['email', 'full_name']  # Для создания пользователя требуются email и другие поля
@@ -65,7 +67,7 @@ class TeamMember(models.Model):
         
 class LastEvent(models.Model):
     photo = models.ImageField(upload_to='lastEvent_photos/', verbose_name="Фото", blank=True, null=True)  # Фото участника
-    description = RichTextField(verbose_name="Описание поста", null="true")
+    description = HTMLField(verbose_name="Описание поста", null="true")
     title = models.CharField(max_length=255, verbose_name="Название мероприяти") 
     date = models.DateField()  
 
@@ -83,8 +85,8 @@ class LastEventImage(models.Model):
 class Article(models.Model):
     image = models.ImageField(upload_to='articles_images/', verbose_name="Изображение поста")
     title = models.CharField(max_length=255, verbose_name="Название поста")
-    description = RichTextField(verbose_name="Описание поста", null="true")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    description = HTMLField(verbose_name="Описание поста", null="true")
+    date = models.DateField(verbose_name="Дата создания")  
 
     def __str__(self):
         return self.title
@@ -122,7 +124,7 @@ class Event(models.Model):
     ]
     
     title = models.CharField(max_length=255)
-    description = RichTextField(verbose_name="Описание", null="true")
+    description = HTMLField(verbose_name="Описание", null="true")
     date = models.DateField()
     address = models.CharField(max_length=255)
     image = models.ImageField(upload_to='events/')
@@ -138,4 +140,4 @@ class Event(models.Model):
     
     class Meta:
         verbose_name = "Мероприятие" 
-        verbose_name_plural = "Мероприятие"  
+        verbose_name_plural = "Мероприятие"

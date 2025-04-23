@@ -16,8 +16,10 @@ SECRET_KEY = 'django-insecure-d*+sh_4vm7a2eikx&8go81#z8j$bbb5db_c91kfy*=o9s0o5c)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['45baec7fc808b4.lhr.life', '127.0.0.1']
-
+ALLOWED_HOSTS = ['f7a8be887bd079.lhr.life', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = [
+    'https://f7a8be887bd079.lhr.life',
+]
 
 # Application definition
 
@@ -30,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'ckeditor',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
@@ -107,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -143,7 +145,10 @@ LOGIN_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '53013207'  # ID приложения ВК
 SOCIAL_AUTH_VK_OAUTH2_SECRET = '0VvVGOVhClEKqOXszeYa'  # Секретный ключ приложения
-SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'user_info', 'bdate']
+
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'user_info', 'bdate', 'photos',]
+SOCIAL_AUTH_VK_OAUTH2_EXTRA_DATA = ['bdate', 'photo_200', 'email']
+
 SOCIAL_AUTH_VK_OAUTH2_REDIRECT_URI =  'https://45baec7fc808b4.lhr.life/complete/vk-oauth2/'
 
 SOCIAL_AUTH_PIPELINE = (
@@ -155,9 +160,11 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.create_user',
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',
+    'workoutTimeApp.vk.save_user_info',
     'social_core.pipeline.user.user_details',
     'workoutTimeApp.vk.activate_user',
-    'workoutTimeApp.vk.save_user_info',
 )
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+

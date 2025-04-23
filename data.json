@@ -1,0 +1,2035 @@
+[
+{
+  "model": "workoutTimeApp.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$hQ6rCX7lr4JGOEVJcGJZZn$NPJd2iZDw6ibJfpjm6FFIvOaY7J2fdeaGqkd+XW6nAk=",
+    "last_login": "2025-03-11T21:59:11.649Z",
+    "is_superuser": true,
+    "username": "blanc",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "date_joined": "2025-01-27T19:25:13.870Z",
+    "profile_photo": "",
+    "full_name": "pavel",
+    "email": "light@gmail.com",
+    "birth_date": "2005-05-06",
+    "activation_code": "e8722abd-6b20-4aae-b038-261924067063",
+    "is_active": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "workoutTimeApp.customuser",
+  "pk": 8,
+  "fields": {
+    "password": "!EWyUzX4dGnj2gdei0IhJnJRAKXZfYESRISuWLivE",
+    "last_login": "2025-02-05T19:58:41.012Z",
+    "is_superuser": false,
+    "username": "blanc2d",
+    "first_name": "Павел",
+    "last_name": "Бланк",
+    "is_staff": false,
+    "date_joined": "2025-02-05T19:58:40.982Z",
+    "profile_photo": "",
+    "full_name": "Павел Бланк",
+    "email": "",
+    "birth_date": null,
+    "activation_code": "7de3c1d6-8ebe-4491-b8af-4c94887c6baf",
+    "is_active": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "workoutTimeApp.customuser",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$8uPLKVcQiynapTGS7XvDIN$dvh5Q6gR1V5QvuO4zBIaaqawS8tuT8tkKs9fNGOR0yU=",
+    "last_login": "2025-04-22T21:59:45.680Z",
+    "is_superuser": true,
+    "username": "light",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "date_joined": "2025-03-21T09:31:12Z",
+    "profile_photo": "avatars/anime-found.gif",
+    "full_name": "pavel24",
+    "email": "fdasda@gmail.com",
+    "birth_date": null,
+    "activation_code": "d8da18a2-0605-4dfc-bf59-7c55b97cb014",
+    "is_active": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "workoutTimeApp.customuser",
+  "pk": 16,
+  "fields": {
+    "password": "!VCRuApYnZ4vykq5zpI3e3fV4DebxsMwsptOqGtL1",
+    "last_login": "2025-04-22T22:30:10.497Z",
+    "is_superuser": false,
+    "username": "lighttt2d",
+    "first_name": "Павел",
+    "last_name": "Лайт",
+    "is_staff": false,
+    "date_joined": "2025-04-22T22:27:42.444Z",
+    "profile_photo": "",
+    "full_name": "",
+    "email": "lightpavelll@mail.ru",
+    "birth_date": null,
+    "activation_code": "0c018e4c-b273-484c-af8f-9906eb9042ee",
+    "is_active": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "workoutTimeApp.teammember",
+  "pk": 1,
+  "fields": {
+    "photo": "team_photos/1_B1ar7NN.png",
+    "name": "Артём Радионов",
+    "experience": 5
+  }
+},
+{
+  "model": "workoutTimeApp.teammember",
+  "pk": 2,
+  "fields": {
+    "photo": "team_photos/k95XIT-z2do.jpg",
+    "name": "Павел Жирков",
+    "experience": 5
+  }
+},
+{
+  "model": "workoutTimeApp.teammember",
+  "pk": 3,
+  "fields": {
+    "photo": "team_photos/3_B5xDock.png",
+    "name": "Никита Ширин",
+    "experience": 5
+  }
+},
+{
+  "model": "workoutTimeApp.teammember",
+  "pk": 4,
+  "fields": {
+    "photo": "team_photos/nTJBWyy9Nsk.jpg",
+    "name": "Михаил Салтыков",
+    "experience": 5
+  }
+},
+{
+  "model": "workoutTimeApp.teammember",
+  "pk": 5,
+  "fields": {
+    "photo": "team_photos/w31ytgC17uA.jpg",
+    "name": "Михаил Банчуков",
+    "experience": 5
+  }
+},
+{
+  "model": "workoutTimeApp.lastevent",
+  "pk": 1,
+  "fields": {
+    "photo": "lastEvent_photos/ymcAme0s5fg.jpg",
+    "description": "<p><strong>Друзья, спешим к Вам с итогами Онлайн-турнира по воркауту &laquo;Воркаут Фристайл&raquo;!</strong><br />\r\n<br />\r\n&nbsp;Сегодня в <a href=\"https://vk.com/club198963115\">креативном пространстве &laquo;Веранда&raquo;</a> мы наградили победителей:<br />\r\n<br />\r\n&laquo;Юниор&raquo;<br />\r\n1 место - <a href=\"https://vk.com/id809930720\">Морозов Андрей</a><br />\r\n2 место - <a href=\"https://vk.com/id610237890\">Кривошеева Дарья</a><br />\r\n3 место - <a href=\"https://vk.com/id809216018\">Порейкин Данил</a><br />\r\n<br />\r\n&laquo;PRO&raquo;<br />\r\n1 место - <a href=\"https://vk.com/id341377574\">Щенников Руслан</a><br />\r\n2 место - <a href=\"https://vk.com/id608796463\">Звягин Виталий</a><br />\r\n3 место - <a href=\"https://vk.com/id684723550\">Матюшин Иван</a><br />\r\n<br />\r\nВыражаем искреннюю благодарность за активное участие в организации турнира <a href=\"https://vk.com/club48822315\">МБУ Городской Молодежный Центр &quot;Гелиос&quot;</a><br />\r\n<br />\r\nБольшое спасибо всем, кто принял участие в наших соревнованиях!<br />\r\n<br />\r\nПроект проводится в рамках реализации Всероссийского конкурса программ комплексного развития молодежной политики в субъектах Российской Федерации &laquo;Регион для молодых&raquo; на территории Курской области.</p>",
+    "title": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "date": "2025-04-14"
+  }
+},
+{
+  "model": "workoutTimeApp.lasteventimage",
+  "pk": 1,
+  "fields": {
+    "last_event": 1,
+    "image": "last_event_images/kntwrC9Rl0o.jpg"
+  }
+},
+{
+  "model": "workoutTimeApp.lasteventimage",
+  "pk": 2,
+  "fields": {
+    "last_event": 1,
+    "image": "last_event_images/Yk3L4yoe56k.jpg"
+  }
+},
+{
+  "model": "workoutTimeApp.article",
+  "pk": 1,
+  "fields": {
+    "image": "articles_images/J1G8_oW5yOo.jpg",
+    "title": "Аккредитация ВСА в Курской области",
+    "description": "Сообщаем об успешной аккредитации воздушно-силовой атлетики в Курской области!",
+    "date": "2025-04-14"
+  }
+},
+{
+  "model": "workoutTimeApp.article",
+  "pk": 2,
+  "fields": {
+    "image": "articles_images/QnR1BhkeHi4.jpg",
+    "title": "Фестиваль уличных культур",
+    "description": "Результаты соревнований в направлении ВОРКАУТ на Фестивале уличных культур 🤸‍♂️\r\n\r\nВОРКАУТ ФРИСТАЙЛ 🏆\r\n🥇Никита Ширин\r\n🥈Павел Лайт\r\n🥉Руслан Щенников\r\n\r\nБЕСТ ТРИК ДИНАМИКА 🏆\r\n🥇Руслан Щенников\r\n🥈Павел Лайт\r\n🥉Иван Матюшин\r\n\r\nБЕСТ ТРИК СТАТИКА 🏆\r\n🥇Павел Лайт\r\n🥈Никита Ширин\r\n🥉Иван Матюшин\r\n\r\nВсем спасибо за участие! Увидимся на следующих соревнованиях 🤝",
+    "date": "2025-04-14"
+  }
+},
+{
+  "model": "workoutTimeApp.article",
+  "pk": 3,
+  "fields": {
+    "image": "articles_images/Ro05UuD_dXM.jpg",
+    "title": "Общая тренировка",
+    "description": "Тренировки на свежем воздухе 🌞🤸‍♂️",
+    "date": "2025-04-14"
+  }
+},
+{
+  "model": "workoutTimeApp.sportground",
+  "pk": 1,
+  "fields": {
+    "name": "Спортивная площадка \"Броева дача\"",
+    "address": "г. Курск, городской округ Курск, Центральный округ, парк Боева дача",
+    "latitude": 51.74141771818707,
+    "longitude": 36.21209148479369
+  }
+},
+{
+  "model": "workoutTimeApp.sportground",
+  "pk": 2,
+  "fields": {
+    "name": "Катлик епта, Еромшкино озеро",
+    "address": "Курск, микрорайон Ламоново",
+    "latitude": 51.67460144137357,
+    "longitude": 36.13305043870385
+  }
+},
+{
+  "model": "workoutTimeApp.sportgroundimage",
+  "pk": 1,
+  "fields": {
+    "sportground": 1,
+    "image": "sportground_images/Screenshot_1.png"
+  }
+},
+{
+  "model": "workoutTimeApp.sportgroundimage",
+  "pk": 2,
+  "fields": {
+    "sportground": 1,
+    "image": "sportground_images/Screenshot_2.png"
+  }
+},
+{
+  "model": "workoutTimeApp.sportgroundimage",
+  "pk": 3,
+  "fields": {
+    "sportground": 1,
+    "image": "sportground_images/Screenshot_10.png"
+  }
+},
+{
+  "model": "workoutTimeApp.sportgroundimage",
+  "pk": 4,
+  "fields": {
+    "sportground": 2,
+    "image": "sportground_images/Screenshot_4_kLzmHmo.png"
+  }
+},
+{
+  "model": "workoutTimeApp.sportgroundimage",
+  "pk": 5,
+  "fields": {
+    "sportground": 2,
+    "image": "sportground_images/Screenshot_5_1Zbwk29.png"
+  }
+},
+{
+  "model": "workoutTimeApp.sportgroundimage",
+  "pk": 6,
+  "fields": {
+    "sportground": 2,
+    "image": "sportground_images/Screenshot_3_zPetNWS.png"
+  }
+},
+{
+  "model": "workoutTimeApp.event",
+  "pk": 1,
+  "fields": {
+    "title": "соревы",
+    "description": "ыфвфывфывфыв",
+    "date": "2025-03-18",
+    "address": "г. Курск, городской округ Курск, Центральный округ, парк Боева дача",
+    "image": "events/Screenshot_3.png",
+    "event_type": "archive",
+    "participants": [
+      9
+    ]
+  }
+},
+{
+  "model": "workoutTimeApp.event",
+  "pk": 2,
+  "fields": {
+    "title": "соревы2",
+    "description": "фывы",
+    "date": "2025-03-22",
+    "address": "г. Курск, городской округ Курск, Центральный округ, парк Боева дача",
+    "image": "events/Screenshot_4.png",
+    "event_type": "archive",
+    "participants": [
+      9
+    ]
+  }
+},
+{
+  "model": "workoutTimeApp.event",
+  "pk": 3,
+  "fields": {
+    "title": "sss",
+    "description": "asds",
+    "date": "2025-03-28",
+    "address": "г. Курск, городской округ Курск, Центральный округ, парк Боева дача",
+    "image": "events/Screenshot_3_xkrHPUk.png",
+    "event_type": "archive",
+    "participants": [
+      9
+    ]
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-01-27T19:27:02.175Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Спортивная площадка \"Броева дача\"",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u0421\\u043f\\u043e\\u0440\\u0442\\u0438\\u0432\\u043d\\u0430\\u044f \\u043f\\u043b\\u043e\\u0449\\u0430\\u0434\\u043a\\u0430 \\\"\\u0411\\u0440\\u043e\\u0435\\u0432\\u0430 \\u0434\\u0430\\u0447\\u0430\\\"\"}}, {\"added\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u0421\\u043f\\u043e\\u0440\\u0442\\u0438\\u0432\\u043d\\u0430\\u044f \\u043f\\u043b\\u043e\\u0449\\u0430\\u0434\\u043a\\u0430 \\\"\\u0411\\u0440\\u043e\\u0435\\u0432\\u0430 \\u0434\\u0430\\u0447\\u0430\\\"\"}}, {\"added\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u0421\\u043f\\u043e\\u0440\\u0442\\u0438\\u0432\\u043d\\u0430\\u044f \\u043f\\u043b\\u043e\\u0449\\u0430\\u0434\\u043a\\u0430 \\\"\\u0411\\u0440\\u043e\\u0435\\u0432\\u0430 \\u0434\\u0430\\u0447\\u0430\\\"\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-01-27T21:21:24.584Z",
+    "user": 1,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "asdasdas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-01-28T18:38:05.355Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Катлик епта, Еромшкино озеро",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\"}}, {\"added\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\"}}, {\"added\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-02-05T10:44:27.593Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "1",
+    "object_repr": "Артём Радионов",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-02-05T10:44:37.754Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "Павел Жирков",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-02-05T10:44:46.410Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Никита Ширин",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-02-05T10:58:10.043Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Катлик епта, Еромшкино озеро",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\", \"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-02-05T10:58:26.123Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Катлик епта, Еромшкино озеро",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\", \"fields\": [\"Image\"]}}, {\"changed\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\", \"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-02-05T10:58:59.299Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Катлик епта, Еромшкино озеро",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\", \"fields\": [\"Image\"]}}, {\"changed\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\", \"fields\": [\"Image\"]}}, {\"changed\": {\"name\": \"sport ground image\", \"object\": \"Image for \\u041a\\u0430\\u0442\\u043b\\u0438\\u043a \\u0435\\u043f\\u0442\\u0430, \\u0415\\u0440\\u043e\\u043c\\u0448\\u043a\\u0438\\u043d\\u043e \\u043e\\u0437\\u0435\\u0440\\u043e\", \"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-02-05T19:44:24.343Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "2",
+    "object_repr": "blanc2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-02-05T19:44:59.741Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "3",
+    "object_repr": "blanc2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-02-05T19:45:45.311Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "4",
+    "object_repr": "blanc2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-02-05T19:50:48.272Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "5",
+    "object_repr": "blanc2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-02-05T19:54:40.499Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "6",
+    "object_repr": "blanc2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-02-05T19:58:35.861Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "7",
+    "object_repr": "blanc2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-03-21T09:42:10.849Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "соревы",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-03-22T08:52:06.584Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "2",
+    "object_repr": "соревы2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-03-22T08:59:41.391Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "2",
+    "object_repr": "соревы2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Participants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-03-22T09:06:10.772Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "2",
+    "object_repr": "соревы2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Participants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-03-22T09:16:19.094Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "соревы",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-03-22T09:16:27.749Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "соревы",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-03-28T22:59:06.669Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "3",
+    "object_repr": "sss",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-03-28T23:02:29.374Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "3",
+    "object_repr": "sss",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Participants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-03-28T23:03:37.816Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "3",
+    "object_repr": "sss",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Participants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-03-28T23:04:49.281Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "3",
+    "object_repr": "sss",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Participants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-03-28T23:06:17.529Z",
+    "user": 9,
+    "content_type": 17,
+    "object_id": "3",
+    "object_repr": "sss",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Participants\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-03-28T23:35:47.594Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "9",
+    "object_repr": "light",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Profile photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-04-14T21:04:43.842Z",
+    "user": 9,
+    "content_type": 1,
+    "object_id": "1",
+    "object_repr": "post1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-04-14T21:11:44.457Z",
+    "user": 9,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "Павел Жирков",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-04-14T21:12:23.039Z",
+    "user": 9,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "Михаил Салтыков",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-04-14T21:13:09.840Z",
+    "user": 9,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "Михаил Банчуков",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-04-14T21:34:12.892Z",
+    "user": 9,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\", \"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043c\\u0435\\u0440\\u043e\\u043f\\u0440\\u0438\\u044f\\u0442\\u0438\", \"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-04-14T21:35:37.222Z",
+    "user": 9,
+    "content_type": 1,
+    "object_id": "1",
+    "object_repr": "Аккредитация ВСА в Курской области",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u043f\\u043e\\u0441\\u0442\\u0430\", \"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u0441\\u0442\\u0430\", \"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u0441\\u0442\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-04-14T21:36:45.258Z",
+    "user": 9,
+    "content_type": 1,
+    "object_id": "2",
+    "object_repr": "Фестиваль уличных культур",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-04-14T21:45:20.681Z",
+    "user": 9,
+    "content_type": 1,
+    "object_id": "3",
+    "object_repr": "Общая тренировка",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-04-22T01:33:00.966Z",
+    "user": 9,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"last event image\", \"object\": \"LastEventImage object (1)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-04-22T01:33:06.931Z",
+    "user": 9,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"last event image\", \"object\": \"LastEventImage object (2)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-04-22T02:07:54.003Z",
+    "user": 9,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u0441\\u0442\\u0430\"]}}, {\"changed\": {\"name\": \"last event image\", \"object\": \"LastEventImage object (1)\", \"fields\": [\"Image\"]}}, {\"changed\": {\"name\": \"last event image\", \"object\": \"LastEventImage object (2)\", \"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-04-22T02:15:15.164Z",
+    "user": 9,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u0441\\u0442\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-04-22T02:15:40.634Z",
+    "user": 9,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u0441\\u0442\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-04-22T02:18:07.660Z",
+    "user": 9,
+    "content_type": 2,
+    "object_id": "1",
+    "object_repr": "Онлайн-соревнования «Воркаут Фристайл»!",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 \\u043f\\u043e\\u0441\\u0442\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-04-22T22:00:07.505Z",
+    "user": 9,
+    "content_type": 15,
+    "object_id": "7",
+    "object_repr": "blanc2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-04-22T22:00:26.142Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "10",
+    "object_repr": "lighttt2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-04-22T22:05:13.645Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "11",
+    "object_repr": "lighttt2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-04-22T22:14:36.553Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "10",
+    "object_repr": "blanc2d36e5d1e9b716455a",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-04-22T22:14:36.553Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "11",
+    "object_repr": "lighttt2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-04-22T22:16:28.073Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "12",
+    "object_repr": "lighttt2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-04-22T22:23:02.039Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "13",
+    "object_repr": "lighttt2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-04-22T22:24:54.797Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "14",
+    "object_repr": "lighttt2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-04-22T22:27:35.312Z",
+    "user": 9,
+    "content_type": 5,
+    "object_id": "15",
+    "object_repr": "lighttt2d",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add Пост",
+    "content_type": 1,
+    "codename": "add_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change Пост",
+    "content_type": 1,
+    "codename": "change_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete Пост",
+    "content_type": 1,
+    "codename": "delete_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view Пост",
+    "content_type": 1,
+    "codename": "view_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add Последнее мероприятие",
+    "content_type": 2,
+    "codename": "add_lastevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change Последнее мероприятие",
+    "content_type": 2,
+    "codename": "change_lastevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete Последнее мероприятие",
+    "content_type": 2,
+    "codename": "delete_lastevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view Последнее мероприятие",
+    "content_type": 2,
+    "codename": "view_lastevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add Спортивная площадка",
+    "content_type": 3,
+    "codename": "add_sportground"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change Спортивная площадка",
+    "content_type": 3,
+    "codename": "change_sportground"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete Спортивная площадка",
+    "content_type": 3,
+    "codename": "delete_sportground"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view Спортивная площадка",
+    "content_type": 3,
+    "codename": "view_sportground"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add Участник команды",
+    "content_type": 4,
+    "codename": "add_teammember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change Участник команды",
+    "content_type": 4,
+    "codename": "change_teammember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete Участник команды",
+    "content_type": 4,
+    "codename": "delete_teammember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view Участник команды",
+    "content_type": 4,
+    "codename": "view_teammember"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 5,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 5,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 5,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 5,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add sport ground image",
+    "content_type": 6,
+    "codename": "add_sportgroundimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change sport ground image",
+    "content_type": 6,
+    "codename": "change_sportgroundimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete sport ground image",
+    "content_type": 6,
+    "codename": "delete_sportgroundimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view sport ground image",
+    "content_type": 6,
+    "codename": "view_sportgroundimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 7,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 7,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 7,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 7,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 8,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 8,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 8,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 8,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 9,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 9,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 9,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 9,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 10,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 10,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 10,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 10,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 11,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 11,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 11,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 11,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add association",
+    "content_type": 12,
+    "codename": "add_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change association",
+    "content_type": 12,
+    "codename": "change_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete association",
+    "content_type": 12,
+    "codename": "delete_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view association",
+    "content_type": 12,
+    "codename": "view_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add code",
+    "content_type": 13,
+    "codename": "add_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change code",
+    "content_type": 13,
+    "codename": "change_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete code",
+    "content_type": 13,
+    "codename": "delete_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view code",
+    "content_type": 13,
+    "codename": "view_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add nonce",
+    "content_type": 14,
+    "codename": "add_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change nonce",
+    "content_type": 14,
+    "codename": "change_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete nonce",
+    "content_type": 14,
+    "codename": "delete_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view nonce",
+    "content_type": 14,
+    "codename": "view_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add user social auth",
+    "content_type": 15,
+    "codename": "add_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change user social auth",
+    "content_type": 15,
+    "codename": "change_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete user social auth",
+    "content_type": 15,
+    "codename": "delete_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view user social auth",
+    "content_type": 15,
+    "codename": "view_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add partial",
+    "content_type": 16,
+    "codename": "add_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change partial",
+    "content_type": 16,
+    "codename": "change_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete partial",
+    "content_type": 16,
+    "codename": "delete_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view partial",
+    "content_type": 16,
+    "codename": "view_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add event",
+    "content_type": 17,
+    "codename": "add_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change event",
+    "content_type": 17,
+    "codename": "change_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete event",
+    "content_type": 17,
+    "codename": "delete_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view event",
+    "content_type": 17,
+    "codename": "view_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add last event image",
+    "content_type": 18,
+    "codename": "add_lasteventimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change last event image",
+    "content_type": 18,
+    "codename": "change_lasteventimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete last event image",
+    "content_type": 18,
+    "codename": "delete_lasteventimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view last event image",
+    "content_type": 18,
+    "codename": "view_lasteventimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 73,
+  "fields": {
+    "name": "Can add attachment",
+    "content_type": 19,
+    "codename": "add_attachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 74,
+  "fields": {
+    "name": "Can change attachment",
+    "content_type": 19,
+    "codename": "change_attachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 75,
+  "fields": {
+    "name": "Can delete attachment",
+    "content_type": 19,
+    "codename": "delete_attachment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 76,
+  "fields": {
+    "name": "Can view attachment",
+    "content_type": 19,
+    "codename": "view_attachment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "article"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "lastevent"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "sportground"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "teammember"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "sportgroundimage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "social_django",
+    "model": "association"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "social_django",
+    "model": "code"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "social_django",
+    "model": "nonce"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "social_django",
+    "model": "usersocialauth"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "social_django",
+    "model": "partial"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "event"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "workoutTimeApp",
+    "model": "lasteventimage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "django_summernote",
+    "model": "attachment"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0gt4ofz6dh875d4i2l59ysruwv8p2pa2",
+  "fields": {
+    "session_data": ".eJxVj70OgjAUhd-lsxLaXkrr5qImJjKpiUtTyi0QEKItLMZ3F4wxup6T7_w8yNgsezOEimkfTECyIirQJjvczsk1rbudkwNsC7elx82lLCHLkSyIngk9eLzrupgQ-a_lxjbYzYbvbW1abfs7Rh_VR2MTnfbZei795yrjqwnizEmeKkhAUrSpVRBTI1OXxxyQceAWJPKCCymkS0TCHEdgVAmVCxrH88BP7zu6NT7oti_r7mfY9zZ5vgC-mFSH:1tflXl:7Ja8SOxo4GKWZZIdKC5NC7MRCekdlaGPmaAE03TU7bc",
+    "expire_date": "2025-02-19T19:58:41.014Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1awjygacb729dchrh4d7k3h8k28g9hc1",
+  "fields": {
+    "session_data": ".eJxVjksKgDAMRK8Ssi6iTcXiVYwUP1UQ1EVxJd7dTyro6jHDZDI7utmH0Iw-YIlVxejcFNbldRkVpAp0roCReUtNph-YFoQkyB7QIMjFtKJ6gZcLegt-GVFkYya6Bfza7VcZ_f1FXWxN7snXVqxrPE4yTUDa:1tfknH:sz8oOvvuwMOiaCAkempiBqKQxJAMDRyaJ4vWFTO-6io",
+    "expire_date": "2025-02-19T19:10:39.934Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1qki4qew5dwvcn4cmk54juwtaudnkwl9",
+  "fields": {
+    "session_data": ".eJxVj8kKwjAURf8lay1J03RwV3QjBYsbt-HlJR1sadCkFRH_3VZEdHsv5w4PMnVrC6NvQuk8eEM25Oxvp8u22Ke70kF-Z4cCu9q2ZZ5sp6E-OrIiciHk6MxVtnpGGP0XFWBnhsVxFlvoJdqrCT6qC6YuOBVlvrT-cw24ZoYAsBKQaIY0U1DFkaAs49xoHgmFVcaNySjlAgTqmCehjlhIuUKqZoOn6Rz66X1H9-C87G3dDj_Dvr_J8wUyElci:1u7Lmc:LYL46dqo1q6Y80usLcOAQl9eiRdKXxkS3DeWBGmCVfM",
+    "expire_date": "2025-05-06T22:08:02.629Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1tbojpyqdzfiftqsjmn7xktzzubnzsr5",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgQ2FcuvcMZAaoVA0kpV0Z765NutDtf-_9lwi0rSVsPS9hTuIsUJx-N6b4yHUH6U711mRsdV1mlrsiD9rltaX8vBzu30GhXr61SWhwzJp5BM9ADp1CQ1Z7nAbllLfgeAILoOzgNJroOTJDZEqk_SDeH72BNx0:1tyJEp:IZN3IBkavbOHnp6cA_teGV2ntbLruEnoX7l8rWxn8lM",
+    "expire_date": "2025-04-11T23:35:47.625Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3n56sg5ttjcw4dt2qwfwnllbs6elpud2",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJqVDVKVlJDTmp0c1J2WlNZeFJ6OUZyS3JQV1M4RlJKQSJ9:1tfku1:QtU7TTRVMoAH6cKSPWrKUvsnsFXRGd-MwfaK1bej030",
+    "expire_date": "2025-02-19T19:17:37.742Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4mgyudtsiswa3dt2ocnc9v1tnk5o0x6r",
+  "fields": {
+    "session_data": ".eJxVj80KgkAUhd9l1iVdnTuO7YKCKKJoUcvhznVKUbIcMyh69zQiansO3_l5iLYYVnRtstD4hhonxiKnFm8zsBdebrdw93a_QbzX50U4n84nq5UYCNMT5updbfK0QwD-RUtcuFPv-IpzKg1XtQs-qg_aItgt15O-9Z_LyGcdZFlzYjmVrKRmBUnEUo0c6jjRYWrBUiIxsmGstEYiDQdQSAiISss4jrrQT-87uiTfmLI65qefYd_f4vkCYoJVZA:1u7LgI:O7_1ppPw4GxvxYPex5wvywgIvTmW3AF4gRdEr0ZISdU",
+    "expire_date": "2025-05-06T22:01:30.647Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "53wt0x17lwvv056awg1bkxxnmouefw4w",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJ6VEJCV2lLVmFyQUMxWEdKaXFoSGpHc21ITjdSOGlSYSJ9:1tfkLU:ZCjsdzk_lJ6I4pC_mqD_LR-2DgLfRLQKhs5evCP6h00",
+    "expire_date": "2025-02-19T18:41:56.037Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5yp7dir16iwyramapck8riy37o08t7tp",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJxYWR6OXJJekl6Skt4TG5yaEZ1UUt6ZVNiTkF1a1BIOCJ9:1u7LrX:p1cupU8wFfbWfjfeeIXB21rRO8UGcnsbaDgcXHcNyyk",
+    "expire_date": "2025-05-06T22:13:07.378Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "711xix95fytybl5bvn3h6xse51tvx4wj",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJXMFlLWHpwSldWdjVOaXZmS1RzcVRsbHBtWmRVTmpVTCJ9:1tfkcW:lueFdYSWmux2FGBQGaSjDuPediNe3NlwdLiAma47paM",
+    "expire_date": "2025-02-19T18:59:32.937Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "a1j6178m84xzk1twy86rtdimkythwh4w",
+  "fields": {
+    "session_data": ".eJxVj1ELgjAUhf_Lnks2N6frzQctCAqKgp7G9W6kaA6a-lD039OQqKcD5_Cdc--TDPXSQd-VofYddJasSN885C0-rFW2ybanHK9lKjZtfsxys3MoL2RB9ETo3tu7rsyIMPlvFoC1bafEO6yg0ejuNphdHwx1cN7u02n1nyvBlyNklTAcIlScUZlwUVCqJKNxzJSlSRwKxSQLUbGCh2gS5BgxRIjsqMClGUvn3U91A77TjbtW7c9h37_J6w3eQFTy:1u7M82:wLWEnLTLoBYUY_5UyHrNUfJrisxf25Y-KSR_i4-sTBk",
+    "expire_date": "2025-05-06T22:30:10.500Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "d099y6micczj846rpsy9vlxlhd496288",
+  "fields": {
+    "session_data": ".eJxVjEELgjAYhv_LziVuTrd19FIkRRTUUb5vmzktB06DiP57Cl66vs_zvB_yatcexqFmZRhgsGRDTq51-RP3Oxaa3m4T3p_B2Lx4346XKy0qsiLlXJRjsH3pzJSo_w1Bt7abgWmgu_tI-27oHUazEi00RAdv7CNf3L-DGkI91cwopjJLETMukYNQIlYMUipVlcQilikXWPGU8zhNBFVMS9SIXCMYoDIh3x-KMkjU:1u7M5X:88L1vGB_l1KZSPDg0UDrmdL_bpXUvfkSebKuImXwl6Q",
+    "expire_date": "2025-05-06T22:27:35.337Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dn7e3bg9imr8l4emjv0varsrk04l6yab",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJQOXFzU2dqZ1lTdXhaY1R6VXhXR3g2VVhkeDA4VkR4aCJ9:1tfkyF:h3C5IeOfNOYJN5r-ASjV5FD_4D04gfY7hTXrkauBs0E",
+    "expire_date": "2025-02-19T19:21:59.130Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gq7dulkkp60yrx61t90010vzhuiq8fj5",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJ6OTBoSjkxRUhLNVM1N1U0ajVzcGlwdzBaWGx0WDBOZyJ9:1tfl9u:JtaIuiQ48hEe2Qaj4M3pKUDRUEsZXlbZqX9TQHC9gaE",
+    "expire_date": "2025-02-19T19:34:02.458Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hjl9zxat0wwpltejwixe5fp3cph288r8",
+  "fields": {
+    "session_data": ".eJxVjksKgDAMRK8Ssi6iTcXiVYwUP1UQ1EVxJd7dTyro6jHDZDI7utmH0Iw-YIlVxejcFNbldRkVpAp0roCReUtNph-YFoQkyB7QIMjFtKJ6gZcLegt-GVFkYya6Bfza7VcZ_f1FXWxN7snXVqxrPE4yTUDa:1tflCo:-nUQZGnbI5bp0DC9Itsoqt1XbEtMkCH8YnJyI5jvor0",
+    "expire_date": "2025-02-19T19:37:02.763Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hr78ydvvqz02f1t9lssew00oiqz4a6cz",
+  "fields": {
+    "session_data": ".eJxVjksKgDAMRK8Ssi6iTcXiVYwUP1UQ1EVxJd7dTyro6jHDZDI7utmH0Iw-YIlVxejcFNbldRkVpAp0roCReUtNph-YFoQkyB7QIMjFtKJ6gZcLegt-GVFkYya6Bfza7VcZ_f1FXWxN7snXVqxrPE4yTUDa:1tfkzx:ANaGTwht0JNuvIqi_mK6Bo24IMyqzQGXvvQ6y8JOkr8",
+    "expire_date": "2025-02-19T19:23:45.894Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "i6ln0afk2adrqkldp44ch9oiqwx5ypfl",
+  "fields": {
+    "session_data": ".eJxVj80OgjAQhN-lZyV2Wyh6w5hI4sGDQYyXpn9IA0KkBQ_GdxeMMZq5zeSb2X2goZq3ovclcOeFN2iF0ivc9D1el7mD3G5PqcXJ5nzQPsvyrD_e0QzxieC9Mx23ekQw-TelUJVppsS1yoqaq7Yzwcd1wVAFx90-mVb_uVK4coRCBQzHkQijJYAhhVZMG0pBYiPUQgLESyoLpklEidKGRSCB0CIksQxHsbH0s_uuroXzvG4vtvk57Ps3er4AxaFWkA:1u7Lx0:KA4kEnbkxF61xRYpiMwQErciNhdHheTVRFakSaZoAq8",
+    "expire_date": "2025-05-06T22:18:46.736Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ibjth8th7inqgxub2dnn7ygv7srmtpfa",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJUcGhtSzZ1YWg5ZTdrR1lKZVZjTUxGWFJsMnlZN0plRCJ9:1u7LhI:Mwvrvn2d6k2ecUy3mZH-RNbKXxfn4twBuesBddh2Zw0",
+    "expire_date": "2025-05-06T22:02:32.248Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "inkt3vzfowmzagbjtz7dnvtcolca9zds",
+  "fields": {
+    "session_data": "e30:1u77q4:Azj2uMyiXHtwQ-4HkDj_r9Nl37x4XohRTkTZJ9MF6lg",
+    "expire_date": "2025-05-06T07:14:40.626Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "it898kngeh54vos7ebtslt9byh884esj",
+  "fields": {
+    "session_data": ".eJxVjL0OgjAURt-lsxJaaAtu6mBC4qCDPxO59F4EIW1CgcQY311IWFi_c873ZWOzdTD0lch9Dz2xHTOW2uOlvYe1_MisMarNbkS-2p-eMD6umm1YPhf54KnLa5wSvt4KMA3ZGeAb7MsFxtm-q4tgVoKF-uDskNrD4q4OKvDVVKdYCEWgUcdGG05hHPGEJJakFGohAJQuwpAnqeQRKqW4jkWJsRScpyIl9vsDxxVI8w:1tflXf:3UdnoNYTalnMeNd5CaVzm4KfTDOUrrz5u0Nur6jhsyY",
+    "expire_date": "2025-02-19T19:58:35.883Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kk6afoy57m5clh5i3fg44xfr696jn7m0",
+  "fields": {
+    "session_data": ".eJxVjksKgDAMRK8Ssi6iTcXiVYwUP1UQ1EVxJd7dTyro6jHDZDI7utmH0Iw-YIlVxejcFNbldRkVpAp0roCReUtNph-YFoQkyB7QIMjFtKJ6gZcLegt-GVFkYya6Bfza7VcZ_f1FXWxN7snXVqxrPE4yTUDa:1tflMl:upr2aZ_lpFyAgpmfl1BoF9s89GdXGjGk1QvgjD5IwaE",
+    "expire_date": "2025-02-19T19:47:19.637Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kxs4s6pjj6y09ahcxx1uizpv4fefrq7s",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiI3OXF6Y254cDFhWlV0c2dZN09KUXc3ZTdYelVRMjNLaSJ9:1tflNS:y39NHrqpnhp0eBxlEv4dAtA_q-voIeN9PjoRiDoOqas",
+    "expire_date": "2025-02-19T19:48:02.760Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ln2skkhekklkqrihf61nst27bkt5sn30",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJxTVZHbXBmb01MSEw0bFBJMzZJc2pFdUFURm9pTVVGNCJ9:1tfkVV:mIESjwdZ3X3Tymj79XjPWVqaEsq55IGKORdPm65b3yw",
+    "expire_date": "2025-02-19T18:52:17.804Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m3thbrh0rgwmvpbzepg1gv890mo8ix83",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJ5UGoxa25kNHRkRFJvcDM3MEZaeXNpU1B4RVh5OE1MTCJ9:1tfkoJ:oKu1ClPtQl3A8Km2qUtpBxYmGxgxFtTBacnJNH1TrHk",
+    "expire_date": "2025-02-19T19:11:43.132Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mxu2t7y1t9mv5exzu49bc22bk5c64iou",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiI3ZTJvYlN3akRpZ1U3Y21hdElIc3Z1dGFZNHpVb0FOaSJ9:1tfkkM:AzygLhAQakGZd-jn_vd1zx5K3tfZgObbTibDIfB1wpI",
+    "expire_date": "2025-02-19T19:07:38.706Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rai5ehh1ubzuo4tzp13bxtw6xqoxiqh5",
+  "fields": {
+    "session_data": ".eJxVjEsOwjAMBe-SNYpqN3Ealuw5Q-XELi2gROpnhbg7VOoCtm9m3sv0vK1jvy0695OYswFz-t0S54eWHcidy63aXMs6T8nuij3oYq9V9Hk53L-DkZfxW0dJSMpBgsshgzauhU69DEokAZGZQmoa6KKHVogIgsNBnEeAiFHN-wPhADcX:1ts7d1:6kgBa3ZAoZa4PqD_P0cMF7Fq1JhNwgtmsn-ep3YpMso",
+    "expire_date": "2025-03-25T21:59:11.653Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rbi88xas4opmxdcdf8rbdka66s1wegt6",
+  "fields": {
+    "session_data": "eyJ2ay1vYXV0aDJfc3RhdGUiOiJiNDZtYmxYeTdnODBKVk1kM1d3OFhVN1dybVVvaVR0cSJ9:1tfkSQ:6IazobEsgrVjtD35vt-jattQYBQBQdGtrVu6g7Uf6po",
+    "expire_date": "2025-02-19T18:49:06.578Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vhqem3qqqihz1lsjejjzuwoh1mccdqnj",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgQ2FcuvcMZAaoVA0kpV0Z765NutDtf-_9lwi0rSVsPS9hTuIsUJx-N6b4yHUH6U711mRsdV1mlrsiD9rltaX8vBzu30GhXr61SWhwzJp5BM9ADp1CQ1Z7nAbllLfgeAILoOzgNJroOTJDZEqk_SDeH72BNx0:1ty8ru:j4LGjlqbNQcuXlK7HcLjUTBB4_Ln0aHdAtUuokNNBaE",
+    "expire_date": "2025-04-11T12:31:26.866Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wwyvxo97m34e5ugl6fwbfrfipirgn85q",
+  "fields": {
+    "session_data": ".eJxVjksKgDAMRK8Ssi6iTcXiVYwUP1UQ1EVxJd7dTyro6jHDZDI7utmH0Iw-YIlVxejcFNbldRkVpAp0roCReUtNph-YFoQkyB7QIMjFtKJ6gZcLegt-GVFkYya6Bfza7VcZ_f1FXWxN7snXVqxrPE4yTUDa:1tfkUo:w2Wrv6Qwe2bc0w3ZpNXRGIlWMqBDQzhALvCwxjwIU7Y",
+    "expire_date": "2025-02-19T18:51:34.193Z"
+  }
+},
+{
+  "model": "social_django.usersocialauth",
+  "pk": 16,
+  "fields": {
+    "user": 16,
+    "provider": "vk-oauth2",
+    "uid": "552230908",
+    "extra_data": {
+      "auth_time": 1745361010,
+      "id": 552230908,
+      "expires": 86400,
+      "bdate": "5.6.1969",
+      "photo_200": "https://sun1-91.userapi.com/s/v1/ig2/UWzNS6UirnSNgQii9pKE1SPFogWsxZgrO1ljIcg5-nivP1OEPIZgHibZGw_ycH_gLC7-3efCziqDdkXcXm-7j5hL.jpg?quality=95&crop=0,0,512,512&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480&ava=1&cs=200x200",
+      "email": "lightpavelll@mail.ru",
+      "access_token": "vk1.a.8ekgZv1I2pg8_rfrUjK0lhczwdR-UMo_i-OxbN4o6J5wVQUkyhCL5_O1bYqyYt54TlTcRqsofrMagff_zHA3GmlgD566mCILlL6Wzy-p2d0RTyfRX_1o02fNmZquHELVdqwnp-UfsfkXTPjExuiiKml2m0ouO-2L4j3UZtPEuibr_RoiaXNQxJ7yFaV2ym6j7vhr9cZgQeISyj4mdX6aRQ",
+      "token_type": null
+    },
+    "created": "2025-04-22T22:27:42.448Z",
+    "modified": "2025-04-22T22:30:10.476Z"
+  }
+}
+]

@@ -11,6 +11,7 @@
                 <div class="chapter__logo">
                     <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
                 </div>
+                <div class="chapter__title">Профиль</div>
             </div>
         </div>
         
@@ -20,7 +21,11 @@
                     <div class="profile__item">
                         <!-- Блок аватара -->
                         <div class="profile__avatar">
-                            <img id="avatar-preview" src="{{ user.profile_photo.url }}" alt="Аватар">
+                            {% if user.profile_photo %}
+                                <img id="avatar-preview" src="{{ user.profile_photo.url }}" alt="Аватар">
+                            {% else %}
+                                <img id="avatar-preview" src="{% static 'imgs/profile/avatar.webp' %}" alt="Аватар по умолчанию">
+                            {% endif %}
                         </div>
                         <form id="avatar-form" method="post" enctype="multipart/form-data" style="display: none;">
                             {% csrf_token %}
@@ -69,6 +74,7 @@
                 </div>
             </div>
         </div>
+        
         
         <script>
             document.addEventListener("DOMContentLoaded", function () {

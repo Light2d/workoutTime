@@ -2,8 +2,6 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event, LastEventImage
 from django.utils.html import format_html
-from ckeditor.widgets import CKEditorWidget
-from django import forms
 
 
 class CustomUserAdmin(UserAdmin):
@@ -74,8 +72,8 @@ class LastEventAdmin(admin.ModelAdmin):
     
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at')
-    ordering = ('-created_at',)
+    list_display = ('title', 'date')
+    ordering = ('-date',)
     search_fields = ('title', 'description')
     
 admin.site.register(CustomUser, CustomUserAdmin)

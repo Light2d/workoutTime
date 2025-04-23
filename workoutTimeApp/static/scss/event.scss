@@ -3,9 +3,7 @@
   text-align: left;
 
 }
-.event__container{
 
-}
 .eventTabs {
     width: 100%;
     margin: 20px auto;
@@ -16,6 +14,7 @@
     }
     &__nav {
       margin-bottom: 20px;
+      display: flex;
     }
   
     &__btn {
@@ -25,8 +24,8 @@
       border: none;
       cursor: pointer;
       font-size: 24px;
-      font-weight: bold;
-      color: #333;
+      color: #aaa;
+      background: #121212;
       transition: background 0.3s, color 0.3s;
       @media (max-width: 768px) {
         font-size: 18px;
@@ -38,12 +37,13 @@
             font-size: 14px;
         }
       &.active {
-        color: #000;
-        border-bottom: 3px solid #000000;
+        color: #ffffff;
+        background: #000000;
+        font-weight: bold;
 
       }
       &:hover{
-        background: #ffffff;
+        background: #000000;
       }
   
     }
@@ -73,19 +73,16 @@
       }
     }
 
-    &__events{
-      // max-width: 800px;
-      // margin: 0 auto;
-    }
   
     &__list {
       list-style: none;
       padding: 20px;
       margin: 0;
-      background: #fff;
+      color: #aaa;
+      background: #121212;
       border-radius: 10px;
       height: 400px;
-      width: 300px;
+      width: 100%;
       margin-right: 30px;
       overflow: auto;
       @media (max-width: 768px) {
@@ -113,12 +110,16 @@
     }
   
     &__name {
-      font-weight: bold;
       font-size: 24px;
       line-height: 120%;
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid #aaa;
+      color: #aaa;
       padding-bottom: 5px;
+      margin-bottom: 15px;
       width: 100%;
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
     }
   
     &__date {
@@ -130,21 +131,26 @@
 		// .event__items
 		&__items {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       @media (max-width: 768px) {
         flex-direction: column;
       }
 		}
 		// .event__item
 		&__item {
-     
+     &:first-child{
+        flex: 0 0 40%;
+     }
+     &:last-child{
+      flex: 0 0 58%;
+   }
 		}
 		// .event__img
 		&__img {
       max-width: 600px;
       margin-right: 30px;
       @media (max-width: 768px) {
-        max-width: 300px;
+        max-width: 100%;
         margin-bottom: 20px;
       }
 		}

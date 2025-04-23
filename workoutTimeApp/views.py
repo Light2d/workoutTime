@@ -184,6 +184,9 @@ def register_for_event(request, event_id):
         messages.warning(request, "Вы уже зарегистрированы на это мероприятие.")
     else:
         event.participants.add(request.user)
+        # Обновление статуса регистрации пользователя на событие
+        request.user.is_registered = True
+        request.user.save()
         messages.success(request, "Вы успешно зарегистрировались!")
 
     return redirect('event_detail', event_id=event.id)

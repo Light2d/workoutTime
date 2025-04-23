@@ -66,7 +66,8 @@
                               </div>
                               <div class="articles__info">
                                   <div class="articles__title">{{ article.title }}</div>
-                                  <div class="articles__description">{{ article.description|truncatewords:10 }}</div>
+                                  <div class="articles__description">{{ article.description|truncatewords:4|safe }}</div>
+                                  <div class="articles__date"> <span>Дата:</span> {{ article.date }}</div>
                               </div>
                         </div>
                       </a>

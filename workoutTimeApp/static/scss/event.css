@@ -11,6 +11,7 @@
 }
 .eventTabs__nav {
   margin-bottom: 20px;
+  display: flex;
 }
 .eventTabs__btn {
   flex: 1;
@@ -19,8 +20,8 @@
   border: none;
   cursor: pointer;
   font-size: 24px;
-  font-weight: bold;
-  color: #333;
+  color: #aaa;
+  background: #121212;
   transition: background 0.3s, color 0.3s;
 }
 @media (max-width: 768px) {
@@ -39,11 +40,12 @@
   }
 }
 .eventTabs__btn.active {
-  color: #000;
-  border-bottom: 3px solid #000000;
+  color: #ffffff;
+  background: #000000;
+  font-weight: bold;
 }
 .eventTabs__btn:hover {
-  background: #ffffff;
+  background: #000000;
 }
 .eventTabs__content {
   display: flex;
@@ -73,10 +75,11 @@
   list-style: none;
   padding: 20px;
   margin: 0;
-  background: #fff;
+  color: #aaa;
+  background: #121212;
   border-radius: 10px;
   height: 400px;
-  width: 300px;
+  width: 100%;
   margin-right: 30px;
   overflow: auto;
 }
@@ -106,12 +109,18 @@
   transition: background 0.3s, color 0.3s;
 }
 .eventTabs__name {
-  font-weight: bold;
   font-size: 24px;
   line-height: 120%;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #aaa;
+  color: #aaa;
   padding-bottom: 5px;
+  margin-bottom: 15px;
   width: 100%;
+}
+@media (max-width: 768px) {
+  .eventTabs__name {
+    font-size: 18px;
+  }
 }
 .eventTabs__date {
   color: #555;
@@ -119,12 +128,18 @@
 
 .event__items {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 @media (max-width: 768px) {
   .event__items {
     flex-direction: column;
   }
+}
+.event__item:first-child {
+  flex: 0 0 40%;
+}
+.event__item:last-child {
+  flex: 0 0 58%;
 }
 .event__img {
   max-width: 600px;
@@ -132,7 +147,7 @@
 }
 @media (max-width: 768px) {
   .event__img {
-    max-width: 300px;
+    max-width: 100%;
     margin-bottom: 20px;
   }
 }

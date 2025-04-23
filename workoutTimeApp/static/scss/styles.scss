@@ -263,6 +263,10 @@ button {
         color: $white;
         font-size: 24px;
         line-height: 140%;
+        @media (max-width: 375px) {
+            font-size: 18px;
+            width: 100%;
+        }
     }
 }
 
@@ -454,9 +458,17 @@ button {
         color: #787878;
         line-height: 130%;
         font-size: 16px;
+        margin-bottom: 10px;
         @media (max-width: 768px) {
             font-size: 12px;
          }
+    }
+    &__date{
+        font-size: 14px;
+        color: #000;
+        & span{
+            font-weight: 600;
+        }
     }
 }
 
@@ -642,6 +654,15 @@ button {
           color: #ffffff9c;
           font-size: 48px;
           font-weight: 100;
+          @media (max-width: 768px) {
+            font-size: 42px;
+          }
+          @media (max-width: 425px) {
+            font-size: 36px;
+          }
+          @media (max-width: 320px) {
+            font-size: 28px;
+          }
       }
   }
 
@@ -690,11 +711,5 @@ button {
             }
         }
     }
-    // .chapter__title
-    &__title {
-        text-align: center;
-        color: #ffffff9c;
-        font-size: 48px;
-        font-weight: 100;
-    }
+ 
 }
