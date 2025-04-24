@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import index, login, register, logout, last_event, sportgrounds, events, activate_account, profile, article, get_sportgrounds_data, events, event_detail, register_for_event
+from .views import index, login, register, logout, last_event, sportgrounds, events, activate_account, profile, get_sportgrounds_data, events, event_detail, register_for_event, articles
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -18,7 +18,8 @@ urlpatterns = [
     path('', include('social_django.urls', namespace='social')),
     path('logout/', logout, name='logout'), 
     path('activate/<uuid:activation_code>/', activate_account, name='activate_account'),
-    path('articles/<int:article_id>/', article, name='article'),
+    
+    path('articles', articles, name='articles'),
     path('sportgrounds/', sportgrounds, name='sportgrounds'),
     path('get_sportgrounds_data/', get_sportgrounds_data, name='get_sportgrounds_data'),
     path('last-event/', last_event, name='last_event'),

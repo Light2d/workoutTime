@@ -1,0 +1,82 @@
+
+{% load static %}
+
+
+{% include "base.html" %}
+{% include "header.html" %}
+
+<div class="main">
+  <div class="chapter">
+    <div class="profile__intro">
+        <div class="chapter__logo">
+            <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+            <div class="chapter__title">Статьи</div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class="article__container container">
+
+        {% for article in articles %}
+            <div class="article__items">
+                <div class="article__item">
+                    <img src="{{ article.image.url }}" alt="" class="article__img">
+                </div>
+                <div class="article__item last-child">
+                    <div class="article__info">
+                        <div class="article__title">{{ article.title }}</div>
+                        <div class="article__description-wrapper">
+                            <div class="article__description">
+                                <div class="short-description">
+                                    {{ article.description|striptags|truncatewords:20 }}
+                                </div>
+                                <div class="full-description hidden">
+                                    {{ article.description|safe }}
+                                </div>
+                                {% if article.show_read_more %}
+                                    <button class="toggle-description" data-open="false">Читать далее</button>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        <div class="article__date">Дата публикации: {{ article.date }}</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    
+
+    </div>
+</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButtons = document.querySelectorAll(".toggle-description");
+  
+      toggleButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const description = button.closest(".article__description");
+          const articleItem = button.closest(".article__item");
+  
+          description.classList.toggle("expanded");
+          articleItem.classList.toggle("expanded");
+  
+          if (button.textContent.trim() === "Читать далее") {
+            button.textContent = "Скрыть";
+          } else {
+            button.textContent = "Читать далее";
+          }
+        });
+      });
+    });
+  </script>
+  
+  
+    
+  
+  
+  
+{% include "footer.html" %}
+
+

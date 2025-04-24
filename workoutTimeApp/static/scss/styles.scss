@@ -631,6 +631,9 @@ button {
 
 .chapter {
     margin-bottom: 60px;
+    @media (max-width:768px) {
+        margin-bottom: 30px;
+      }
       background: #000;
       // .chapter__container
       &__container {
@@ -641,6 +644,9 @@ button {
       &__logo {
           text-align: center;
           margin-bottom: 10px;
+          @media (max-width:768px) {
+            display: none;
+          }
           & img{
               max-width: 600px;
               @media (max-width: 992px) {
@@ -692,24 +698,3 @@ button {
     color: #155724;
 }
 
-.chapter {
-  margin-bottom: 60px;
-    background: #000;
-    // .chapter__container
-    &__container {
-        padding-bottom: 20%;
-        border: none;
-    }
-    // .chapter__logo
-    &__logo {
-        text-align: center;
-        margin-bottom: 10px;
-        & img{
-            max-width: 600px;
-            @media (max-width: 992px) {
-                max-width: 400px;
-            }
-        }
-    }
- 
-}

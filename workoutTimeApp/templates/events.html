@@ -30,23 +30,23 @@
               <table class="eventsTabs__table">
                 <thead class="eventsTabs__thead">
                   <tr class="eventsTabs__tr">
-                    <th class="eventsTabs__th">Дата</th>
-                    <th class="eventsTabs__th">Название</th>
-                    <th class="eventsTabs__th">Место</th>
-                    <th class="eventsTabs__th">Статус</th>
+                    <th class="eventsTabs__th th-date">Дата</th>
+                    <th class="eventsTabs__th th-title">Название</th>
+                    <th class="eventsTabs__th th-place">Место</th>
+                    <th class="eventsTabs__th th-status">Статус</th>
                   </tr>
                 </thead>
                 <tbody class="eventsTabs__tbody">
                   {% for event in competitions %}
                   <tr class="eventsTabs__tr" data-url="{% url 'event_detail' event.id %}">
-                    <td class="eventsTabs__td">{{ event.date }}</td>
-                    <td class="eventsTabs__td">
+                    <td class="eventsTabs__td td-date">{{ event.date }}</td>
+                    <td class="eventsTabs__td td-title">
                       <a href="{% url 'event_detail' event.id %}" class="eventsTabs__link">
                         {{ event.title }}
                       </a>
                     </td>
-                    <td class="eventsTabs__td">{{ event.address }}</td>
-                    <td class="eventsTabs__td">
+                    <td class="eventsTabs__td td-place">{{ event.address }}</td>
+                    <td class="eventsTabs__td td-status">
                       {% if user.is_registered %}
                         <p>Зарегистрирован</p>
                       {% else %}
@@ -72,23 +72,23 @@
               <table class="eventsTabs__table">
                 <thead class="eventsTabs__thead">
                   <tr class="eventsTabs__tr">
-                    <th class="eventsTabs__th">Дата</th>
-                    <th class="eventsTabs__th">Название</th>
-                    <th class="eventsTabs__th">Место</th>
-                    <th class="eventsTabs__th">Статус</th>
+                    <th class="eventsTabs__th th-date">Дата</th>
+                    <th class="eventsTabs__th th-title">Название</th>
+                    <th class="eventsTabs__th th-place">Место</th>
+                    <th class="eventsTabs__th th-status">Статус</th>
                   </tr>
                 </thead>
                 <tbody class="eventsTabs__tbody">
                   {% for event in masterclasses %}
                   <tr class="eventsTabs__tr" data-url="{% url 'event_detail' event.id %}">
-                    <td class="eventsTabs__td">{{ event.date }}</td>
-                    <td class="eventsTabs__td">
+                    <td class="eventsTabs__td td-date">{{ event.date }}</td>
+                    <td class="eventsTabs__td td-title">
                       <a href="{% url 'event_detail' event.id %}" class="eventsTabs__link">
                         {{ event.title }}
                       </a>
                     </td>
-                    <td class="eventsTabs__td">{{ event.address }}</td>
-                    <td class="eventsTabs__td">
+                    <td class="eventsTabs__td td-place">{{ event.address }}</td>
+                    <td class="eventsTabs__td td-status">
                       {% if user.is_registered %}
                         <p>Зарегистрирован</p>
                       {% else %}
@@ -114,23 +114,23 @@
               <table class="eventsTabs__table">
                 <thead class="eventsTabs__thead">
                   <tr class="eventsTabs__tr">
-                    <th class="eventsTabs__th">Дата</th>
-                    <th class="eventsTabs__th">Название</th>
-                    <th class="eventsTabs__th">Место</th>
-                    <th class="eventsTabs__th">Статус</th>
+                    <th class="eventsTabs__th th-date">Дата</th>
+                    <th class="eventsTabs__th th-title">Название</th>
+                    <th class="eventsTabs__th th-place">Место</th>
+                    <th class="eventsTabs__th th-status">Статус</th>
                   </tr>
                 </thead>
                 <tbody class="eventsTabs__tbody">
                   {% for event in archive %}
                   <tr class="eventsTabs__tr" data-url="{% url 'event_detail' event.id %}">
-                    <td class="eventsTabs__td">{{ event.date }}</td>
-                    <td class="eventsTabs__td">
+                    <td class="eventsTabs__td td-date">{{ event.date }}</td>
+                    <td class="eventsTabs__td td-title">
                       <a href="{% url 'event_detail' event.id %}" class="eventsTabs__link">
                         {{ event.title }}
                       </a>
                     </td>
-                    <td class="eventsTabs__td">{{ event.address }}</td>
-                    <td class="eventsTabs__td">
+                    <td class="eventsTabs__td td-place">{{ event.address }}</td>
+                    <td class="eventsTabs__td td-status">
                       {% if user.is_registered %}
                         <p>Зарегистрирован</p>
                       {% else %}

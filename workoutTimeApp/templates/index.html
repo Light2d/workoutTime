@@ -59,7 +59,7 @@
                 <div class="events__item articles">
                   <div class="articles__items">
                     {% for article in articles %}
-                    <a href="{% url 'article' article.id %}">
+                    <a href="{% url 'articles' %}">
                         <div class="articles__item">
                               <div class="articles__image">
                                   <img src="{{ article.image.url }}" alt="Изображение поста">

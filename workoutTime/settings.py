@@ -16,9 +16,9 @@ SECRET_KEY = 'django-insecure-d*+sh_4vm7a2eikx&8go81#z8j$bbb5db_c91kfy*=o9s0o5c)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['f7a8be887bd079.lhr.life', '127.0.0.1']
+ALLOWED_HOSTS = ['4cd0b00ca5e04f.lhr.life', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    'https://f7a8be887bd079.lhr.life',
+    'https://4cd0b00ca5e04f.lhr.life',
 ]
 
 # Application definition
@@ -134,8 +134,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'lighttt2d@gmail.com'
-EMAIL_HOST_PASSWORD = 'zcvs jhcq qton hixk'
+EMAIL_HOST_USER = 'lightpavelll@gmail.com'
+EMAIL_HOST_PASSWORD = 'ydzi apdw exgw mmjr'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 SITE_URL = 'http://127.0.0.1:8000'
@@ -149,7 +149,7 @@ SOCIAL_AUTH_VK_OAUTH2_SECRET = '0VvVGOVhClEKqOXszeYa'  # Секретный кл
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'user_info', 'bdate', 'photos',]
 SOCIAL_AUTH_VK_OAUTH2_EXTRA_DATA = ['bdate', 'photo_200', 'email']
 
-SOCIAL_AUTH_VK_OAUTH2_REDIRECT_URI =  'https://45baec7fc808b4.lhr.life/complete/vk-oauth2/'
+SOCIAL_AUTH_VK_OAUTH2_REDIRECT_URI =  'https://6551690d90f5b9.lhr.life/complete/vk-oauth2/'
 
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',

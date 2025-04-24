@@ -5,17 +5,35 @@
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 40px;
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+  @media (max-width: 425px) {
+    padding: 0rem;
+    border-radius: 0px;
+  }
 
   &__nav {
     display: flex;
     justify-content: center;
     margin-bottom: 1.5rem;
     gap: 1rem;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: .5rem;
+    }
+    @media (max-width: 425px) {
+      margin: 10px;
+    }
   }
   &__content{
     background-color: #121212;
     padding: 2rem;
     border-radius: 20px;
+    @media (max-width: 425px) {
+      padding: 1rem;
+      border-radius: 0px;
+    }
   }
 
   &__btn {
@@ -72,15 +90,35 @@
   &__th, &__td {
     padding: 0.8rem 1rem;
     text-align: left;
+    line-height: 130%;
+    @media (max-width: 768px) {
+      text-align: center;
+
+    }
   }
 
   &__th {
     font-weight: 600;
     color: #aaa;
+    @media (max-width: 768px) {
+      &.th-status, &.th-place  {
+        display: none;
+      }
+
+    }
   }
 
   &__td {
     color: #ddd;
+    @media (max-width: 768px) {
+      &.td-status, &.td-place  {
+        display: none;
+      }
+
+    }
+  }
+  .td-status{
+
   }
 
   &__link {

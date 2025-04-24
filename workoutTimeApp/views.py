@@ -19,15 +19,29 @@ def register(request):
     if request.method == 'POST':
         form = CustomRegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)  # Создаём пользователя, но не сохраняем сразу
-            user.is_active = False  # Делаем пользователя неактивным
-            user.activation_code = uuid.uuid4()  # Генерируем код активации
-            user.save()  # Сохраняем пользователя с кодом активации
-            send_activation_email(user)  # Отправляем письмо с кодом активации
+            email = form.cleaned_data['email']
+            username = form.cleaned_data['username']
+
+            # Проверка: существует ли неактивный пользователь с таким email
+            existing_user = CustomUser.objects.filter(email=email, is_active=False).first()
+            if existing_user:
+                existing_user.username = username
+                existing_user.set_password(form.cleaned_data['password1'])
+                existing_user.activation_code = uuid.uuid4()
+                existing_user.save()
+                send_activation_email(existing_user)
+                messages.success(request, 'На вашу почту отправлено новое письмо с активацией.')
+                return redirect('login')
+
+            # Если такого нет — создаём нового
+            user = form.save(commit=False)
+            user.is_active = False
+            user.activation_code = uuid.uuid4()
+            user.save()
+            send_activation_email(user)
             messages.success(request, 'На вашу почту отправлено письмо с подтверждением регистрации.')
             return redirect('login')
-        else:
-            messages.error(request, 'Ошибка в данных формы.')
+        
     else:
         form = CustomRegistrationForm()
 
@@ -100,15 +114,19 @@ def index(request):
     articles = Article.objects.all()
     return render(request, 'index.html', {'team_members': team_members, 'last_event': last_event, 'articles': articles})
 
+
+def articles(request):
+    articles = Article.objects.all()
+    for article in articles:
+        article.show_read_more = len(article.description.split()) > 20
+    return render(request, 'articles.html', {'articles': articles})
+
+
 @login_required
 def last_event(request):
     last_event = LastEvent.objects.latest('date')
     return render(request, 'last_event.html', {'last_event': last_event})
 
-@login_required
-def article(request, article_id):
-    article = get_object_or_404(Article, id=article_id)
-    return render(request, 'article.html', {'article': article})
 
 @login_required
 def profile(request):

@@ -78,13 +78,15 @@ class CustomRegistrationForm(UserCreationForm):
     # Кастомизация сообщений для существующего имени пользователя и email
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        if CustomUser.objects.filter(username=username).exists():
+        user = CustomUser.objects.filter(username=username).first()
+        if user and user.is_active:
             raise ValidationError('Пользователь с таким именем уже существует.')
         return username
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if CustomUser.objects.filter(email=email).exists():
+        user = CustomUser.objects.filter(email=email).first()
+        if user and user.is_active:
             raise ValidationError('Пользователь с таким email уже существует.')
         return email
     
