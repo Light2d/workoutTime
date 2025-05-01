@@ -122,7 +122,6 @@ def articles(request):
     return render(request, 'articles.html', {'articles': articles})
 
 
-@login_required
 def last_event(request):
     last_event = LastEvent.objects.latest('date')
     return render(request, 'last_event.html', {'last_event': last_event})
@@ -164,12 +163,10 @@ def get_sportgrounds_data(request):
     
     return JsonResponse(grounds_data, safe=False)
 
-@login_required
 def sportgrounds(request):
     return render(request, 'sportgrounds.html')
 
 
-@login_required
 def events(request):
     competitions = Event.objects.filter(event_type='competition')
     masterclasses = Event.objects.filter(event_type='masterclass')

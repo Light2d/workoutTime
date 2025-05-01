@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">
+    <h1>Админ-панель</h1>
+    <ul>
+        <li><a href="{% url 'user_list' %}">Пользователи</a></li>
+        <li><a href="{% url 'event_list' %}">События</a></li>
+        <li><a href="{% url 'last_event_list' %}">Последние события</a></li>
+        <li><a href="{% url 'article_list' %}">Статьи</a></li>
+        <li><a href="{% url 'sportground_list' %}">Спортивные площадки</a></li>
+        <li><a href="{% url 'teammember_list' %}">Члены команды</a></li>
+    </ul>
+    <form method="post" action="{% url 'admin_logout' %}">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
+</div>
+{% endblock %}

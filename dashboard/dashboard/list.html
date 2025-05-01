@@ -1,0 +1,15 @@
+<!-- templates/dashboard/base_list.html -->
+{% extends 'dashboard/base.html' %}
+{% block content %}
+  <h2>{{ model_name|title }}</h2>
+  <a href="{% url add_url %}">Добавить {{ model_name }}</a>
+  <ul>
+    {% for obj in object_list %}
+      <li>
+        {{ obj }}
+        <a href="{% url edit_url obj.pk %}">✏️</a>
+        <a href="{% url delete_url obj.pk %}">🗑️</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -16,9 +16,9 @@ SECRET_KEY = 'django-insecure-d*+sh_4vm7a2eikx&8go81#z8j$bbb5db_c91kfy*=o9s0o5c)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['4cd0b00ca5e04f.lhr.life', '127.0.0.1']
+ALLOWED_HOSTS = ['9857ca166a95c316e6e4cdf9706a73ef.serveo.net', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    'https://4cd0b00ca5e04f.lhr.life',
+    'https://9857ca166a95c316e6e4cdf9706a73ef.serveo.net',
 ]
 
 # Application definition
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'tinymce'
+    'tinymce',
 ]
 
 MIDDLEWARE = [

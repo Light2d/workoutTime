@@ -1,0 +1,16 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+  <h2>{{ model_name|title }}</h2>
+  <a href="{% url add_url %}">Добавить {{ model_name }}</a>
+
+  <ul>
+    {% for obj in objects %}
+      <li>
+        <a href="{% url edit_url obj.pk %}">{{ obj }} ✏️</a>
+        <a href="{% url delete_url obj.pk %}">🗑️</a>
+      </li>
+    {% empty %}
+      <li>Нет пользователей для отображения.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

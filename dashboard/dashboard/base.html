@@ -1,0 +1,10 @@
+<!-- templates/dashboard/base_form.html -->
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ model_name|title }}</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+  </form>
+{% endblock %}

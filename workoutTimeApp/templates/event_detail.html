@@ -56,10 +56,16 @@
                   <div class="event__items">
                     <div class="event__item">
                       <ul class="eventTabs__list">
-
-                      {% for participant in event.participants.all %}
-                        <li class="eventTabs__name">{{ participant.full_name }}</li>
-                      {% endfor %}
+                        {% if participants %}
+                          {% for participant in event.participants.all %}
+                            <li class="eventTabs__name">{{ participant.full_name }}</li>
+                          {% endfor %}
+                        {% else %}
+                          <div class="eventsTabs__noevents">
+                            <img src="{% static 'imgs/events/noevents.png' %}" alt="no events">
+                            <div>Зарегистрируйтесь первым!</div>
+                          </div>
+                        {% endif %}
 
                     </ul>
                   </div>

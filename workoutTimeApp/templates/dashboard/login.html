@@ -1,0 +1,32 @@
+
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админка</title>
+  <link rel="stylesheet" href="{% static 'scss/admin.css' %}">
+</head>
+{% block content %}
+  <div class="login-form">
+    <h2>Вход в админ-панель</h2>
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <form class="" method="post">
+      {% csrf_token %}
+      <label for="username">Имя пользователя</label>
+      <input type="text" name="username" id="username" required>
+
+      <label for="password">Пароль</label>
+      <input type="password" name="password" id="password" required>
+
+      <button type="submit">Войти</button>
+    </form>
+  </div>
+{% endblock %}

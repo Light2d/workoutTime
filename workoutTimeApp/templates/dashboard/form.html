@@ -1,0 +1,24 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+  <h2>{{ model_name|title }}</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+  
+        {% if field.errors %}
+          <div class="form-error">
+            {% for error in field.errors %}
+              <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+  </form>
+  
+{% endblock %}
