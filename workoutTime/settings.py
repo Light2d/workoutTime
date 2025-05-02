@@ -16,15 +16,16 @@ SECRET_KEY = 'django-insecure-d*+sh_4vm7a2eikx&8go81#z8j$bbb5db_c91kfy*=o9s0o5c)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['9857ca166a95c316e6e4cdf9706a73ef.serveo.net', '127.0.0.1']
+ALLOWED_HOSTS = ['e9532f16259f5a9e64bf521fbc4aa20b.serveo.net', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    'https://9857ca166a95c316e6e4cdf9706a73ef.serveo.net',
+    'https://e9532f16259f5a9e64bf521fbc4aa20b.serveo.net',
 ]
 
 # Application definition
 
 INSTALLED_APPS = [ 
     "workoutTimeApp",
+    'dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

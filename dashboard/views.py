@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .forms import EventForm, LastEventForm, ArticleForm, SportGroundForm, TeamMemberForm, CustomUserForm
-from workoutTimeApp.models import Event, LastEvent, Article, SportGround, TeamMember, CustomUser
+from workoutTimeApp.models import Event, LastEvent, Article, SportGround, TeamMember, CustomUser, SportGroundImage
 from .utils import admin_required
 from django.urls import reverse
 from django.contrib import messages
@@ -57,17 +57,27 @@ def generate_crud_views(model, form_class, template_prefix, model_name_nominativ
     @admin_required
     def add_view(request):
         form = form_class(request.POST or None, request.FILES or None)
+        is_sportground = model.__name__.lower() == 'sportground'  # Проверка, является ли модель площадкой
+        print(model.__name__.lower())
         if request.method == 'POST':
             if form.is_valid():
                 try:
-                    form.save()
+                    instance = form.save()
+
+                    # Если добавляется площадка, обрабатываем изображения
+                    if is_sportground:
+                        images = request.FILES.getlist('images')  # "images" — имя поля в форме или input
+                        for image in images:
+                            SportGroundImage.objects.create(sportground=instance, image=image)
+
                     messages.success(request, f'{model_name_nominative.capitalize()} успешно {endings[gender]["add"]}.')
                     return redirect(reverse(f'{template_prefix}_list'))
                 except (IntegrityError, DatabaseError) as e:
                     messages.error(request, f'Ошибка при добавлении: {str(e)}')
             else:
                 messages.error(request, 'Пожалуйста, исправьте ошибки в форме.')
-        return render(request, 'dashboard/form.html', {'form': form})
+
+        return render(request, 'dashboard/form.html', {'form': form, 'is_sportground': is_sportground})
 
     @admin_required
     def edit_view(request, pk):

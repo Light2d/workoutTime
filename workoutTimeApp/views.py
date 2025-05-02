@@ -124,6 +124,9 @@ def articles(request):
 
 def last_event(request):
     last_event = LastEvent.objects.latest('date')
+    print(f"Image URL: {last_event.photo.url}")
+
+    last_event.show_read_more = len(last_event.description.split()) > 20
     return render(request, 'last_event.html', {'last_event': last_event})
 
 

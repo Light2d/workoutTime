@@ -7,7 +7,6 @@
       <div class="form-group">
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
         {{ field }}
-  
         {% if field.errors %}
           <div class="form-error">
             {% for error in field.errors %}
@@ -17,8 +16,45 @@
         {% endif %}
       </div>
     {% endfor %}
-  
+    
+    {% if is_sportground %}
+      <div class="form-group">
+        <label for="images">Изображения</label>
+        <input type="file" name="images" multiple class="form-control" />
+      </div>
+    {% endif %}
+    
     <button type="submit" class="btn btn-primary">Сохранить</button>
   </form>
-  
+
+  <!-- TinyMCE -->
+  <script src="https://cdn.tiny.cloud/1/izs7muxjwxo8n56hqk3z76o3kod7tfj1a857jbpte1smrvcv/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: [
+        // Core editing features
+        'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+        // Your account includes a free trial of TinyMCE premium features
+        // Try the most popular premium features until May 16, 2025:
+        'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
+      ],
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      skin: 'oxide-dark',
+      content_style: `
+        body {
+          background-color: #333;
+          color: #ffffff;
+        }
+        a { color: #4aa3df; }
+      `,
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ],
+      ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+    });
+  </script>
 {% endblock %}

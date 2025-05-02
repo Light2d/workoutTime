@@ -1,5 +1,6 @@
 from django import forms
-from workoutTimeApp.models import CustomUser, Event, LastEvent, Article, SportGround, TeamMember
+from workoutTimeApp.models import CustomUser, Event, LastEvent, Article, SportGround, TeamMember, SportGroundImage
+from django.db import models
 
 class CustomUserForm(forms.ModelForm):
     class Meta:
@@ -25,7 +26,13 @@ class ArticleForm(forms.ModelForm):
 class SportGroundForm(forms.ModelForm):
     class Meta:
         model = SportGround
-        fields = '__all__'
+        fields = ['name', 'address', 'latitude', 'longitude']
+
+class SportGroundImageForm(forms.ModelForm):
+    class Meta:
+        model = SportGroundImage
+        fields = ['image']  # Только поле для изображения
+
         
 class TeamMemberForm(forms.ModelForm):
     class Meta:
