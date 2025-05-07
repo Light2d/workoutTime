@@ -4,13 +4,14 @@
 {% include "base.html" %}
 
 {% block extra_js %}
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 {% endblock %}
 {% block extra_css %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
@@ -27,6 +28,8 @@
             <div class="chapter__title">Площадки</div>
         </div>
     </div>
+    <button id="scrollToSlider" class="scrollToSlider">↓</button>
+
     <div class="sportgroundMap">
     <div class="map__container container">
         <div class="sportgroundMap__map" id="map">
@@ -55,73 +58,88 @@
     </div>
     {% include "footer.html" %}
     <script>
-        ymaps.ready(init);
+        document.getElementById("scrollToSlider").addEventListener("click", function () {
+            const sliderElement = document.querySelector(".sportground-slider");
+            if (sliderElement) {
+                // Получаем координаты слайдера
+                const sliderPosition = sliderElement.getBoundingClientRect().top + window.scrollY;
+                // Прокручиваем страницу на 50 пикселей выше
+                window.scrollTo({
+                    top: sliderPosition - 50, // 50 пикселей выше
+                    behavior: "smooth"
+                });
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const map = L.map('map').setView([51.7414, 36.2120], 15);
     
-        function init() {
-            var myMap = new ymaps.Map("map", {
-                center: [51.74141771818707, 36.21209148479369], // Центр карты
-                zoom: 15
-            });
+            // Подключаем тёмные тайлы CartoDB
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap, CartoDB',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
     
-            // Загружаем данные через AJAX
+            // Загружаем данные
             fetch('/get_sportgrounds_data/')
                 .then(response => response.json())
                 .then(groundsData => {
                     groundsData.forEach(function(ground, index) {
-                        var placemark = new ymaps.Placemark([ground.latitude, ground.longitude], {
-                            balloonContent: ground.name
-                        });
+                        const marker = L.marker([ground.latitude, ground.longitude])
+                            .addTo(map)
+                            .bindPopup(`
+                            <div style="text-align:center; max-width: 200px;">
+                            <img src="${ground.images[0]}" alt="${ground.name}" style="width:100%; border-radius: 8px; margin-bottom: 5px;" />
+                                <strong>${ground.name}</strong>
+                            </div>
+                        `);
     
-                        placemark.events.add('click', function() {
-                            selectGround(ground); // Обновляем данные в слайдере
+                        marker.on('click', function () {
+                            selectGround(ground);
+                            map.panTo(marker.getLatLng());
                         });
-    
-                        myMap.geoObjects.add(placemark);
     
                         if (index === 0) {
-                            selectGround(ground); // Устанавливаем данные первой площадки по умолчанию
-                            myMap.setCenter([ground.latitude, ground.longitude]); // Центруем карту
+                            selectGround(ground);
+                            map.setView([ground.latitude, ground.longitude], 15);
                         }
                     });
                 })
-                .catch(error => console.error('Error fetching data:', error));
-        }
+                .catch(error => console.error('Ошибка загрузки данных:', error));
+        });
     
         function selectGround(ground) {
             $("#place-title").text(ground.name);
             $("#place-address").text(ground.address);
     
-            var slider = $('.sportground-slider');
+            const slider = $('.sportground-slider');
     
-            // Проверяем, инициализирован ли слайдер, и уничтожаем его перед обновлением
             if (slider.hasClass('slick-initialized')) {
                 slider.slick('unslick').empty();
             } else {
                 slider.empty();
             }
     
-            // Добавляем новые изображения
             ground.images.forEach(function(imageUrl) {
-                slider.append('<div><img src="' + imageUrl + '" alt="Image" class="slider-image"></div>');
+                slider.append(`<div><img src="${imageUrl}" alt="Image" class="slider-image"></div>`);
             });
     
-            // Дожидаемся загрузки всех изображений перед инициализацией слайдера
-            var images = $(".slider-image");
-            var loadedImages = 0;
+            const images = $(".slider-image");
+            let loadedImages = 0;
     
-            images.each(function() {
-                var img = new Image();
-                img.onload = function() {
+            images.each(function () {
+                const img = new Image();
+                img.onload = function () {
                     loadedImages++;
                     if (loadedImages === images.length) {
-                        // Все изображения загружены, инициализируем слайдер
                         initializeSlider(slider);
                     }
                 };
                 img.src = $(this).attr("src");
             });
     
-            // Инициализация слайдера после загрузки всех изображений
             function initializeSlider(slider) {
                 slider.slick({
                     infinite: true,
@@ -132,12 +150,12 @@
                     prevArrow: '<div class="slick-prev"><img src="{% static "imgs/sportgrounds/arrowL.svg" %}" alt="Previous"></div>',
                     adaptiveHeight: true
                 });
-    
-                // Обновляем слайдер, чтобы он корректно отобразил новые изображения
                 slider.slick('refresh');
             }
         }
     </script>
+    
+    
     
 {% endblock %}
 

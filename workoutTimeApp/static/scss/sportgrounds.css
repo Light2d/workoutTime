@@ -167,3 +167,17 @@
 .slick-next:before, .slick-prev:before {
   display: none;
 }
+
+.scrollToSlider {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #000000;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 9999;
+}
