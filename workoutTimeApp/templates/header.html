@@ -20,10 +20,16 @@
                 <div class="header__list">
                     <div class="header__link"><a href="{% url 'events' %}">Мероприятия</a></div>
                     <div class="header__link"><a href="{% url 'sportgrounds' %}">Площадки</a></div>
+                    <div class="header__link"><a href="{% url 'forum:thread_list' %}">Форум</a></div>
                     {% if request.user.is_authenticated %}
                         <div class="header__link">
                             <a href="{% url 'profile' %}">Профиль</a>
                         </div>
+                        <div class="header__link">
+                            <a class="header__notifications" href="{% url 'notifications' %}">
+                                <div>Уведомления</div> {% if unread_notifications_count %}<span class="notification-count">{{ unread_notifications_count }}</span>{% endif %}
+                            </a>                       
+                         </div>
                         <div class="header__link">
                             <a href="{% url 'logout' %}">Выйти</a>
                         </div>

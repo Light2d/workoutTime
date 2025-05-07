@@ -1,0 +1,66 @@
+// forum/static/forum/css/thread_list.scss
+
+@use 'sass:color';
+
+$bg: #121212;
+$card: #1e1e1e;
+$text: #e5e5e5;
+$accent: #4f46e5;
+$muted: #999;
+
+body {
+  background: $bg;
+  color: $text;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.forum-container {
+  padding: 1rem;
+  text-align: center;
+}
+
+.forum-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.forum-button {
+  background-color: $accent;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 16px;
+
+  &:hover {
+    background-color: color.scale($accent, $lightness: -10%);
+  }
+}
+
+.forum-card {
+  text-align: left;
+  background: $card;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid color.scale($card, $lightness: 10%);
+}
+
+.forum-thread-title {
+  display: block;
+  font-size: 1.2rem;
+  color: $accent;
+  margin-bottom: .5rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.forum-meta {
+  font-size: 0.875rem;
+  color: $muted;
+}

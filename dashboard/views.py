@@ -83,17 +83,27 @@ def generate_crud_views(model, form_class, template_prefix, model_name_nominativ
     def edit_view(request, pk):
         obj = get_object_or_404(model, pk=pk)
         form = form_class(request.POST or None, request.FILES or None, instance=obj)
+        is_sportground = model.__name__.lower() == 'sportground'  # Проверка, является ли модель площадкой
+
         if request.method == 'POST':
             if form.is_valid():
                 try:
-                    form.save()
+                    instance = form.save()
+
+                    # Если редактируется площадка, обрабатываем новые изображения
+                    if is_sportground:
+                        images = request.FILES.getlist('images')  # "images" — имя поля в форме или input
+                        for image in images:
+                            SportGroundImage.objects.create(sportground=instance, image=image)
+
                     messages.success(request, f'{model_name_nominative.capitalize()} успешно {endings[gender]["edit"]}.')
                     return redirect(reverse(f'{template_prefix}_list'))
                 except (IntegrityError, DatabaseError) as e:
                     messages.error(request, f'Ошибка при сохранении: {str(e)}')
             else:
                 messages.error(request, 'Пожалуйста, исправьте ошибки в форме.')
-        return render(request, 'dashboard/form.html', {'form': form})
+
+        return render(request, 'dashboard/form.html', {'form': form, 'is_sportground': is_sportground})
 
     @admin_required
     def delete_view(request, pk):

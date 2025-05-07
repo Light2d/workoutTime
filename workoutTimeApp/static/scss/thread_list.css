@@ -1,0 +1,54 @@
+body {
+  background: #121212;
+  color: #e5e5e5;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.forum-container {
+  padding: 1rem;
+  text-align: center;
+}
+
+.forum-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.forum-button {
+  background-color: #4f46e5;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 16px;
+}
+.forum-button:hover {
+  background-color: #362ce1;
+}
+
+.forum-card {
+  text-align: left;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #353535;
+}
+
+.forum-thread-title {
+  display: block;
+  font-size: 1.2rem;
+  color: #4f46e5;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+.forum-thread-title:hover {
+  text-decoration: underline;
+}
+
+.forum-meta {
+  font-size: 0.875rem;
+  color: #999;
+}

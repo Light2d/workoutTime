@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Создать тему{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'scss/thread_form.css' %}">
+{% endblock %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="chapter">
+    <div class="chapter__container container">
+        <div class="chapter__logo">
+            <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+        </div>
+        <div class="chapter__title">Форум</div>
+    </div>
+  </div>
+</div>
+<div class="thread-form-container">
+    <h2 class="form-title">Создание новой темы</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            {{ form.content.label_tag }}
+            {{ form.content }}
+        </div>
+        <button type="submit" class="submit-button">Создать</button>
+    </form>
+</div>
+{% include "footer.html" %}
+
+{% endblock %}

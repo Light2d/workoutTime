@@ -26,12 +26,14 @@ CSRF_TRUSTED_ORIGINS = [
 INSTALLED_APPS = [ 
     "workoutTimeApp",
     'dashboard',
+    'forum',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'social_django',
     'tinymce',
 ]
@@ -67,6 +69,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+                'workoutTimeApp.context_processors.unread_notifications_count',
+
             ],
         },
     },

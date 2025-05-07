@@ -1,0 +1,157 @@
+@charset "UTF-8";
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.thread-container {
+  padding: 2rem;
+}
+@media (max-width: 768px) {
+  .thread-container {
+    padding: 1rem;
+  }
+}
+
+.thread-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.thread-container p {
+  margin-bottom: 1rem;
+  font-size: 16px;
+}
+
+.thread-posts {
+  margin-top: 2rem;
+}
+
+.post-card {
+  background-color: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .post-card {
+    margin-left: 0px !important;
+  }
+}
+
+.post-card p {
+  margin: 1rem 0;
+}
+
+.post-created-at {
+  font-size: 0.875rem;
+  color: #999;
+}
+
+.post-card.reply {
+  margin-left: 20px; /* Отступ для вложенных ответов */
+}
+@media (max-width: 768px) {
+  .post-card.reply {
+    margin-left: 0px !important;
+  }
+}
+
+.reply-link {
+  font-size: 0.875rem;
+  color: #4f46e5;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 10px;
+}
+.reply-link:hover {
+  text-decoration: underline;
+}
+
+.replies {
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+  border-left: 2px solid #4f46e5;
+  padding-left: 1rem;
+}
+
+.reply-card {
+  background-color: #262626;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.reply-meta {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 0.3rem;
+}
+
+.reply-created-at {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 0.25rem;
+}
+
+form.reply-form,
+form {
+  background-color: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+form textarea,
+form input[type=text] {
+  width: 100%;
+  padding: 0.75rem;
+  background: #121212;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  color: #e0e0e0;
+  resize: vertical;
+  font-size: 1rem;
+  height: 100px;
+}
+form textarea:focus,
+form input[type=text]:focus {
+  border-color: #4f46e5;
+  outline: none;
+}
+
+form button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+form button:hover {
+  background-color: #291fd9;
+}
+form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
+}

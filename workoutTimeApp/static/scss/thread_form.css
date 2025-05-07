@@ -1,0 +1,57 @@
+body {
+  background: #121212;
+  color: #e5e5e5;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.thread-form-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #2c2c2c;
+  color: #e5e5e5;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #aaaaaa;
+}
+.form-group input[type=text],
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #121212;
+  border: 1px solid #2c2c2c;
+  color: #e5e5e5;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-button {
+  background-color: #4f46e5;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.submit-button:hover {
+  background-color: #291fd9;
+}

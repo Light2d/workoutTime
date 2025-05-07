@@ -1,0 +1,19 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'scss/thread_detail.css' %}">
+
+<div class="chapter">
+    <div class="chapter__container container">
+        <div class="chapter__logo">
+            <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+        </div>
+        <div class="chapter__title">Форум</div>
+    </div>
+  </div>
+</div>
+
+{% for reply in replies %}
+    <div class="post-reply">
+        <p><strong>{{ reply.author.username }}</strong>: {{ reply.content }}</p>
+    </div>
+{% endfor %}

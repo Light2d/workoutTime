@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event, LastEventImage
+from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event, LastEventImage, Notification
+from forum.models import ForumThread, ForumPost
 from django.utils.html import format_html
 
 
@@ -92,3 +93,42 @@ class EventAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     list_filter = ('event_type',)
     
+@admin.register(Notification)
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = ('recipient', 'message', 'is_read', 'created_at', 'mark_as_read_button')
+    list_filter = ('is_read', 'created_at')
+    search_fields = ('recipient__username', 'message')
+    ordering = ('-created_at',)
+
+    # Добавим кнопку для пометки уведомления как прочитанное
+    def mark_as_read_button(self, obj):
+        if not obj.is_read:
+            return format_html(
+                '<a class="button" href="{}">Отметить как прочитанное</a>',
+                f'/admin/your_app/notification/{obj.pk}/mark_as_read/'
+            )
+        return "Прочитано"
+    mark_as_read_button.short_description = "Статус"
+
+    # Разрешим редактирование только определённых полей
+    readonly_fields = ('recipient', 'message', 'is_read', 'created_at')
+    
+    
+class ForumPostInline(admin.TabularInline):
+    model = ForumPost
+    extra = 1
+    fields = ('author', 'content', 'parent', 'created_at')
+    readonly_fields = ('created_at',)
+    
+@admin.register(ForumThread)
+class ForumThreadAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'created_at')
+    search_fields = ('title', 'author__username')
+    list_filter = ('created_at',)
+    inlines = [ForumPostInline]
+
+@admin.register(ForumPost)
+class ForumPostAdmin(admin.ModelAdmin):
+    list_display = ('author', 'thread', 'parent', 'created_at')
+    search_fields = ('content', 'author__username')
+    list_filter = ('created_at', 'thread')

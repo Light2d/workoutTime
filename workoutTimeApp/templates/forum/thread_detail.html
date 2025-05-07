@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Форум{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'scss/thread_detail.css' %}">
+{% endblock %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="chapter">
+    <div class="profile__intro">
+        <div class="chapter__logo">
+            <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+            <div class="chapter__title">Форум</div>
+        </div>
+    </div>
+</div>
+
+<div class="thread-container">
+    <h2>{{ thread.title }}</h2>
+    <p>{{ thread.content }}</p>
+    <p><strong>Автор:</strong> {{ thread.author.username }}</p>
+    <p><strong>Дата создания:</strong> {{ thread.created_at }}</p>
+
+    <!-- Все корневые посты/ответы -->
+    <div class="thread-posts">
+        {% for post in posts %}
+            {% include "forum/post_card.html" with post=post level=0 %}
+        {% endfor %}
+    </div>
+    
+
+    <!-- Форма для создания нового ответа на пост -->
+    <h3>Добавить новый ответ</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+</div>
+
+<script>
+    // Функция для показа формы ответа
+    function toggleReplyForm(postId) {
+        var form = document.getElementById('reply-form-' + postId);
+        form.style.display = (form.style.display === 'none') ? 'block' : 'none';
+    }
+</script>
+
+
+{% endblock %}

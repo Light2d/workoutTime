@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from .forms import CustomRegistrationForm, CustomAuthenticationForm, ProfileForm
@@ -9,10 +9,13 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 import uuid
 from django.contrib.auth.decorators import login_required
-from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event
+from .models import Notification
+from .models import TeamMember, LastEvent, CustomUser, Article, SportGround, SportGroundImage, Event, Notification
 from django.http import JsonResponse
 from django.utils.timezone import now
 from datetime import timedelta
+from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Регистрация
 def register(request):
@@ -188,7 +191,11 @@ def events(request):
 
 def event_detail(request, event_id):
     event = get_object_or_404(Event, id=event_id)
-    return render(request, 'event_detail.html', {'event': event})
+    participants = Event.participants
+    return render(request, 'event_detail.html', {
+            'event': event,
+            'participants': participants,
+        })
 
 @login_required
 def register_for_event(request, event_id):
@@ -208,3 +215,25 @@ def register_for_event(request, event_id):
         messages.success(request, "Вы успешно зарегистрировались!")
 
     return redirect('event_detail', event_id=event.id)
+
+
+
+@login_required
+def notification_list(request):
+    # Помечаем все уведомления как прочитанные при заходе на страницу
+    unread_notifications = Notification.objects.filter(recipient=request.user, is_read=False)
+    unread_notifications.update(is_read=True)
+
+    # Получаем уведомления для текущего пользователя
+    notifications = Notification.objects.filter(recipient=request.user).order_by('-created_at')
+    
+    return render(request, 'notifications.html', {'notifications': notifications})
+    
+@login_required
+def clear_notifications(request):
+    # Удаляем все прочитанные уведомления для текущего пользователя
+    Notification.objects.filter(recipient=request.user, is_read=True).delete()
+
+    # Перенаправляем обратно на страницу уведомлений
+    return redirect('notifications')
+

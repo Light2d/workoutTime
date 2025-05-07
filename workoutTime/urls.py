@@ -7,5 +7,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('workoutTimeApp.urls')),
-    path('dashboard/', include('dashboard.urls')),  # Новая админка
+    path('dashboard/', include('dashboard.urls')),  
+    path('forum/', include('forum.urls', namespace='forum')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

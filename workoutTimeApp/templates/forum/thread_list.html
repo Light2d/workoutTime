@@ -1,0 +1,36 @@
+{# forum/templates/forum/thread_list.html #}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Темы форума{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'scss/thread_list.css' %}">
+{% endblock %}
+{% block content %}
+
+{% include "header.html" %}
+
+<div class="chapter">
+    <div class="chapter__container container">
+        <div class="chapter__logo">
+            <img src="{% static 'imgs/intro/textLogo.png' %}" alt="">
+        </div>
+        <div class="chapter__title">Форум</div>
+    </div>
+  </div>
+</div>
+
+<div class="forum-container">
+    <h2 class="forum-title">Все обсуждения</h2>
+    <a href="{% url 'forum:thread_create' %}" class="forum-button">Задать свой вопрос</a>
+
+    {% for thread in threads %}
+        <div class="forum-card">
+            <a href="{% url 'forum:thread_detail' thread.pk %}" class="forum-thread-title">{{ thread.title }}</a>
+            <p class="forum-meta">Автор: {{ thread.author.username }} • {{ thread.created_at|date:"d.m.Y H:i" }}</p>
+        </div>
+    {% empty %}
+        <p class="forum-empty">Обсуждений пока нет.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

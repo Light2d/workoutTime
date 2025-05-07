@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Уведомления{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'scss/notifications.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'header.html' %}
+
+<div class="notifications-container">
+    <h2>🔔 Уведомления</h2>
+
+    {% if notifications %}
+        <ul class="notification-list">
+            {% for notification in notifications %}
+                <li class="notification-item {% if not notification.is_read %}unread{% endif %}">
+                    <div class="notification-message">{{ notification.message }}</div>
+                    <div class="notification-date">{{ notification.created_at|date:"d.m.Y H:i" }}</div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <form method="post" action="{% url 'clear_notifications' %}">
+            {% csrf_token %}
+            <button type="submit" class="clear-notifications-btn">Очистить уведомления</button>
+        </form>
+
+    {% else %}
+        <p class="no-notifications">У вас пока нет уведомлений.</p>
+    {% endif %}
+</div>
+{% endblock %}

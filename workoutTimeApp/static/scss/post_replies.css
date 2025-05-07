@@ -1,0 +1,13 @@
+.post-reply {
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid #4f46e5;
+  color: #cccccc;
+}
+.post-reply p {
+  margin: 0.3rem 0;
+}
+.post-reply strong {
+  color: #ffffff;
+}

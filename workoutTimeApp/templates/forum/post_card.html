@@ -1,0 +1,33 @@
+<div class="post-card {% if post.is_reply %}reply{% endif %}" style="margin-left: {{ level|add:20 }}px;">
+    <p>
+        <strong>{{ post.author.username }}</strong>
+        {% if post.parent %}
+            ответил <strong>{{ post.parent.author.username }}</strong>
+        {% endif %}
+        :
+    </p>
+
+    <p>{{ post.content }}</p>
+    <p class="post-created-at">{{ post.created_at }}</p>
+
+    <!-- Кнопка для ответа -->
+    <a href="#" class="reply-link" onclick="toggleReplyForm({{ post.id }}); return false;">Ответить</a>
+
+    <!-- Форма ответа -->
+    <div id="reply-form-{{ post.id }}" class="reply-form" style="display:none;">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-field">
+                <label for="id_content_{{ post.id }}">Ответ:</label>
+                <textarea name="content" id="id_content_{{ post.id }}" class="form-control"></textarea>
+                <input type="hidden" name="parent" value="{{ post.id }}">
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+
+    <!-- Рекурсивно выводим ответы -->
+    {% for reply in post.replies.all %}
+        {% include "forum/post_card.html" with post=reply level=level|add:20 %}
+    {% endfor %}
+</div>
