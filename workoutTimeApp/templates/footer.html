@@ -8,14 +8,14 @@
                     <div class="footer__list">
                         <div class="footer__link">Информация</div>
                         <div class="footer__link"><a href="{% url 'index' %}">Главная</a></div>
-                        <div class="footer__link"><a href="#">Команда</a></div>
+                        <div class="footer__link"><a href="{% url 'sportgrounds' %}">Площадки</a></div>
                         <div class="footer__link"><a href="{% url 'events' %}">Мероприятия</a></div>
-                        <div class="footer__link"><a href="#">Тренировки</a></div>
+                        <div class="footer__link"><a href="{% url 'forum:thread_list' %}">Форум</a></div>
                     </div>
                     <div class="footer__list">
                         <div class="footer__link">Социальные сети</div>
                         <div class="footer__icons">
-                            <a href="https://vk.com/kurskworkout" target="_blank" class="footer__link"><img src="{% static 'imgs/footer/vk.svg' %}" alt="VK"></a>
+                            <a href="https://vk.com/workouttime46" target="_blank" class="footer__link"><img src="{% static 'imgs/footer/vk.svg' %}" alt="VK"></a>
                             <a href="https://t.me/workouttimekursk" target="_blank" class="footer__link"><img src="{% static 'imgs/footer/tg.svg' %}" alt="Telegram"></a>
                             <a href="https://www.youtube.com/@zanzzik1703" target="_blank" class="footer__link"><img src="{% static 'imgs/footer/yt.svg' %}" alt="YouTube"></a>
                         </div>

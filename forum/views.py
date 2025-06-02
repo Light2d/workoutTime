@@ -42,7 +42,7 @@ class ForumThreadDetailView(LoginRequiredMixin, DetailView):
         if 'parent' in request.POST:
             parent_post = get_object_or_404(ForumPost, id=request.POST['parent'])
 
-            # Ограничение вложенности до 3 уровней
+            # Ограничение вложенности до 3 уровней (реализовано как до 2)
             if self.get_post_depth(parent_post) >= 1:
                 parent_post = parent_post.parent
 
@@ -54,14 +54,25 @@ class ForumThreadDetailView(LoginRequiredMixin, DetailView):
                 post.parent = parent_post
             post.save()
 
-            # Создание уведомления
-            if parent_post and parent_post.author != request.user:
-                Notification.objects.create(
-                    recipient=parent_post.author,
-                    message=f"{request.user.username} ответил(а) на ваш пост в теме «{self.object.title}»."
-                )
+            # Уведомление автору, на чей пост ответили
+            if post.parent:
+                recipient = post.parent.author
+                if recipient != request.user:
+                    Notification.objects.create(
+                        recipient=recipient,
+                        message=f"{request.user.username} ответил(а) на ваш пост в теме «{self.object.title}».",
+                    )
+            else:
+                # Ответ на сам вопрос (корневой пост), уведомляем его автора
+                root_post = self.object.posts.filter(parent=None).first()
+                if root_post and root_post.author != request.user:
+                    Notification.objects.create(
+                        recipient=root_post.author,
+                        message=f"{request.user.username} ответил(а) на ваш вопрос в теме «{self.object.title}».",
+                    )
 
         return redirect('forum:thread_detail', pk=self.object.pk)
+
 
 
 class ForumThreadCreateView(LoginRequiredMixin, CreateView):
