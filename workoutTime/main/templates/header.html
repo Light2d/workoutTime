@@ -1,0 +1,28 @@
+  {% load static %}
+  
+
+    <header class="header">
+        <div class="header__items">
+            <div class="header__logo">
+                <img  src="{% static '/main/images/' %}{{ logo|default:'logo_black.png' }}" alt="">
+            </div>
+
+            <button class="burger" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header__links">
+                <a href="#" class="header__link header__link--active">Главная</a>
+                <a href="#" class="header__link">Федерация</a>
+                <a href="#" class="header__link">Новости</a>
+                <a href="#" class="header__link">Команда</a>
+                <a href="#" class="header__link">Мероприятия</a>
+                <a href="#" class="header__link">Тренировки</a>
+            </div>
+
+        </div>
+    </header>
+    <div class="menu-overlay"></div>
+  

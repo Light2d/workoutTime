@@ -1,0 +1,283 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="hero federation-hero">
+    {% include "header.html" with logo="logo_black.png" %}
+    <div class="intro federation-intro">
+        <div class="intro__container container federation-intro__container">
+            <div class="intro__suptitle federation-intro__suptitle">
+                WORKOUT TIME & ФЕДЕРАЦИЯ ВОЗДУШНО-СИЛОВОЙ АТЛЕТИКИ
+            </div>
+            <div class="intro__title federation-intro__title">
+                Федерация <br /><span class="red-color">воздушно-силовой<br />
+                    атлетики</span>
+                Курской области
+            </div>
+            <div class="intro__description federation-intro__description">
+                Воздушно-силовая атлетика прошла большой путь: от дворовых турников,
+                уличных площадок и культуры свободного движения — до официального вида
+                спорта в России.
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="about about--federation">
+    <div class="about__container container">
+
+        <div class="about__content">
+            <div class="about__intro">
+                <div class="about__suptitle">
+                    <span>О федерации</span>
+                </div>
+
+                <h2 class="about__title">
+                    РЕГИОНАЛЬНОЕ <span class="red-color">ОТДЕЛЕНИЕ<br> ФВСА</span> КУРСКОЙ ОБЛАСТИ
+                </h2>
+
+                <p class="about__description">
+                    Региональная общественная организация “Федерация воздушно-силовой атлетики Курской области
+                    объединяет спортсменов, тренеров и энтузиастов воркаут и паркура”
+                </p>
+
+                <a href="#" class="about__button btn btn-blue">
+                    Подробнее о федерации
+                </a>
+            </div>
+
+            <div class="about__features">
+
+                <article class="about__feature">
+                    <div class="about__feature-icon">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <rect x="5" y="6" width="22" height="21" rx="2" stroke="currentColor" stroke-width="2" />
+                            <path d="M9 4V9M23 4V9M5 12H27" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <path d="M10 17H12M15 17H17M20 17H22M10 22H12M15 22H17" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <h3 class="about__feature-title">
+                        Официальные<br>
+                        мероприятия
+                    </h3>
+
+                    <p class="about__feature-description">
+                        Проводим первенства,
+                        чемпионаты, кубки и
+                        фестивали регионального
+                        уровня
+                    </p>
+                </article>
+
+                <article class="about__feature">
+                    <div class="about__feature-icon">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <path d="M7 11V21M11 8V24M21 8V24M25 11V21" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                            <path d="M11 16H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                            <path d="M4 13V19M28 13V19" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <h3 class="about__feature-title">
+                        Подготовка<br>
+                        спортсменов
+                    </h3>
+
+                    <p class="about__feature-description">
+                        Проводим первенства,
+                        чемпионаты, кубки и
+                        фестивали регионального
+                        уровня
+                    </p>
+                </article>
+
+                <article class="about__feature">
+                    <div class="about__feature-icon">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="10" r="4" stroke="currentColor" stroke-width="2" />
+                            <circle cx="8" cy="13" r="3" stroke="currentColor" stroke-width="2" />
+                            <circle cx="24" cy="13" r="3" stroke="currentColor" stroke-width="2" />
+                            <path d="M8 25C8.5 20.5 11.5 18 16 18C20.5 18 23.5 20.5 24 25" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" />
+                            <path d="M3 23C3.5 20.5 5 19 8 19M29 23C28.5 20.5 27 19 24 19" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+
+                    <h3 class="about__feature-title">
+                        Сообщество<br>
+                        и развитие
+                    </h3>
+
+                    <p class="about__feature-description">
+                        Проводим первенства,
+                        чемпионаты, кубки и
+                        фестивали регионального
+                        уровня
+                    </p>
+                </article>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="container">
+    <div class="banner-min banner-fvsa">
+        <div class="banner-min__content">
+            <div class="banner-min__title">
+                ВСТУПАЙ В ГРУППУ <br> ФВСА ВКОНТАКТЕ
+            </div>
+            <div class="banner-min__description">
+                Тренируйся, развивайся и участвуй в мероприятиях вместе с нами
+            </div>
+            <a href="#" class="btn btn-white">СТАТЬ УЧАСТНИКОМ</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="disciplines" data-visible="3">
+    <div class="disciplines__container container">
+
+        <div class="disciplines__header">
+            <h2 class="disciplines__title">
+                <span>ДИСЦИПЛИНЫ</span>
+            </h2>
+
+            <p class="disciplines__description">
+                Наша команда - объединение профессионалов<br>
+                которые живут спортом и помогают другим становиться лучше
+            </p>
+        </div>
+        <div class="disciplines__items-wrapper">
+            <div class="disciplines__items">
+
+                <article class="disciplines__item">
+                    <img src="{% static 'main/images/index/new.jpg' %}" alt="Воркаут фристайл - соло"
+                        class="disciplines__item-img">
+
+                    <div class="disciplines__item-content">
+                        <h3 class="disciplines__item-title">
+                            ВОРКАУТ ФРИСТАЙЛ - СОЛО
+                        </h3>
+
+                        <p class="disciplines__item-description">
+                            Индивидуальное выступление: спортсмен выполняет
+                            программу из сложно-технических элементов на комплексе
+                            спортивных снарядов за установленное время. Ключевой
+                            акцент — сложность, качество исполнения, контроль тела
+                            и связки элементов.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="disciplines__item">
+                    <img src="{% static 'main/images/index/new.jpg' %}" alt="Воркаут фристайл - пара"
+                        class="disciplines__item-img">
+
+                    <div class="disciplines__item-content">
+                        <h3 class="disciplines__item-title">
+                            ВОРКАУТ ФРИСТАЙЛ - ПАРА
+                        </h3>
+
+                        <p class="disciplines__item-description">
+                            Парное построение выполняет программу с синхронными,
+                            поочерёдными и совместными исполнениями элементов.
+                            Ключевой акцент — командная работа, синхронность,
+                            поддержка, баланс и взаимодействие.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="disciplines__item">
+                    <img src="{% static 'main/images/index/new.jpg' %}" alt="Воркаут фристайл - пара смешанная"
+                        class="disciplines__item-img">
+
+                    <div class="disciplines__item-content">
+                        <h3 class="disciplines__item-title">
+                            ВОРКАУТ ФРИСТАЙЛ - ПАРА СМЕШАННАЯ
+                        </h3>
+
+                        <p class="disciplines__item-description">
+                            Индивидуальное выступление: спортсмен выполняет
+                            программу из сложно-технических элементов на комплексе
+                            спортивных снарядов. Ключевой акцент — сложность,
+                            качество исполнения, контроль тела и связки элементов.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="disciplines__item">
+                    <img src="{% static 'main/images/index/new.jpg' %}" alt="Воркаут фристайл - пара смешанная"
+                        class="disciplines__item-img">
+
+                    <div class="disciplines__item-content">
+                        <h3 class="disciplines__item-title">
+                            ВОРКАУТ ФРИСТАЙЛ - ПАРА СМЕШАННАЯ
+                        </h3>
+
+                        <p class="disciplines__item-description">
+                            Индивидуальное выступление: спортсмен выполняет
+                            программу из сложно-технических элементов на комплексе
+                            спортивных снарядов. Ключевой акцент — сложность,
+                            качество исполнения, контроль тела и связки элементов.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="disciplines__item ">
+                    <img src="{% static 'main/images/index/new.jpg' %}" alt="Воркаут фристайл - пара смешанная"
+                        class="disciplines__item-img">
+
+                    <div class="disciplines__item-content">
+                        <h3 class="disciplines__item-title">
+                            ВОРКАУТ ФРИСТАЙЛ - ПАРА СМЕШАННАЯ
+                        </h3>
+
+                        <p class="disciplines__item-description">
+                            Индивидуальное выступление: спортсмен выполняет
+                            программу из сложно-технических элементов на комплексе
+                            спортивных снарядов. Ключевой акцент — сложность,
+                            качество исполнения, контроль тела и связки элементов.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="disciplines__item">
+                    <img src="{% static 'main/images/index/new.jpg' %}" alt="Воркаут фристайл - пара смешанная"
+                        class="disciplines__item-img">
+
+                    <div class="disciplines__item-content">
+                        <h3 class="disciplines__item-title">
+                            ВОРКАУТ ФРИСТАЙЛ - ПАРА СМЕШАННАЯ
+                        </h3>
+
+                        <p class="disciplines__item-description">
+                            Индивидуальное выступление: спортсмен выполняет
+                            программу из сложно-технических элементов на комплексе
+                            спортивных снарядов. Ключевой акцент — сложность,
+                            качество исполнения, контроль тела и связки элементов.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="disciplines__button">
+            <button class="btn btn-blue disciplines__toggle">
+                ВСЕ ДИСЦИПЛИНЫ
+            </button>
+        </div>
+
+    </div>
+</section>
+
+
+{% include "footer.html" %} {% endblock content %}

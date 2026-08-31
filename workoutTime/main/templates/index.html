@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+  
+    <div class="hero">
+        {% include "header.html" with logo="logo.png" %}
+          <div class="intro ">
+            <div class="intro__container container">
+                <div class="intro__suptitle">WORKOUT TIME & ФЕДЕРАЦИЯ ВОЗДУШНО-СИЛОВОЙ АТЛЕТИКИ</div>
+                <div class="intro__title">
+                    РАЗВИВАЕМ <br>ВОРКАУТ В РЕГИОНЕ
+                </div>
+                <div class="intro__description">
+                    Сообщество единомышленников, официальные соревнования <br>и развитие воздушно-силовой атлетики
+                </div>
+                <div class="intro__btns">
+                    <a href="#" class="btn btn-ts">О нас</a>
+                    <a href="#" class="btn btn-ts">Мероприятия</a>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+
+
+    <div class="directions">
+        <div class="directions__container container">
+            <div class="directions__item direction">
+                <div class="direction__img">
+                    <img src="{% static '/main/images/index/clock.png' %}" alt="">
+                </div>
+                <div class="direction__info">
+                    <div class="direction__suptitle">
+                        Сообщество и движение
+                    </div>
+                    <div class="direction__title">
+                        Workout Time
+                    </div>
+                    <div class="direction__description">
+                        Тренировки, мастер-классы, развитие воркаут культуры
+                    </div>
+                    <ul class="direction__list">
+                        <li>Тренировки и сборы</li>
+                        <li>Мероприятия и фестивали</li>
+                        <li>Команды и ателты</li>
+                        <li>Полезный контент</li>
+                    </ul>
+                    <div class="direction__btn">
+                        <a href="#" class="btn btn-white ">
+                            Перейти в раздел
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="directions__item direction">
+                <div class="direction__img">
+                    <img src="{% static '/main/images/index/fvsa.png' %}" alt="">
+                </div>
+                <div class="direction__info">
+                    <div class="direction__suptitle">
+                        ОФИЦИАЛЬНЫЙ СПОРТ
+                    </div>
+                    <div class="direction__title">
+                        РЕГИОНАЛЬНОЕ ОТДЕЛЕНИЕ ФВСА
+                    </div>
+                    <div class="direction__description">
+                        Официальные соревнования, нормативы, разряды
+                    </div>
+                    <ul class="direction__list">
+                        <li>Официальные соревнования</li>
+                        <li>Разряды и нормативы</li>
+                        <li>Судьи и тренеры</li>
+                    </ul>
+                    <div class="direction__btn">
+                        <a href="#" class="btn btn-black">
+                            Перейти в раздел
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-events container">
+        <div class="news">
+            <div class="news__head block__head">
+                <div class="news__head--name block__head--name">Ноовсти</div>
+                <a href="#" class="news__head--all block__head--all">Все новости</a>
+            </div>
+            <div class="news__items">
+                <a href="#" class="news__item">
+                    <div class="news__img">
+                        <img src="{% static '/main/images/index/new.jpg' %}" alt="">
+                    </div>
+                    <div class="news__content">
+                        <div class="news__date">9 августа</div>
+                        <div class="news__title">
+                            Кубок Курской области по воздушно-силовой атлетике
+                        </div>
+                        <div class="news__description">
+                            Состоялся ежегодный чемпионат региона. Смотрим результаты и лучшие моменты
+                        </div>
+                        <button class="news__btn">Читать подробнее</button>
+                    </div>
+                </a>
+                <a href="#" class="news__item">
+                    <div class="news__img">
+                        <img src="{% static '/main/images/index/new.jpg' %}" alt="">
+                    </div>
+                    <div class="news__content">
+                        <div class="news__date">9 августа</div>
+                        <div class="news__title">
+                            Кубок Курской области по воздушно-силовой атлетике
+                        </div>
+                        <div class="news__description">
+                            Состоялся ежегодный чемпионат региона. Смотрим результаты и лучшие моменты
+                        </div>
+                        <button class="news__btn">Читать подробнее</button>
+                    </div>
+                </a>
+                <a href="#" class="news__item">
+                    <div class="news__img">
+                        <img src="{% static '/main/images/index/new.jpg' %}" alt="">
+                    </div>
+                    <div class="news__content">
+                        <div class="news__date">9 августа</div>
+                        <div class="news__title">
+                            Кубок Курской области по воздушно-силовой атлетике
+                        </div>
+                        <div class="news__description">
+                            Состоялся ежегодный чемпионат региона. Смотрим результаты и лучшие моменты
+                        </div>
+                        <button class="news__btn">Читать подробнее</button>
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+        <div class="events">
+            <div class="events__head block__head">
+                <div class="events__head--name block__head--name">Мероприятия</div>
+                <a href="#" class="events__head--all block__head--all">Все мероприятия</a>
+            </div>
+            <div class="events__items">
+
+                <a href="#" class="events__item">
+                    <div class="events__img">
+                        <img src="{% static '/main/images/index/new.jpg' %}" alt="">
+                    </div>
+                    <div class="events__content">
+                        <div class="events__title">Кубок Курской области по воздушно-силовой атлетике</div>
+                        <div class="events__date">9 августа</div>
+                        <div class="events__location">Курск, парк Боева дача</div>
+                    </div>
+                    <div class="events__btn">
+                        <button class="btn btn-blue-tr ">Подробнее</button>
+                    </div>
+                </a>
+                <a href="#" class="events__item">
+                    <div class="events__img">
+                        <img src="{% static '/main/images/index/new.jpg' %}" alt="">
+                    </div>
+                    <div class="events__content">
+                        <div class="events__title">Кубок Курской области по воздушно-силовой атлетике</div>
+                        <div class="events__date">9 августа</div>
+                        <div class="events__location">Курск, парк Боева дача</div>
+                    </div>
+                    <div class="events__btn">
+                        <button class="btn btn-blue-tr ">Подробнее</button>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section-train container">
+        <div class="banner-min banner-train">
+            <div class="banner-min__content">
+                <div class="banner-min__title">
+                    Хочешь тренироваться с нами?
+                </div>
+                <div class="banner-min__description">
+                    Переходи в чат и узнавай о тренировкахсамым первым
+                </div>
+                <a href="#" class="btn btn-white">Подробнее</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="about about--workout">
+        <div class="about__container container">
+
+            <div class="about__content">
+                <div class="about__intro">
+                    <div class="about__suptitle">
+                        <span>О воркауте</span>
+                    </div>
+
+                    <h2 class="about__title">
+                        Что такое воркаут?
+                    </h2>
+
+                    <p class="about__description">
+                        Воркаут — силовая уличная культура и спортивная дисциплина
+                        воздушно-силовой атлетики, работа с собственным весом на
+                        турниках, брусьях и перекладинах, которые, тело, силовые,
+                        динамические и сложно-технические элементы. Развивается
+                        одновременно как массовое движение и официальный спорт —
+                        дисциплина «воркаут фристайл».
+                    </p>
+
+                    <a href="#" class="about__button btn btn-white">
+                        Подробнее о федерации
+                    </a>
+                </div>
+
+                <div class="about__features">
+
+                    <article class="about__feature">
+                        <div class="about__feature-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <rect x="5" y="6" width="22" height="21" rx="2" stroke="currentColor"
+                                    stroke-width="2" />
+                                <path d="M9 4V9M23 4V9M5 12H27" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <path d="M10 17H12M15 17H17M20 17H22M10 22H12M15 22H17" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+
+                        <h3 class="about__feature-title">
+                            Официальные<br>
+                            мероприятия
+                        </h3>
+
+                        <p class="about__feature-description">
+                            Проводим первенства,
+                            чемпионаты, кубки и
+                            фестивали регионального
+                            уровня
+                        </p>
+                    </article>
+
+                    <article class="about__feature">
+                        <div class="about__feature-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <path d="M7 11V21M11 8V24M21 8V24M25 11V21" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                                <path d="M11 16H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+                                <path d="M4 13V19M28 13V19" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+
+                        <h3 class="about__feature-title">
+                            Подготовка<br>
+                            спортсменов
+                        </h3>
+
+                        <p class="about__feature-description">
+                            Проводим первенства,
+                            чемпионаты, кубки и
+                            фестивали регионального
+                            уровня
+                        </p>
+                    </article>
+
+                    <article class="about__feature">
+                        <div class="about__feature-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="10" r="4" stroke="currentColor" stroke-width="2" />
+                                <circle cx="8" cy="13" r="3" stroke="currentColor" stroke-width="2" />
+                                <circle cx="24" cy="13" r="3" stroke="currentColor" stroke-width="2" />
+                                <path d="M8 25C8.5 20.5 11.5 18 16 18C20.5 18 23.5 20.5 24 25" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                                <path d="M3 23C3.5 20.5 5 19 8 19M29 23C28.5 20.5 27 19 24 19" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+
+                        <h3 class="about__feature-title">
+                            Сообщество<br>
+                            и развитие
+                        </h3>
+
+                        <p class="about__feature-description">
+                            Проводим первенства,
+                            чемпионаты, кубки и
+                            фестивали регионального
+                            уровня
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="gallery">
+        <div class="gallery__container container">
+            <div class="gallery__head block__head">
+                <div class="gallery__head--name block__head--name">Галерея</div>
+                <a href="#" class="gallery__head--all block__head--all">Смотреть все фото</a>
+            </div>
+            <div class="gallery__images">
+                <img src="{% static '/main/images/index/new.jpg' %}" class="gallery__image">
+                <img src="{% static '/main/images/index/new.jpg' %}" class="gallery__image">
+                <img src="{% static '/main/images/index/new.jpg' %}" class="gallery__image">
+                <img src="{% static '/main/images/index/new.jpg' %}" class="gallery__image">
+            </div>
+
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+{% endblock content %}
+

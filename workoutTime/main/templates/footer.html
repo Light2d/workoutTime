@@ -1,0 +1,67 @@
+   {% load static %}
+   
+ <footer class="footer">
+        <div class="footer__container container">
+
+            <div class="footer__content">
+
+                <div class="footer__column footer__column--info">
+                    <h3 class="footer__title">
+                        Информация
+                    </h3>
+
+                    <nav class="footer__nav">
+                        <a href="#" class="footer__link">Главная</a>
+                        <a href="#" class="footer__link">Команда</a>
+                        <a href="#" class="footer__link">Мероприятия</a>
+                        <a href="#" class="footer__link">Тренировки</a>
+                    </nav>
+                </div>
+
+
+                <div class="footer__column footer__column--social">
+                    <h3 class="footer__title">
+                        Социальные сети
+                    </h3>
+
+                    <div class="footer__socials">
+
+                        <a href="#" class="footer__social" aria-label="ВКонтакте">
+                            <img src="{% static '/main/images/icons/vk.svg' %}" alt="">
+                        </a>
+
+                        <a href="#" class="footer__social" aria-label="Telegram">
+                            <img src="{% static '/main/images/icons/telegram.svg' %}" alt="">
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <div class="footer__column footer__column--contacts">
+                    <h3 class="footer__title">
+                        Связь с нами
+                    </h3>
+
+                    <div class="footer__email">
+                        <span class="footer__email-label">
+                            E-mail:
+                        </span>
+
+                        <a href="mailto:workouttime@gmail.com" class="footer__email-link">
+                            workouttime@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="footer__logo">
+                    <img src="{% static '/main/images/logo2.png' %}" alt="Workout Time">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer__city"></div>
+    </footer>
